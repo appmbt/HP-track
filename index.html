@@ -15,7 +15,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden; /* Evitar scroll innecesario */
-            background-color: #05B8FF; /* Color de fondo fijo */
+            background-color: rgba(5, 184, 255, 0.75); /* Color de fondo fijo */
         }
         .container {
             background-color: rgba(255, 255, 255, 0.9);
@@ -70,8 +70,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             z-index: -1;
             pointer-events: none;
         }
@@ -111,10 +111,13 @@
         // Animación de fondo Lottie
         const backgroundAnimation = lottie.loadAnimation({
             container: document.getElementById('background-lottie'),
-            path: './background2.json', // Cambiar la ruta según la ubicación del archivo
-            renderer: 'svg',
+            path: './background2.json', // Ruta del archivo JSON
+            renderer: 'canvas', // Cambiar a canvas para mayor compatibilidad
             loop: true,
             autoplay: true,
+            rendererSettings: {
+                preserveAspectRatio: 'xMidYMid slice' // Mantener proporciones
+            }
         });
 
         backgroundAnimation.addEventListener('data_ready', function() {
