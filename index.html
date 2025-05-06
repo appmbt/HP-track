@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitud de Avance - Garantias HP</title>
+    <title>Solicitud de Avance - Garantías HP</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f0f0f0;
             color: #333;
-            padding: 0;  /* Quitar el padding */
-            margin: 0;   /* Quitar el margin */
-            min-height: 100%; /* Usar toda la altura de la ventana */
+            padding: 0;
+            margin: 0;
+            min-height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .container {
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 25px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             max-width: 600px;
-            width: 100%; /* Añadir ancho relativo */
+            width: 100%;
             margin: 5%;
-            min-height: 600px; /* Aumenta la altura mínima del contenedor */
-            position: relative; /* Para mantener el z-index correcto con el fondo */
+            min-height: 600px;
+            position: relative;
         }
         .banner {
             margin-top: 20px;
@@ -43,7 +43,7 @@
             margin-bottom: 20px;
         }
         .highlight {
-            color: #0078D4; /* HP blue color */
+            color: #0078D4;
             font-weight: bold;
         }
         .footer {
@@ -59,16 +59,11 @@
             width: 200px;
             margin-top: 15px;
         }
-        .loop {
-            width: 60%;
-            margin-top: 20px;
-        }
         #lottie-container {
             width: 60%;
-            height: 300px; /* Ajusta según necesites */
+            height: 300px;
             margin: 20px auto;
         }
-        /* Agregar estilos para el fondo Lottie */
         #background-lottie {
             position: fixed;
             top: 0;
@@ -77,66 +72,69 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.3; /* Ajusta la transparencia */
+            opacity: 0.3;
         }
     </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
-    <!-- Agregar el contenedor para el fondo Lottie antes del contenedor principal -->
-    <div id="background-lottie" style="background-color: rgba(5, 184, 255, 0.75); width: 100%; height: 100%;"></div>    
+    <!-- Contenedor para el fondo Lottie -->
+    <div id="background-lottie"></div>    
     <div class="container">
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczMVRpmdkgwC6DOhgywcUm7MYqLHXp6O0QT-8r0w4tGV1pcvUQ747Y3v0mjLPar44dFbZe8tsGXDhgLVCEOO93Dg628pl6yShP1DmJFjUvN8pytBJmVvNz0FFV8GYQxmq2jV0HmmiVtY9ojZCM2ALHrB=w920-h920-s-no?authuser=0" alt="HP Logo" class="hp-logo">
-        <p class="message"> </p>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczMVRpmdkgwC6DOhgywcUm7MYqLHXp6O0QT-8r0w4tGV1pcvUQ747Y3v0mjLPar44dFbZe8tsGXDhgLVCEOO93Dg628pl6yShP1DmJFjUvN8pytBJmVvNz0FFV8GYQxmq2jV0HmmiVtY9ojZCM2ALHrB=w920-h920-s-no?authuser=0" 
+            alt="Logotipo de HP" class="hp-logo">
+        <p class="message">Bienvenido al portal de seguimiento.</p>
         <p class="banner highlight"><b>Seguimiento - Garantías HP</b></p>
-        <!-- Reemplazar la imagen del loop por el contenedor Lottie -->
+        <!-- Contenedor de animación Lottie -->
         <div id="lottie-container"></div>
-        <p class="message"> </p>
         <p class="mass"><b>¿Tienes dudas?</b></p>
-        <p class="message">Contáctanos: <a href="mailto:servicios_garantías@mainbit.com.mx" class="highlight">servicios_garantías@mainbit.com.mx</a></p>
-        <br/>
+        <p class="message">
+            Contáctanos: 
+            <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">
+                servicios_garantias@mainbit.com.mx
+            </a>
+        </p>
         <p class="footer">Consulta de Avance</p>
         <p class="footer1"><i>Garantías 2025</i></p>
     </div>
-<script>
-    // Agregar la animación de fondo
-    const backgroundAnimation = lottie.loadAnimation({
-        container: document.getElementById('background-lottie'),
-        path: './background2.json', // Tu archivo JSON de fondo
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-    });
-    // Agregar manejo de errores
-    animation.addEventListener('error', function(error) {
-        console.error('Error loading animation:', error);
-    });
+    <script>
+        // Animación de fondo Lottie
+        const backgroundAnimation = lottie.loadAnimation({
+            container: document.getElementById('background-lottie'),
+            path: './background2.json', // Cambiar la ruta según la ubicación del archivo
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+        });
 
-    animation.addEventListener('data_ready', function() {
-        console.log('Animation data loaded successfully');
-    });
+        backgroundAnimation.addEventListener('DOMLoaded', function() {
+            console.log('Fondo Lottie cargado correctamente.');
+        });
 
-    // Función para obtener parámetros de la URL
-    function obtenerParametro(nombre) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(nombre);
-    }
+        backgroundAnimation.addEventListener('error', function(error) {
+            console.error('Error al cargar el fondo Lottie:', error);
+        });
 
-    // Obtiene el parámetro 'sch'
-    const sch = obtenerParametro("sch");
+        // Función para obtener parámetros de la URL
+        function obtenerParametro(nombre) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nombre);
+        }
 
-    if (sch) {
-        // Construye la URL del flujo
-        const urlFlujo = "https://prod-134.westus.logic.azure.com:443/workflows/839c23fec10a480887c67cd6f2579300/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cbzmIbKKDXFs-iSf4fbzP7mDhPC7Sg-cjpCXWdu0-4Q" +
-            "&sch=" + encodeURIComponent(sch);
+        // Parámetro `sch` de la URL
+        const sch = obtenerParametro("sch");
 
-        // Redirige después de 1 segundo
-        setTimeout(() => {
-            window.location.href = urlFlujo;
-        }, 1000);
-    } else {
-        console.error("No se encontró el parámetro base64 en la URL");
-    }
-</script>
+        if (sch) {
+            // Construye la URL del flujo
+            const urlFlujo = `https://prod-134.westus.logic.azure.com:443/workflows/839c23fec10a480887c67cd6f2579300/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=cbzmIbKKDXFs-iSf4fbzP7mDhPC7Sg-cjpCXWdu0-4Q&sch=${encodeURIComponent(sch)}`;
+
+            // Redirige después de 1 segundo
+            setTimeout(() => {
+                window.location.href = urlFlujo;
+            }, 1000);
+        } else {
+            console.warn("El parámetro 'sch' no se encontró en la URL.");
+        }
+    </script>
 </body>
 </html>
