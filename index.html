@@ -10,7 +10,12 @@
             text-align: center;
             background-color: #f0f0f0;
             color: #333;
-            padding: 18px;
+            padding: 0;  /* Quitar el padding */
+            margin: 0;   /* Quitar el margin */
+            min-height: 100vh; /* Usar toda la altura de la ventana */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .container {
             background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
@@ -18,8 +23,10 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             max-width: 600px;
+            width: 90%; /* Añadir ancho relativo */
             margin: 0 auto;
             min-height: 600px; /* Aumenta la altura mínima del contenedor */
+            position: relative; /* Para mantener el z-index correcto con el fondo */
         }
         .banner {
             margin-top: 20px;
@@ -96,7 +103,7 @@
     // Agregar la animación de fondo
     const backgroundAnimation = lottie.loadAnimation({
         container: document.getElementById('background-lottie'),
-        path: './background1.json', // Tu archivo JSON de fondo
+        path: './background2.json', // Tu archivo JSON de fondo
         renderer: 'svg',
         loop: true,
         autoplay: true,
@@ -105,7 +112,7 @@
     // Mantener la animación original
     const animation = lottie.loadAnimation({
         container: document.getElementById('lottie-container'),
-        path: './ai-service.json', // Asegúrate que el archivo esté en la misma carpeta
+        path: './astro.json', // Asegúrate que el archivo esté en la misma carpeta
         renderer: 'svg',
         loop: true,
         autoplay: true,
