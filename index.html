@@ -13,7 +13,7 @@
             padding: 18px;
         }
         .container {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente */
             border-radius: 25px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -61,10 +61,24 @@
             height: 300px; /* Ajusta según necesites */
             margin: 20px auto;
         }
+        /* Agregar estilos para el fondo Lottie */
+        #background-lottie {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.3; /* Ajusta la transparencia */
+        }
     </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
+    <!-- Agregar el contenedor para el fondo Lottie antes del contenedor principal -->
+    <div id="background-lottie"></div>
+    
     <div class="container">
         <img src="https://lh3.googleusercontent.com/pw/AP1GczMVRpmdkgwC6DOhgywcUm7MYqLHXp6O0QT-8r0w4tGV1pcvUQ747Y3v0mjLPar44dFbZe8tsGXDhgLVCEOO93Dg628pl6yShP1DmJFjUvN8pytBJmVvNz0FFV8GYQxmq2jV0HmmiVtY9ojZCM2ALHrB=w920-h920-s-no?authuser=0" alt="HP Logo" class="hp-logo">
         <p class="message"> </p>
@@ -79,6 +93,16 @@
         <p class="footer1"><i>Garantías 2025</i></p>
     </div>
 <script>
+    // Agregar la animación de fondo
+    const backgroundAnimation = lottie.loadAnimation({
+        container: document.getElementById('background-lottie'),
+        path: './background1.json', // Tu archivo JSON de fondo
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+    });
+
+    // Mantener la animación original
     const animation = lottie.loadAnimation({
         container: document.getElementById('lottie-container'),
         path: './ai-service.json', // Asegúrate que el archivo esté en la misma carpeta
