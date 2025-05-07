@@ -42,7 +42,7 @@
       box-sizing: border-box;
       }
       #hp-logo-lottie {
-      width: 35%; /* Proporciones similares al logo actual */
+      width: 25%; /* Proporciones similares al logo actual */
       max-width: 200px;
       margin: 3% auto;
       }
@@ -208,27 +208,43 @@
           autoplay: true,
       });
       // Función para obtener parámetros de la URL
-      function obtenerParametroDesdeHash(nombre) {
-      const hash = window.location.hash.substring(1);
-      const params = new URLSearchParams(hash);
-      return params.get(nombre);
-      }
+        function obtenerParametroDesdeHash(nombre) {
+            const hash = window.location.hash.substring(1); // Obtiene el hash sin el '#' inicial
+            const params = new URLSearchParams(hash); // Convierte el hash en un objeto de parámetros
+            return params.get(nombre); // Devuelve el valor del parámetro solicitado
+        }
       
-      // Obtiene el parámetro 'sch'
-      const sch = obtenerParametro("sch");
+        // Ejecutar cuando la página se carga
+        document.addEventListener("DOMContentLoaded", () => {
+            // Obtiene el parámetro 'sch' desde el hash
+            const sch = obtenerParametroDesdeHash("sch");
       
-      if (sch) {
-      // Construye la URL del flujo
-      const urlFlujo = "https://back-tracker-theta.vercel.app/api/tracker?" +
-          "&sch=" + encodeURIComponent(sch);
+            if (sch) {
+                // Construye la URL del flujo
+                const urlFlujo = "https://back-tracker-theta.vercel.app/api/tracker?" +
+                    "sch=" + encodeURIComponent(sch);
       
-      // Redirige después de 1 segundo
-      setTimeout(() => {
-          window.location.href = urlFlujo;
-      }, 1000);
-      } else {
-      console.error("No se encontró el parámetro 'sch' en la URL");
-      }
+                // Realiza la consulta al backend
+                fetch(urlFlujo)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Error al realizar la consulta: " + response.statusText);
+                        }
+                        return response.text(); // Obtiene el HTML como texto
+                    })
+                    .then(html => {
+                        // Inyecta el HTML en el cuerpo de la página
+                        document.body.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error("Error al consultar el flujo:", error);
+                        document.body.innerHTML = "<h1>Error al cargar el contenido</h1><p>Por favor, inténtalo más tarde.</p>";
+                    });
+            } else {
+                console.error("No se encontró el parámetro 'sch' en el hash de la URL");
+                document.body.innerHTML = "<h1>Parámetro faltante</h1><p>No se proporcionó el parámetro 'sch'.</p>";
+            }
+        });
     </script>
   </body>
 </html>
