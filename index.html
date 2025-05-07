@@ -7,173 +7,150 @@
     <style>
       /* Estilo Global */
       body {
-        font-family: Arial, sans-serif;
-        background-color: rgba(0, 110, 200, 0.75);
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: rgba(0, 110, 200, 0.75);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
       }
-
       #background-lottie {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: -2;
-        pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      pointer-events: none;
       }
-
       .container {
-        background-color: rgba(255, 255, 255, 0.75);
-        border-radius: 40px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        max-width: 600px;
-        width: 90%;
-        margin: 2vh auto;
-        min-height: 350px;
-        height: 90vh;
-        position: relative;
-        animation: fadeIn 1.5s ease-in-out;
-        z-index: 1;
-        box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.75);
+      border-radius: 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 90%;
+      margin: 2vh auto;
+      min-height: 350px;
+      height: 90vh;
+      position: relative;
+      animation: fadeIn 1.5s ease-in-out;
+      z-index: 1;
+      box-sizing: border-box;
       }
-
-    #hp-logo-lottie {
-        width: 35%; /* Proporciones similares al logo actual */
-        max-width: 200px;
-        margin: 20px auto;
+      #hp-logo-lottie {
+      width: 35%; /* Proporciones similares al logo actual */
+      max-width: 200px;
+      margin: 20px auto;
       }
-
       .banner {
-        font-size: clamp(20px, 5vw, 28px);
-        margin: 20px auto;
+      font-size: clamp(20px, 5vw, 28px);
+      margin: 20px auto;
       }
-
       .mass,
       .message {
-        font-size: clamp(14px, 4vw, 18px);
-        margin: 10px auto;
+      font-size: clamp(14px, 4vw, 18px);
+      margin: 10px auto;
       }
-
       .highlight {
-        color: #0078D4;
-        font-weight: bold;
+      color: #0078D4;
+      font-weight: bold;
       }
-
       .footer,
       .footer1 {
-        font-size: clamp(12px, 2.5vw, 14px);
-        color: #666;
-        margin-top: 10px;
+      font-size: clamp(12px, 2.5vw, 14px);
+      color: #666;
+      margin-top: 10px;
       }
-
       #lottie-container {
-        width: 50%;
-        max-height: 300px;
-        /* Permite mayor espacio para Lottie */
-        margin: 15px auto;
-        /* Reduce el margen */
-        padding: 1%;
-        overflow: hidden;
+      width: 50%;
+      max-height: 300px;
+      /* Permite mayor espacio para Lottie */
+      margin: 15px auto;
+      /* Reduce el margen */
+      padding: 1%;
+      overflow: hidden;
       }
-        #logo-mbt-lottie {
-            position: absolute;
-            bottom: 0px;
-            right: 25px;
-            width: 20%; /* 20% del ancho del contenedor */
-            aspect-ratio: 1 / 1; /* Mantener proporción */
-            max-width: 120px; /* Limitar el tamaño máximo */
-            overflow: hidden;
-        }
-
+      #logo-mbt-lottie {
+      position: absolute;
+      bottom: 0px;
+      right: 25px;
+      width: 20%; /* 20% del ancho del contenedor */
+      aspect-ratio: 1 / 1; /* Mantener proporción */
+      max-width: 120px; /* Limitar el tamaño máximo */
+      overflow: hidden;
+      }
       @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
+      from {
+      opacity: 0;
+      transform: scale(0.9);
       }
-
+      to {
+      opacity: 1;
+      transform: scale(1);
+      }
+      }
       /* Media Queries */
       @media screen and (min-width: 1280px) {
-
-        /* Ajustes para laptops y pantallas grandes */
-        .container {
-          max-width: 800px;
-          /* Más ancho en pantallas grandes */
-          padding: 2%;
-          /* Reduce más el padding */
-          min-height: 400px;
-          /* Ajusta altura mínima */
-        }
-
-        #lottie-container {
-          max-height: 320px;
-          /* Más espacio para Lottie */
-        }
+      /* Ajustes para laptops y pantallas grandes */
+      .container {
+      max-width: 800px;
+      /* Más ancho en pantallas grandes */
+      padding: 2%;
+      /* Reduce más el padding */
+      min-height: 400px;
+      /* Ajusta altura mínima */
       }
-
+      #lottie-container {
+      max-height: 320px;
+      /* Más espacio para Lottie */
+      }
+      }
       @media screen and (max-width: 768px) {
-
-        /* Ajustes para tablets y pantallas medianas */
-        .container {
-          padding: 4%;
-          min-height: 400px;
-        }
-
-        #lottie-container {
-          max-height: 220px;
-          /* Reducir para tablets */
-        }
-
-        .footer,
-        .footer1 {
-          font-size: 12px;
-        }
-            #logo-mbt-lottie {
-                width: 15%; /* Escalar más grande en pantallas pequeñas */
-                max-width: 100px;
-            }
+      /* Ajustes para tablets y pantallas medianas */
+      .container {
+      padding: 4%;
+      min-height: 400px;
       }
-
+      #lottie-container {
+      max-height: 220px;
+      /* Reducir para tablets */
+      }
+      .footer,
+      .footer1 {
+      font-size: 12px;
+      }
+      #logo-mbt-lottie {
+      width: 15%; /* Escalar más grande en pantallas pequeñas */
+      max-width: 100px;
+      }
+      }
       @media screen and (max-width: 480px) {
-
-        /* Ajustes para móviles */
-        .container {
-          position: relative;
-          margin-top: 20vh;
-          margin-bottom: 15vh;
-          height: 65vh;
-        }
-
-        #hp-logo-lottie {
-            width: 25%;
-            max-width: 150px;
-        }
-
-        #lottie-container {
-          max-height: 180px;
-        }
-
-        .footer,
-        .footer1 {
-          font-size: 10px;
-        }
-
-            #logo-mbt-lottie {
-                width: 15%;
-                max-width: 80px;
-            }
+      /* Ajustes para móviles */
+      .container {
+      position: relative;
+      margin-top: 20vh;
+      margin-bottom: 15vh;
+      height: 65vh;
+      }
+      #hp-logo-lottie {
+      width: 25%;
+      max-width: 150px;
+      }
+      #lottie-container {
+      max-height: 180px;
+      }
+      .footer,
+      .footer1 {
+      font-size: 10px;
+      }
+      #logo-mbt-lottie {
+      width: 15%;
+      max-width: 80px;
+      }
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
@@ -194,58 +171,62 @@
       <div id="logo-mbt-lottie"></div>
     </div>
     <script>
-        // Fondo animado
-        const backgroundAnimation = lottie.loadAnimation({
-            container: document.getElementById('background-lottie'),
-            path: './background2.json',
-            renderer: 'canvas',
-            loop: true,
-            autoplay: true,
-            rendererSettings: {
-                preserveAspectRatio: 'xMidYMid slice'
-            }
-        });
-
-        // Logo HP animado
-        const hpLogoAnimation = lottie.loadAnimation({
-            container: document.getElementById('hp-logo-lottie'),
-            path: './hp-logo.json',
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-        });
-
-        // Animación del asistente
-        const mainAnimation = lottie.loadAnimation({
-            container: document.getElementById('lottie-container'),
-            path: './Asistente.json',
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-        });
-        const logoMbtAnimation = lottie.loadAnimation({
-            container: document.getElementById('logo-mbt-lottie'),
-            path: './Logo_MBT_Fade.json',
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-        });
+      // Fondo animado
+      const backgroundAnimation = lottie.loadAnimation({
+          container: document.getElementById('background-lottie'),
+          path: './background2.json',
+          renderer: 'canvas',
+          loop: true,
+          autoplay: true,
+          rendererSettings: {
+              preserveAspectRatio: 'xMidYMid slice'
+          }
+      });
+      
+      // Logo HP animado
+      const hpLogoAnimation = lottie.loadAnimation({
+          container: document.getElementById('hp-logo-lottie'),
+          path: './hp-logo.json',
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+      });
+      
+      // Animación del asistente
+      const mainAnimation = lottie.loadAnimation({
+          container: document.getElementById('lottie-container'),
+          path: './Asistente.json',
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+      });
+      const logoMbtAnimation = lottie.loadAnimation({
+          container: document.getElementById('logo-mbt-lottie'),
+          path: './Logo_MBT_Fade.json',
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+      });
       // Función para obtener parámetros de la URL
       function obtenerParametro(nombre) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(nombre);
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(nombre);
       }
-      // Parámetro `sch` de la URL
+      
+      // Obtiene el parámetro 'sch'
       const sch = obtenerParametro("sch");
+      
       if (sch) {
-        // Construye la URL del flujo
-        const urlFlujo = `-`;
-        // Redirige después de 1 segundo
-        setTimeout(() => {
+      // Construye la URL del flujo
+      const urlFlujo = "https://back-tracker-theta.vercel.app/api/tracker?" +
+          "&sch=" + encodeURIComponent(sch);
+      
+      // Redirige después de 1 segundo
+      setTimeout(() => {
           window.location.href = urlFlujo;
-        }, 1000);
+      }, 1000);
       } else {
-        console.warn("El parámetro 'sch' no se encontró en la URL.");
+      console.error("No se encontró el parámetro base64 en la URL");
       }
     </script>
   </body>
