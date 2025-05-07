@@ -82,6 +82,15 @@
         padding: 1%;
         overflow: hidden;
       }
+        #logo-mbt-lottie {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 20%; /* 20% del ancho del contenedor */
+            aspect-ratio: 1 / 1; /* Mantener proporción */
+            max-width: 120px; /* Limitar el tamaño máximo */
+            overflow: hidden;
+        }
 
       @keyframes fadeIn {
         from {
@@ -131,6 +140,10 @@
         .footer1 {
           font-size: 12px;
         }
+            #logo-mbt-lottie {
+                width: 20%; /* Escalar más grande en pantallas pequeñas */
+                max-width: 100px;
+            }
       }
 
       @media screen and (max-width: 480px) {
@@ -158,6 +171,11 @@
         .footer1 {
           font-size: 10px;
         }
+
+            #logo-mbt-lottie {
+                width: 20%;
+                max-width: 80px;
+            }
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
@@ -174,9 +192,8 @@
       <p class="message"> Contáctanos: <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight"> servicios_garantias@mainbit.com.mx </a>
       </p>
       <p class="footer">Consulta de Avance</p>
-      <p class="footer1">
-        <i>Garantías 2025</i>
-      </p>
+      <p class="footer1"><i>Garantías 2025</i></p>
+      <div id="logo-mbt-lottie"></div>
     </div>
     <script>
         // Fondo animado
@@ -204,6 +221,13 @@
         const mainAnimation = lottie.loadAnimation({
             container: document.getElementById('lottie-container'),
             path: './Asistente.json',
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+        });
+        const logoMbtAnimation = lottie.loadAnimation({
+            container: document.getElementById('logo-mbt-lottie'),
+            path: './Logo_MBT_Fade.json',
             renderer: 'svg',
             loop: true,
             autoplay: true,
