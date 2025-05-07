@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitud de Avance - Garantías HP</title>
     <style>
+      /* Estilo Global */
       body {
         font-family: Arial, sans-serif;
         background-color: rgba(0, 110, 200, 0.75);
@@ -23,24 +24,24 @@
         top: 0;
         left: 0;
         width: 100vw;
-        /* Asegura que se ajuste al ancho de la pantalla */
+        /* Asegura que siempre ocupe todo el ancho */
         height: 100vh;
-        /* Asegura que se ajuste a la altura de la pantalla */
+        /* Asegura que siempre ocupe toda la altura */
         z-index: -2;
         pointer-events: none;
       }
 
       .container {
         background-color: rgba(255, 255, 255, 0.85);
+        /* Fondo ligeramente opaco */
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         padding: 5%;
         max-width: 600px;
-        /* Máximo ancho para pantallas grandes */
+        /* Límite máximo para pantallas grandes */
         width: 90%;
-        /* Escalabilidad en pantallas pequeñas */
+        /* Escala para pantallas pequeñas */
         margin: auto;
-        /* Centrado */
         min-height: 400px;
         /* Altura mínima */
         position: relative;
@@ -51,9 +52,8 @@
 
       .hp-logo {
         width: 40%;
-        /* Escala relativa al contenedor */
         max-width: 200px;
-        /* Para evitar que sea demasiado grande */
+        /* Límite máximo para pantallas grandes */
         margin: 15px auto;
         display: block;
       }
@@ -61,14 +61,14 @@
       .banner {
         margin-top: 15px;
         font-size: clamp(20px, 5vw, 28px);
-        /* Ajuste fluido */
+        /* Escala fluida para títulos */
         margin-bottom: 15px;
       }
 
       .mass,
       .message {
         font-size: clamp(14px, 4vw, 18px);
-        /* Ajuste fluido */
+        /* Escala fluida para textos */
         margin-bottom: 15px;
       }
 
@@ -81,19 +81,19 @@
       .footer,
       .footer1 {
         font-size: clamp(12px, 2.5vw, 14px);
-        /* Escala fluida */
+        /* Escala fluida para pie de página */
         color: #666;
         margin-top: 10px;
       }
 
       #lottie-container {
         width: 100%;
-        /* Escala al 100% del contenedor */
-        max-height: 250px;
-        /* Altura máxima para evitar desbordes */
+        /* Ocupa el 100% del contenedor */
+        max-height: 280px;
+        /* Altura máxima */
         margin: 15px auto;
         overflow: hidden;
-        /* Evitar que el contenido se salga del contenedor */
+        /* Evitar desbordamiento */
       }
 
       @keyframes fadeIn {
@@ -109,16 +109,33 @@
       }
 
       /* Media Queries */
-      @media screen and (max-width: 768px) {
+      @media screen and (min-width: 1280px) {
+
+        /* Ajustes para laptops y pantallas grandes */
         .container {
-          padding: 6%;
-          min-height: 350px;
-          /* Ajuste para pantallas medianas */
+          max-width: 800px;
+          /* Más ancho en pantallas grandes */
+          padding: 4%;
         }
 
         #lottie-container {
-          max-height: 200px;
-          /* Reducir altura de la animación */
+          max-height: 300px;
+          /* Espacio más grande para Lottie */
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+
+        /* Ajustes para tablets y pantallas medianas */
+        .container {
+          padding: 6%;
+          min-height: 350px;
+          /* Reduce la altura mínima */
+        }
+
+        #lottie-container {
+          max-height: 220px;
+          /* Reducir para tablets */
         }
 
         .footer,
@@ -129,6 +146,8 @@
       }
 
       @media screen and (max-width: 480px) {
+
+        /* Ajustes para móviles */
         .container {
           padding: 8%;
           min-height: auto;
@@ -142,13 +161,14 @@
         }
 
         #lottie-container {
-          max-height: 150px;
+          max-height: 180px;
           /* Reducir más para pantallas pequeñas */
         }
 
         .footer,
         .footer1 {
           font-size: 10px;
+          /* Escala para móviles */
         }
       }
     </style>
