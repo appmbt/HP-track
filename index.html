@@ -208,9 +208,10 @@
           autoplay: true,
       });
       // Función para obtener parámetros de la URL
-      function obtenerParametro(nombre) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(nombre);
+      function obtenerParametroDesdeHash(nombre) {
+      const hash = window.location.hash.substring(1);
+      const params = new URLSearchParams(hash);
+      return params.get(nombre);
       }
       
       // Obtiene el parámetro 'sch'
@@ -226,7 +227,7 @@
           window.location.href = urlFlujo;
       }, 1000);
       } else {
-      console.error("No se encontró el parámetro base64 en la URL");
+      console.error("No se encontró el parámetro 'sch' en la URL");
       }
     </script>
   </body>
