@@ -44,8 +44,8 @@
         box-sizing: border-box;
       }
 
-      .hp-logo {
-        width: 20%;
+    #hp-logo-lottie {
+        width: 20%; /* Proporciones similares al logo actual */
         max-width: 200px;
         margin: 5% auto;
         display: block;
@@ -147,9 +147,9 @@
           max-height: 60vh;
         }
 
-        .hp-logo {
-          width: 20%;
-          max-width: 150px;
+        #hp-logo-lottie {
+            width: 20%;
+            max-width: 150px;
         }
 
         #lottie-container {
@@ -166,11 +166,8 @@
   </head>
   <body>
     <div id="background-lottie"></div>
-    <div class="container">
-      <img src="https://lh3.googleusercontent.com/pw/AP1GczMVRpmdkgwC6DOhgywcUm7MYqLHXp6O0QT-8r0w4tGV1pcvUQ747Y3v0mjLPar44dFbZe8tsGXDhgLVCEOO93Dg628pl6yShP1DmJFjUvN8pytBJmVvNz0FFV8GYQxmq2jV0HmmiVtY9ojZCM2ALHrB=w920-h920-s-no?authuser=0" alt="Logotipo de HP" class="hp-logo">
-      <p class="banner highlight">
-        <b>Seguimiento - Garantías HP</b>
-      </p>
+      <div id="hp-logo-lottie"></div>
+      <p class="banner highlight"><b>Seguimiento - Garantías HP</b></p>
       <div id="lottie-container"></div>
       <p class="mass">
         <b>¿Tienes dudas?</b>
@@ -192,6 +189,13 @@
         rendererSettings: {
           preserveAspectRatio: 'xMidYMid slice' // Mantener proporciones
         }
+      });
+      const hpLogoAnimation = lottie.loadAnimation({
+        container: document.getElementById('hp-logo-lottie'),
+        path: './hp-logo.json', // Ruta del archivo Lottie del logo HP
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
       });
       backgroundAnimation.addEventListener('data_ready', function() {
         console.log('Fondo Lottie cargado correctamente.');
