@@ -9,14 +9,11 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      width: 100%;
       font-family: Arial, sans-serif;
-      background-color: rgba(0, 110, 200, 0.75);
+      background-color: #05B8FF;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      text-align: center;
     }
 
     #background-lottie {
@@ -25,22 +22,30 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: -1;
+      z-index: -2;
       pointer-events: none;
     }
 
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.1);
+      z-index: -1;
+    }
+
     .container {
-      background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      background-color: white;
+      border-radius: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       padding: 5vw;
-      width: 90vw;
       max-width: 600px;
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      width: 90%;
+      min-height: 500px;
+      box-sizing: border-box;
+      position: relative;
       z-index: 1;
       animation: fadeIn 1.2s ease-in-out;
     }
@@ -48,24 +53,24 @@
     .hp-logo {
       width: 40%;
       max-width: 200px;
-      margin: 15px 0;
-    }
-
-    #lottie-container {
-      width: 100%;
-      max-width: 500px;
-      height: 30vh;
-      margin: 2vh 0;
+      margin-top: 15px;
     }
 
     .banner {
-      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-      margin: 1vh 0;
+      margin-top: 20px;
+      font-size: clamp(20px, 5vw, 28px);
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    .mass, .message {
-      font-size: clamp(0.9rem, 2vw, 1.2rem);
-      margin-bottom: 1.2vh;
+    .mass {
+      font-size: clamp(16px, 4vw, 20px);
+      margin-bottom: 20px;
+    }
+
+    .message {
+      font-size: clamp(14px, 3.5vw, 18px);
+      margin-bottom: 20px;
     }
 
     .highlight {
@@ -73,20 +78,43 @@
       font-weight: bold;
     }
 
-    .footer, .footer1 {
-      font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-      margin-top: 1.5vh;
-      color: #444;
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .footer1 {
+      font-size: 12px;
+      color: #2e3242;
+    }
+
+    #lottie-container {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      margin: 20px auto;
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: scale(0.9);
       }
       to {
         opacity: 1;
         transform: scale(1);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 6vw;
+        min-height: auto;
+      }
+
+      #lottie-container {
+        max-height: 200px;
       }
     }
   </style>
