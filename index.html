@@ -14,12 +14,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* Evitar scroll innecesario */
-            background-color: rgba(5, 184, 255, 0.5); /* Color de fondo fijo */
+            overflow: hidden;
+        }
+        #background-lottie {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.75; /* Ajusta la opacidad del fondo aquí */
+        }
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(5, 184, 255, 0.75);
+            z-index: -1;
         }
         .container {
             background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 25px;
+            border-radius: 30px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             max-width: 600px;
@@ -89,8 +107,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
-    <!-- Contenedor para el fondo Lottie -->
     <div id="background-lottie"></div>
+    <div id="overlay"></div>
     <div class="container">
         <img src="https://lh3.googleusercontent.com/pw/AP1GczMVRpmdkgwC6DOhgywcUm7MYqLHXp6O0QT-8r0w4tGV1pcvUQ747Y3v0mjLPar44dFbZe8tsGXDhgLVCEOO93Dg628pl6yShP1DmJFjUvN8pytBJmVvNz0FFV8GYQxmq2jV0HmmiVtY9ojZCM2ALHrB=w920-h920-s-no?authuser=0" 
             alt="Logotipo de HP" class="hp-logo">
@@ -108,7 +126,6 @@
         <p class="footer1"><i>Garantías 2025</i></p>
     </div>
     <script>
-        // Animación de fondo Lottie
         const backgroundAnimation = lottie.loadAnimation({
             container: document.getElementById('background-lottie'),
             path: './background2.json', // Ruta del archivo JSON
@@ -131,7 +148,7 @@
         // Animación del contenedor central
         const mainAnimation = lottie.loadAnimation({
             container: document.getElementById('lottie-container'),
-            path: './sphere.json', // Cambiar la ruta según la ubicación del archivo
+            path: './Processing Circle.json', // Cambiar la ruta según la ubicación del archivo
             renderer: 'svg',
             loop: true,
             autoplay: true,
