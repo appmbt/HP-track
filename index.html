@@ -9,6 +9,7 @@
       body {
         font-family: Arial, sans-serif;
         background-color: rgba(0, 110, 200, 0.75);
+        /* Fondo principal */
         text-align: center;
         margin: 0;
         padding: 0;
@@ -31,13 +32,18 @@
 
       .container {
         background-color: rgba(255, 255, 255, 0.75);
-        border-radius: 30px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        /* Fondo blanco con opacidad ajustada */
+        border-radius: 25px;
+        /* Proporción ajustada */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        /* Sombras más suaves */
         padding: 5vw;
         max-width: 600px;
-        width: 100%;
+        width: 90%;
+        /* Ajuste para pantallas más pequeñas */
         margin: 5%;
-        min-height: 600px;
+        min-height: 500px;
+        /* Reducción de la altura mínima */
         box-sizing: border-box;
         position: relative;
         z-index: 1;
@@ -52,28 +58,32 @@
       }
 
       .banner {
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: clamp(20px, 5vw, 28px);
-        margin-bottom: 20px;
+        /* Ajuste fluido */
+        margin-bottom: 15px;
       }
 
       .mass {
         font-size: clamp(16px, 4vw, 20px);
-        margin-bottom: 20px;
+        /* Ajuste fluido */
+        margin-bottom: 15px;
       }
 
       .message {
         font-size: clamp(14px, 3.5vw, 18px);
-        margin-bottom: 20px;
+        /* Ajuste fluido */
+        margin-bottom: 15px;
       }
 
       .highlight {
         color: #0078D4;
+        /* Azul HP */
         font-weight: bold;
       }
 
       .footer {
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: 14px;
         color: #666;
       }
@@ -85,14 +95,16 @@
 
       #lottie-container {
         width: 100%;
-        max-height: 300px;
-        margin: 20px auto;
+        max-height: 250px;
+        /* Ajuste de altura */
+        margin: 15px auto;
       }
 
       @keyframes fadeIn {
         from {
           opacity: 0;
           transform: scale(0.96);
+          /* Suavizado de entrada */
         }
 
         to {
@@ -105,15 +117,18 @@
         .container {
           padding: 6vw;
           min-height: auto;
+          /* Eliminar altura fija */
         }
 
         #lottie-container {
-          max-height: 200px;
+          max-height: 180px;
+          /* Menor altura para móviles */
         }
 
         .footer,
         .footer1 {
           font-size: 12px;
+          /* Texto más pequeño */
         }
       }
     </style>
