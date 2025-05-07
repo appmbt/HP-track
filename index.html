@@ -22,74 +22,78 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        /* Asegura que se ajuste al ancho de la pantalla */
+        height: 100vh;
+        /* Asegura que se ajuste a la altura de la pantalla */
         z-index: -2;
         pointer-events: none;
       }
 
       .container {
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.85);
         border-radius: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
         padding: 5%;
         max-width: 600px;
+        /* Máximo ancho para pantallas grandes */
         width: 90%;
-        margin: 5%;
+        /* Escalabilidad en pantallas pequeñas */
+        margin: auto;
+        /* Centrado */
         min-height: 400px;
+        /* Altura mínima */
         position: relative;
         animation: fadeIn 1.5s ease-in-out;
         z-index: 1;
         box-sizing: border-box;
       }
 
+      .hp-logo {
+        width: 40%;
+        /* Escala relativa al contenedor */
+        max-width: 200px;
+        /* Para evitar que sea demasiado grande */
+        margin: 15px auto;
+        display: block;
+      }
+
       .banner {
         margin-top: 15px;
-        font-size: clamp(18px, 5vw, 25px);
-        margin-bottom: 15px;
-        text-align: center;
-      }
-
-      .mass {
-        font-size: clamp(16px, 4vw, 20px);
+        font-size: clamp(20px, 5vw, 28px);
+        /* Ajuste fluido */
         margin-bottom: 15px;
       }
 
+      .mass,
       .message {
-        font-size: clamp(14px, 3.5vw, 18px);
+        font-size: clamp(14px, 4vw, 18px);
+        /* Ajuste fluido */
         margin-bottom: 15px;
       }
 
       .highlight {
         color: #0078D4;
-        /* HP blue color */
+        /* Azul HP */
         font-weight: bold;
       }
 
-      .footer {
-        margin-top: 15px;
-        font-size: clamp(12px, 2.5vw, 14px);
-        color: #666;
-      }
-
+      .footer,
       .footer1 {
-        font-size: clamp(10px, 2vw, 12px);
-        color: #2e3242;
-      }
-
-      .hp-logo {
-        width: 40%;
-        max-width: 200px;
-        margin-top: 15px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: clamp(12px, 2.5vw, 14px);
+        /* Escala fluida */
+        color: #666;
+        margin-top: 10px;
       }
 
       #lottie-container {
         width: 100%;
+        /* Escala al 100% del contenedor */
         max-height: 250px;
+        /* Altura máxima para evitar desbordes */
         margin: 15px auto;
+        overflow: hidden;
+        /* Evitar que el contenido se salga del contenedor */
       }
 
       @keyframes fadeIn {
@@ -104,20 +108,23 @@
         }
       }
 
-      /* Media Queries for responsiveness */
+      /* Media Queries */
       @media screen and (max-width: 768px) {
         .container {
           padding: 6%;
-          min-height: auto;
+          min-height: 350px;
+          /* Ajuste para pantallas medianas */
         }
 
         #lottie-container {
           max-height: 200px;
+          /* Reducir altura de la animación */
         }
 
         .footer,
         .footer1 {
           font-size: 12px;
+          /* Texto más pequeño */
         }
       }
 
@@ -125,15 +132,18 @@
         .container {
           padding: 8%;
           min-height: auto;
+          /* Eliminar altura fija */
         }
 
         .hp-logo {
           width: 50%;
+          /* Más pequeño en móviles */
           max-width: 150px;
         }
 
         #lottie-container {
           max-height: 150px;
+          /* Reducir más para pantallas pequeñas */
         }
 
         .footer,
