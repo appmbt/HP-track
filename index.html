@@ -15,7 +15,6 @@
 
       /* Container a pantalla completa */
       .fullscreen-container {
-        background-color: rgba(0, 110, 200, 0.75);
         text-align: center;
         min-height: 100vh;
         display: flex;
@@ -44,6 +43,7 @@
       /* Logos y animaciones */
       #background-lottie {
         position: fixed;
+        background-color: rgba(0, 110, 200, 0.75);
         top: 0;
         left: 0;
         width: 100vw;
@@ -171,28 +171,6 @@
       const logoMbtAnimation = lottie.loadAnimation({
         container: document.getElementById('logo-mbt-lottie'),
         path: './Logo_MBT_Fade.json', renderer: 'svg', loop: true, autoplay: true
-      });
-
-      // Parámetro 'sch' en hash de URL
-      function obtenerParametroDesdeHash(nombre) {
-        const hash = window.location.hash.substring(1);
-        const params = new URLSearchParams(hash);
-        return params.get(nombre);
-      }
-      document.addEventListener('DOMContentLoaded', () => {
-        const sch = obtenerParametroDesdeHash('sch');
-        if (sch) {
-          fetch(`https://back-tracker-theta.vercel.app/api/tracker?sch=${encodeURIComponent(sch)}`)
-            .then(resp => resp.ok ? resp.text() : Promise.reject(resp.statusText))
-            .then(html => document.body.innerHTML = html)
-            .catch(err => {
-              console.error('Error al cargar flujo:', err);
-              document.body.innerHTML = '<h1>Error al cargar el contenido</h1><p>Por favor, inténtalo más tarde.</p>';
-            });
-        } else {
-          console.error("Parámetro 'sch' faltante");
-          document.body.innerHTML = '<h1>Parámetro faltante</h1><p>No se proporcionó el parámetro "sch".</p>';
-        }
       });
     </script>
   </body>
