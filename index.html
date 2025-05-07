@@ -5,250 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitud de Avance - Garantías HP</title>
     <style>
-    body {
-      /* Contenedor Global */
+      /* Reset básico */
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      /* Container a pantalla completa */
       .fullscreen-container {
-      font-family: Arial, sans-serif;
-      background-color: rgba(0, 110, 200, 0.75);
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      min-height: 100vh; /* Abarca toda la altura de la pantalla */
-      width: 100vw; /* Abarca todo el ancho de la pantalla */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      z-index: -2;
+        font-family: Arial, sans-serif;
+        background-color: rgba(0, 110, 200, 0.75);
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
       }
-      #background-lottie {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      pointer-events: none;
-      }
+
+      /* Contenedor interno central */
       .container {
-      border-radius: 40px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      max-width: 600px;
-      width: 100%;
-      margin: 20% auto;
-      min-height: 350px;
-      height: 90vh;
-      position: relative;
-      animation: fadeIn 1.5s ease-in-out;
-      z-index: 1;
-      box-sizing: border-box;
+        background: white;
+        border-radius: 40px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 90%;
+        min-height: 350px;
+        height: 90vh;
+        margin: auto;
+        padding: 2rem;
+        box-sizing: border-box;
+        z-index: 1;
+        animation: fadeIn 1.5s ease-in-out;
+        position: relative;
+      }
+
+      /* Logos y animaciones */
+      #background-lottie {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -2;
+        pointer-events: none;
       }
       #hp-logo-lottie {
-      width: 25%; /* Proporciones similares al logo actual */
-      max-width: 200px;
-      margin: 3% auto;
+        width: 25%;
+        max-width: 200px;
+        margin: 3% auto;
       }
+      #lottie-container {
+        width: 50%;
+        max-height: 400px;
+        margin: 3% auto;
+        padding: 1%;
+        overflow: hidden;
+      }
+      #logo-mbt-lottie {
+        position: absolute;
+        bottom: 0;
+        right: 25px;
+        width: 20%;
+        max-width: 120px;
+        aspect-ratio: 1 / 1;
+      }
+
+      /* Textos y estilos */
       .banner {
-      font-size: clamp(20px, 5vw, 28px);
-      margin: 3% auto;
+        font-size: clamp(20px, 5vw, 28px);
+        margin: 3% auto;
       }
       .mass,
       .message {
-      font-size: clamp(14px, 4vw, 18px);
-      margin: 2% auto;
+        font-size: clamp(14px, 4vw, 18px);
+        margin: 3% auto;
       }
       .highlight {
-      color: #0078D4;
-      font-weight: bold;
+        color: #0078D4;
+        font-weight: bold;
       }
       .footer,
       .footer1 {
-      font-size: clamp(12px, 2.5vw, 14px);
-      color: #666;
-      margin-top: 1.5%;
+        font-size: clamp(12px, 2.5vw, 14px);
+        color: #666;
+        margin-top: 2%;
       }
-      #lottie-container {
-      width: 50%;
-      max-height: 300px;
-      /* Permite mayor espacio para Lottie */
-      margin: 2% auto;
-      /* Reduce el margen */
-      padding: 1%;
-      overflow: hidden;
-      }
-      #logo-mbt-lottie {
-      position: absolute;
-      bottom: 0px;
-      right: 25px;
-      width: 20%; /* 20% del ancho del contenedor */
-      aspect-ratio: 1 / 1; /* Mantener proporción */
-      max-width: 120px; /* Limitar el tamaño máximo */
-      overflow: hidden;
-      }
+
+      /* Animación fade-in */
       @keyframes fadeIn {
-      from {
-      opacity: 0;
-      transform: scale(0.9);
+        from { opacity: 0; transform: scale(0.9); }
+        to   { opacity: 1; transform: scale(1); }
       }
-      to {
-      opacity: 1;
-      transform: scale(1);
-      }
-      }
+
       /* Media Queries */
       @media screen and (min-width: 1280px) {
-      /* Ajustes para laptops y pantallas grandes */
-      .container {
-      max-width: 800px;
-      /* Más ancho en pantallas grandes */
-      padding: 2%;
-      /* Reduce más el padding */
-      min-height: 400px;
-      /* Ajusta altura mínima */
-      }
-      #lottie-container {
-      max-height: 320px;
-      /* Más espacio para Lottie */
-      }
+        .container {
+          max-width: 800px;
+          padding: 2%;
+          min-height: 400px;
+        }
+        #lottie-container {
+          max-height: 320px;
+        }
       }
       @media screen and (max-width: 768px) {
-      /* Ajustes para tablets y pantallas medianas */
-      .container {
-      padding: 4%;
-      min-height: 400px;
-      }
-      #lottie-container {
-      max-height: 220px;
-      /* Reducir para tablets */
-      }
-      .footer,
-      .footer1 {
-      font-size: 12px;
-      }
-      #logo-mbt-lottie {
-      width: 15%; /* Escalar más grande en pantallas pequeñas */
-      max-width: 100px;
-      }
+        .container {
+          padding: 4%;
+          min-height: 400px;
+        }
+        #lottie-container { max-height: 220px; }
+        .footer, .footer1 { font-size: 12px; }
+        #logo-mbt-lottie {
+          width: 15%;
+          max-width: 100px;
+        }
       }
       @media screen and (max-width: 480px) {
-      /* Ajustes para móviles */
-      .container {
-      position: relative;
-      margin-top: 20vh;
-      margin-bottom: 15vh;
-      height: 65vh;
-      }
-      #hp-logo-lottie {
-      width: 25%;
-      max-width: 150px;
-      }
-      #lottie-container {
-      max-height: 180px;
-      }
-      .footer,
-      .footer1 {
-      font-size: 10px;
-      }
-      #logo-mbt-lottie {
-      width: 15%;
-      max-width: 80px;
-      }
-      }
+        .container {
+          margin-top: 20vh;
+          margin-bottom: 15vh;
+          height: 65vh;
+        }
+        #hp-logo-lottie { max-width: 150px; }
+        #lottie-container { max-height: 180px; }
+        .footer, .footer1 { font-size: 10px; }
+        #logo-mbt-lottie { max-width: 80px; }
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   </head>
   <body>
-    <div id="fullscreen-container"></div>
-    <div id="background-lottie"></div>
-    <div class="container">
-      <div id="hp-logo-lottie"></div>
-      <p class="banner highlight"><b>Seguimiento - Garantías HP</b></p>
-      <div id="lottie-container"></div>
-      <p class="mass">
-        <b>¿Tienes dudas?</b>
-      </p>
-      <p class="message"> Contáctanos: <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight"> servicios_garantias@mainbit.com.mx </a>
-      </p>
-      <p class="footer">Consulta de Avance</p>
-      <p class="footer1"><i>Garantías 2025</i></p>
-      <div id="logo-mbt-lottie"></div>
+    <div class="fullscreen-container">
+      <div id="background-lottie"></div>
+      <div class="container">
+        <div id="hp-logo-lottie"></div>
+        <p class="banner highlight"><b>Seguimiento - Garantías HP</b></p>
+        <div id="lottie-container"></div>
+        <p class="mass"><b>¿Tienes dudas?</b></p>
+        <p class="message">
+          Contáctanos: <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">
+          servicios_garantias@mainbit.com.mx</a>
+        </p>
+        <p class="footer">Consulta de Avance</p>
+        <p class="footer1"><i>Garantías 2025</i></p>
+        <div id="logo-mbt-lottie"></div>
+      </div>
     </div>
     <script>
-      // Fondo animado
+      // Animaciones Lottie
       const backgroundAnimation = lottie.loadAnimation({
-          container: document.getElementById('background-lottie'),
-          path: './background2.json',
-          renderer: 'canvas',
-          loop: true,
-          autoplay: true,
-          rendererSettings: {
-              preserveAspectRatio: 'xMidYMid slice'
-          }
+        container: document.getElementById('background-lottie'),
+        path: './background2.json', renderer: 'canvas', loop: true, autoplay: true,
+        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
       });
-      
-      // Logo HP animado
       const hpLogoAnimation = lottie.loadAnimation({
-          container: document.getElementById('hp-logo-lottie'),
-          path: './hp-logo.json',
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
+        container: document.getElementById('hp-logo-lottie'),
+        path: './hp-logo.json', renderer: 'svg', loop: true, autoplay: true
       });
-      
-      // Animación del asistente
       const mainAnimation = lottie.loadAnimation({
-          container: document.getElementById('lottie-container'),
-          path: './Asistente.json',
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
+        container: document.getElementById('lottie-container'),
+        path: './Asistente.json', renderer: 'svg', loop: true, autoplay: true
       });
       const logoMbtAnimation = lottie.loadAnimation({
-          container: document.getElementById('logo-mbt-lottie'),
-          path: './Logo_MBT_Fade.json',
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
+        container: document.getElementById('logo-mbt-lottie'),
+        path: './Logo_MBT_Fade.json', renderer: 'svg', loop: true, autoplay: true
       });
-      // Función para obtener parámetros de la URL
-        function obtenerParametroDesdeHash(nombre) {
-            const hash = window.location.hash.substring(1); // Obtiene el hash sin el '#' inicial
-            const params = new URLSearchParams(hash); // Convierte el hash en un objeto de parámetros
-            return params.get(nombre); // Devuelve el valor del parámetro solicitado
+
+      // Parámetro 'sch' en hash de URL
+      function obtenerParametroDesdeHash(nombre) {
+        const hash = window.location.hash.substring(1);
+        const params = new URLSearchParams(hash);
+        return params.get(nombre);
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        const sch = obtenerParametroDesdeHash('sch');
+        if (sch) {
+          fetch(`https://back-tracker-theta.vercel.app/api/tracker?sch=${encodeURIComponent(sch)}`)
+            .then(resp => resp.ok ? resp.text() : Promise.reject(resp.statusText))
+            .then(html => document.body.innerHTML = html)
+            .catch(err => {
+              console.error('Error al cargar flujo:', err);
+              document.body.innerHTML = '<h1>Error al cargar el contenido</h1><p>Por favor, inténtalo más tarde.</p>';
+            });
+        } else {
+          console.error("Parámetro 'sch' faltante");
+          document.body.innerHTML = '<h1>Parámetro faltante</h1><p>No se proporcionó el parámetro "sch".</p>';
         }
-      
-        // Ejecutar cuando la página se carga
-        document.addEventListener("DOMContentLoaded", () => {
-            // Obtiene el parámetro 'sch' desde el hash
-            const sch = obtenerParametroDesdeHash("sch");
-      
-            if (sch) {
-                // Construye la URL del flujo
-                const urlFlujo = "https://back-tracker-theta.vercel.app/api/tracker?" +
-                    "sch=" + encodeURIComponent(sch);
-      
-                // Realiza la consulta al backend
-                fetch(urlFlujo)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error("Error al realizar la consulta: " + response.statusText);
-                        }
-                        return response.text(); // Obtiene el HTML como texto
-                    })
-                    .then(html => {
-                        // Inyecta el HTML en el cuerpo de la página
-                        document.body.innerHTML = html;
-                    })
-                    .catch(error => {
-                        console.error("Error al consultar el flujo:", error);
-                        document.body.innerHTML = "<h1>Error al cargar el contenido</h1><p>Por favor, inténtalo más tarde.</p>";
-                    });
-            } else {
-                console.error("No se encontró el parámetro 'sch' en el hash de la URL");
-                document.body.innerHTML = "<h1>Parámetro faltante</h1><p>No se proporcionó el parámetro 'sch'.</p>";
-            }
-        });
+      });
     </script>
   </body>
 </html>
