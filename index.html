@@ -190,18 +190,18 @@
           preserveAspectRatio: 'xMidYMid slice' // Mantener proporciones
         }
       });
+      backgroundAnimation.addEventListener('data_ready', function() {
+        console.log('Fondo Lottie cargado correctamente.');
+      });
+      backgroundAnimation.addEventListener('error', function(error) {
+        console.error('Error al cargar el fondo Lottie:', error);
+      });
       const hpLogoAnimation = lottie.loadAnimation({
         container: document.getElementById('hp-logo-lottie'),
         path: './hp-logo.json', // Ruta del archivo Lottie del logo HP
         renderer: 'svg',
         loop: true,
         autoplay: true,
-      });
-      backgroundAnimation.addEventListener('data_ready', function() {
-        console.log('Fondo Lottie cargado correctamente.');
-      });
-      backgroundAnimation.addEventListener('error', function(error) {
-        console.error('Error al cargar el fondo Lottie:', error);
       });
       // Animación del contenedor central
       const mainAnimation = lottie.loadAnimation({
