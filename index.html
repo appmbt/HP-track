@@ -47,20 +47,18 @@
     #hp-logo-lottie {
         width: 20%; /* Proporciones similares al logo actual */
         max-width: 200px;
-        margin: 5% auto;
-        display: block;
+        margin: 20px auto;
       }
 
       .banner {
-        margin-top: %;
         font-size: clamp(20px, 5vw, 28px);
-        margin-bottom: 3%;
+        margin: 20px auto;
       }
 
       .mass,
       .message {
         font-size: clamp(14px, 4vw, 18px);
-        margin: 3% auto;
+        margin: 10px auto;
       }
 
       .highlight {
@@ -77,9 +75,9 @@
 
       #lottie-container {
         width: 50%;
-        max-height: 400px;
+        max-height: 300px;
         /* Permite mayor espacio para Lottie */
-        margin: 3% auto;
+        margin: 15px auto;
         /* Reduce el margen */
         padding: 1%;
         overflow: hidden;
@@ -121,7 +119,7 @@
         /* Ajustes para tablets y pantallas medianas */
         .container {
           padding: 4%;
-          min-height: 350px;
+          min-height: 400px;
         }
 
         #lottie-container {
@@ -180,43 +178,35 @@
       </p>
     </div>
     <script>
-      const backgroundAnimation = lottie.loadAnimation({
-        container: document.getElementById('background-lottie'),
-        path: './background2.json', // Ruta del archivo JSON
-        renderer: 'canvas', // Cambiar a canvas para mayor compatibilidad
-        loop: true,
-        autoplay: true,
-        rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice' // Mantener proporciones
-        }
-      });
-      backgroundAnimation.addEventListener('data_ready', function() {
-        console.log('Fondo Lottie cargado correctamente.');
-      });
-      backgroundAnimation.addEventListener('error', function(error) {
-        console.error('Error al cargar el fondo Lottie:', error);
-      });
-      const hpLogoAnimation = lottie.loadAnimation({
-        container: document.getElementById('hp-logo-lottie'),
-        path: './hp-logo.json', // Ruta del archivo Lottie del logo HP
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-      });
-      // Animación del contenedor central
-      const mainAnimation = lottie.loadAnimation({
-        container: document.getElementById('lottie-container'),
-        path: './Asistente.json', // Cambiar la ruta según la ubicación del archivo
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-      });
-      mainAnimation.addEventListener('data_ready', function() {
-        console.log('Animación del contenedor central cargada correctamente.');
-      });
-      mainAnimation.addEventListener('error', function(error) {
-        console.error('Error al cargar la animación del contenedor central:', error);
-      });
+        // Fondo animado
+        const backgroundAnimation = lottie.loadAnimation({
+            container: document.getElementById('background-lottie'),
+            path: './background2.json',
+            renderer: 'canvas',
+            loop: true,
+            autoplay: true,
+            rendererSettings: {
+                preserveAspectRatio: 'xMidYMid slice'
+            }
+        });
+
+        // Logo HP animado
+        const hpLogoAnimation = lottie.loadAnimation({
+            container: document.getElementById('hp-logo-lottie'),
+            path: './hp-logo.json',
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+        });
+
+        // Animación del asistente
+        const mainAnimation = lottie.loadAnimation({
+            container: document.getElementById('lottie-container'),
+            path: './Asistente.json',
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+        });
       // Función para obtener parámetros de la URL
       function obtenerParametro(nombre) {
         const urlParams = new URLSearchParams(window.location.search);
