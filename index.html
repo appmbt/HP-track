@@ -3,52 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solicitud de Avance - Garantías HP</title>
+    <title>Seguimiento - Garantías HP</title>
     <style>
-      /* Estilos globales */
       body {
         margin: 0;
         padding: 0;
+        overflow: hidden;
         font-family: Arial, sans-serif;
         background-color: #0078d4;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        overflow: hidden;
       }
 
       .fullscreen-container {
-        width: 100%;
-        height: 100%;
-        position: relative;
+        width: 100vw;
+        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
       }
 
       .container {
         background: rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        width: 90%;
+        width: 90%; /* Ajustado para ocupar el 90% del ancho */
         max-width: 600px;
-        height: 85%;
-        max-height: 600px;
+        height: 85%; /* Altura máxima del contenedor */
         padding: 20px;
         box-sizing: border-box;
         text-align: center;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center; /* Centra el contenido verticalmente */
+        position: relative;
       }
 
       #background-lottie {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         z-index: 0;
         pointer-events: none;
       }
@@ -66,11 +61,11 @@
       }
 
       #logo-mbt-lottie {
-        width: 12%;
+        width: 12%; /* Ajustado para mantener un tamaño constante */
         max-width: 80px;
         position: fixed;
-        top: 10px;
-        left: 10px;
+        top: 15px; /* Ajustado para estar siempre visible */
+        left: 15px;
         z-index: 2;
       }
 
@@ -95,70 +90,34 @@
         font-size: 0.9rem;
         color: #666;
         margin-top: 1rem;
+        text-align: center;
       }
 
-      /* Reglas para orientación vertical (portrait) */
-      @media screen and (orientation: portrait) {
+      @media screen and (max-width: 640px) {
         .container {
           flex-direction: column;
-          justify-content: space-around;
-          align-items: center;
-          padding: 20px;
-          margin-top: 10px; /* Evita que quede pegado arriba */
+          padding: 10px;
+          height: 90%; /* Asegura que el contenedor no se salga de la pantalla */
         }
-
         #hp-logo-lottie {
           width: 60%;
-          margin-bottom: 15px;
+          max-width: 120px;
         }
-
         #lottie-container {
           width: 80%;
-          margin-bottom: 15px;
+          max-width: 180px;
         }
-
         #logo-mbt-lottie {
-          width: 15%; /* Ajustado para portrait */
-          top: 15px;
-          left: 15px;
+          width: 15%;
+          max-width: 60px;
         }
-
         .banner {
-          font-size: 1.1rem;
-        }
-
-        .mass,
-        .message {
           font-size: 1rem;
         }
-      }
-
-      /* Reglas para orientación horizontal (landscape) */
-      @media screen and (orientation: landscape) {
-        .container {
-          flex-direction: row;
-          justify-content: space-evenly;
-          align-items: center;
-          height: 75%;
-          padding: 20px;
+        .mass,
+        .message {
+          font-size: 0.9rem;
         }
-
-        #hp-logo-lottie {
-          width: 40%;
-          margin: 0;
-        }
-
-        #lottie-container {
-          width: 50%;
-          margin: 0;
-        }
-
-        #logo-mbt-lottie {
-          width: 10%; /* Más pequeño en landscape */
-          top: 10px;
-          left: 10px;
-        }
-
         .footer {
           font-size: 0.8rem;
         }
@@ -169,7 +128,7 @@
   <body>
     <div class="fullscreen-container">
       <div id="background-lottie"></div>
-      <div class="container" id="content-container">
+      <div class="container">
         <div id="hp-logo-lottie"></div>
         <p class="banner highlight"><b>Seguimiento - Garantías HP</b></p>
         <div id="lottie-container"></div>
@@ -188,7 +147,7 @@
         renderer: 'canvas',
         loop: true,
         autoplay: true,
-        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
+        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' },
       });
 
       const hpLogoAnimation = lottie.loadAnimation({
@@ -196,7 +155,7 @@
         path: './hp-logo.json',
         renderer: 'svg',
         loop: true,
-        autoplay: true
+        autoplay: true,
       });
 
       const mainAnimation = lottie.loadAnimation({
@@ -204,7 +163,7 @@
         path: './Asistente.json',
         renderer: 'svg',
         loop: true,
-        autoplay: true
+        autoplay: true,
       });
 
       const logoMbtAnimation = lottie.loadAnimation({
@@ -212,7 +171,7 @@
         path: './Logo_MBT_Fade.json',
         renderer: 'svg',
         loop: true,
-        autoplay: true
+        autoplay: true,
       });
     </script>
   </body>
