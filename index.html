@@ -26,12 +26,13 @@
         background: rgba(255, 255, 255, 0.75); /* Más opaco para evitar transparencia excesiva */
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        width: 45vw;
+        width: 60vw;
         height: 90vh;
         max-width: 400px; /* Limita el tamaño en pantallas grandes */
         padding: 10px;
         box-sizing: border-box;
         text-align: center;
+        z-index: 2;
         animation: fadeIn 1.5s ease-in-out;
       }
 
@@ -50,12 +51,14 @@
         width: 30%; /* Ajusta proporcionalmente a la pantalla */
         max-width: 150px;
         margin: 0 auto;
+        z-index: 3; 
       }
 
       #lottie-container {
         width: 40%;
         max-width: 200px;
         margin: 20px auto;
+        z-index: 3; 
       }
 
       #logo-mbt-lottie {
@@ -71,17 +74,20 @@
       .banner {
         font-size: clamp(1.25rem, 2.5vw, 1.5rem);
         margin: 0.5rem auto;
+        z-index: 3; 
       }
 
       .mass,
       .message {
         font-size: clamp(1rem, 2vw, 1.2rem);
         margin: 0.5rem auto;
+        z-index: 3; 
       }
 
       .highlight {
         color: #0078d4;
         font-weight: bold;
+        z-index: 3; 
       }
 
       .footer {
@@ -89,6 +95,7 @@
         color: #666;
         margin-top: 1rem;
         text-align: center;
+        z-index: 3; 
       }
 
       @keyframes fadeIn {
