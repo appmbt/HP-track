@@ -1,143 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitud de Avance - Garantías HP</title>
     <style>
+
       body {
         margin: 0;
         padding: 0;
         overflow: hidden;
         font-family: Arial, sans-serif;
-        background-color: #0078d4;
+        text-align: center;
+        text-size-adjust: 100%;
       }
 
+      /* Container a pantalla completa */
       .fullscreen-container {
-        width: 100vw;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
       }
 
-      .container {
-        background: rgba(255, 255, 255, 0.9); /* Más opaco para evitar transparencia excesiva */
-        border-radius: 20px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        width: 45vw;
-        max-width: 600px; /* Limita el tamaño en pantallas grandes */
-        height: 90vh;
-        padding: 20px;
-        box-sizing: border-box;
-        text-align: center;
-        animation: fadeIn 1.5s ease-in-out;
-        position: relative; /* Para posicionar elementos hijos */
-      }
-
+      /* Logos y animaciones */
       #background-lottie {
         position: fixed;
+        background-color: rgba(0, 110, 200, 0.65);
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        z-index: 0;
         pointer-events: none;
       }
 
-      #hp-logo-lottie {
-        width: 50%; /* Ajusta proporcionalmente al contenedor */
-        max-width: 150px;
-        margin: 0 auto 10px;
+      /* Contenedor interno central */
+      .central-container {
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: 45px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        width: 50vw;
+        height: 95vh;
+        margin: auto;
+        box-sizing: border-box;
+        z-index: 1;
+        animation: fadeIn 1.5s ease-in-out;
+        position: relative;
+      }
+      /* Primer Contenedor del Contenedor interno central */
+      .central-container-1 {
+        border: 2px solid rgba(9, 255, 0, 0.842);
+        width: 100%;
+        height: 30%;
+        margin: 0;
+        z-index: 2;
+        position: relative;
+      }
+      /* Segundo Contenedor del Contenedor interno central */
+      .central-container-2 {
+        border: 2px solid rgba(9, 255, 0, 0.842);
+        width: 100%;
+        height: 55%;
+        margin: 0;
+        z-index: 2;
+        position: relative;
+      }
+
+      /* Tercer Contenedor del Contenedor interno central */
+      .central-container-3 {
+        border: 2px solid rgba(9, 255, 0, 0.842);
+        width: 100%;
+        height: calc(15% - 10px);
+        margin: 0;
+        z-index: 2;
+        position: relative;
+      }
+      /* Primer Contenedor del Primer Contenedor interno central */
+      .central-container-1-1 {
+        width: 100%;
+        height: 70%;
+        z-index: 3;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }  
+      /* Segundo Contenedor del Primer Contenedor interno central */
+      .central-container-1-2 {
+        width: 100%;
+        height: 30%;
+        margin: 0;
+        z-index: 3;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+       /* Primer Contenedor del Primer Contenedor interno central */
+      .central-container-2-1 {
+        width: 100%;
+        height: 75%;
+        z-index: 3;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }  
+      /* Segundo Contenedor del Primer Contenedor interno central */
+      .central-container-2-2 {
+        width: 100%;
+        height: 25%;
+        margin: 0;
+        z-index: 3;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      } 
+      
+        /* Primer Contenedor Segundo Contenedor del Primer Contenedor interno central */
+      .central-container-2-2-1 {
+        width: 40%;
+        height: 100%;
+        margin: 0;
+        z-index: 4;
+        position: relative;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+      }
+        /* Primer Contenedor Segundo Contenedor del Primer Contenedor interno central */
+      .central-container-2-2-2 {
+        width: 55%;
+        height: 100%;
+        margin: 0;
+        z-index: 4;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #logo-hp {
+        padding: 0;
+        margin: 0;
+        height: 70%;          /* Altura al 90% del contenedor padre */
+        width: auto;          /* Ancho automático para mantener proporción */
+        max-width: 100%;      /* Evitar que la imagen se desborde */
+        object-fit: contain;  /* Mantener proporción */
+      }
+
+      #lottie-bot {
+        height: 75%;          /* Altura al 90% del contenedor padre */
+        width: auto;          /* Ancho automático para mantener proporción */
+        max-width: 100%;      /* Evitar que la imagen se desborde */
+        object-fit: contain;  /* Mantener proporción */
       }
 
       #lottie-container {
-        width: 60%;
-        max-width: 200px;
-        margin: 20px auto;
+        width: 50%;
+        max-height: 400px;
+        margin: 3% auto;
+        padding: 1%;
+        overflow: hidden;
+      }
+      
+      #outlook{
+        padding: 0;
+        margin: 0;
+        height: 100%;          /* Altura al 90% del contenedor padre */
+        width: auto;          /* Ancho automático para mantener proporción */
+        max-width: 100%;      /* Evitar que la imagen se desborde */
       }
 
-      #logo-mbt-lottie {
-        width: 15vw; /* Ajusta el tamaño del logo MBT */
+      #logo-mbt{
+        position: absolute;
+        top: 0;
+        left: 5vw;
+        width: 15vw;
         max-width: 250px;
-        position: fixed; /* Fija el logo en la esquina superior izquierda */
-        top: 30px; /* Espaciado desde la parte superior */
-        left: 45px; /* Espaciado desde la parte izquierda */
-        z-index: 2; /* Asegúrate de que esté por encima del fondo */
+        aspect-ratio: 1 / 1;
       }
 
+      #logo-ds{
+        position: absolute;
+        bottom: 3.5vh;
+        right: 3vw;
+        width: 15vw;
+        max-width: 100px;
+        aspect-ratio: 1 / 1;
+      }
+
+      /* Textos y estilos */
       .banner {
-        font-size: clamp(1rem, 1.8vw, 1.2rem); /* Reducido para mayor discreción */
-        margin: 0.5rem auto;
+        font-size: clamp(1.2rem, 2vw, 1.8rem); /* Tamaño de fuente responsive */
+        margin: 0;                              /* Eliminar márgenes por defecto */
+        padding: 0;                             /* Eliminar padding por defecto */
+        width: 100%;                            /* Ocupar todo el ancho disponible */
+        text-align: center;                     /* Centrar el texto */
       }
-
-      .mass,
       .message {
-        font-size: clamp(0.9rem, 1.5vw, 1rem); /* Reducido para mantener consistencia */
-        margin: 0.5rem auto;
+        font-size: 4vw;
+        margin: 3% auto;
       }
-
       .highlight {
-        color: #0078d4;
+        color: #0078D4;
         font-weight: bold;
       }
-
       .footer {
-        font-size: clamp(0.7rem, 1.2vw, 0.9rem); /* Más pequeño pero aún legible */
+        font-size: clamp(11px, 2.5vw, 13px);
         color: #666;
-        margin-top: 1rem;
-        text-align: center;
+        margin-top: 3% auto;
+        align-items: bottom;
       }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @media screen and (max-width: 640px) {
-        .container {
-          display: flex; /* Activa Flexbox */
-          flex-direction: column; /* Orientación vertical */
-          justify-content: center; /* Centra el contenido verticalmente */
-          align-items: center; /* Centra el contenido horizontalmente */
-          padding: 10px;
-          width: 80vw; /* Maximiza el uso del ancho en móviles */
-          height: 90vh;
-        }
-        #hp-logo-lottie {
-          width: 60%;
-          margin-bottom: 15px; /* Agrega espacio entre elementos */
-        }
-        #lottie-container {
-          width: 80%;
-          margin-bottom: 15px; /* Agrega espacio entre elementos */
-        }
-        #logo-mbt-lottie {
-          width: 15%; /* Ajusta el tamaño del logo en móviles */
-          top: 5px; /* Reduce el margen superior en móviles */
-          left: 5px; /* Reduce el margen izquierdo en móviles */
-        }
-        .banner {
-          font-size: 1rem; /* Ajustado para pantallas pequeñas */
-          margin-bottom: 10px; /* Espaciado entre el banner y otros elementos */
-        }
-        .mass,
-        .message {
-          font-size: 0.9rem; /* Más compacto en móviles */
-          margin-bottom: 10px; /* Espaciado entre cada mensaje */
-        }
-        .footer {
-          font-size: 0.8rem;
-          margin-top: auto; /* Empuja el footer hacia la parte inferior del contenedor */
-          text-align: center;
-        }
+     .footer1 {
+      font-size: clamp(9px, 1.5vw, 11px);
+      color: #666;
+      margin-top: auto;
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
@@ -145,18 +227,30 @@
   <body>
     <div class="fullscreen-container">
       <div id="background-lottie"></div>
-      <div class="container" id="content-container">
-        <div id="hp-logo-lottie"></div>
-        <p class="banner highlight"><b>Seguimiento - Garantías HP</b></p>
-        <div id="lottie-container"></div>
-        <p class="mass"><b>¿Tienes dudas?</b></p>
-        <p class="message">Contáctanos: <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
-        <p class="footer">Consulta de Avance</p>
-        <p class="footer"><i>Garantías 2025</i></p>
-      </div>
-      <div id="logo-mbt-lottie"></div> <!-- Logo MBT ahora en la esquina superior izquierda -->
+      <div class="central-container">
+        <div class="central-container-1">
+          <div class="central-container-1-1" id="logo-hp"></div>
+          <div class="central-container-1-2">
+          <p class="banner highlight">Seguimiento - Garantías HP</p></div>
+        </div>
+        <div class="central-container-2">
+          <div class="central-container-2-1" id="lottie-bot"></div>
+          <div class="central-container-2-2">
+            <div class="central-container-2-2-1" id="outlook"></div>
+            <div class="central-container-2-2-2">
+              <p class="message">¿Tienes dudas?<a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="central-container-3">
+          <p class="footer">Consulta de Avance</p>
+          <p class="footer1"><i>Garantías 2025</i></p>
+        </div>
     </div>
-    <script>
+    <div id="logo-mbt"></div>
+    <div id="logo-ds"></div>
+    </div>
+      <script>
       // Animaciones Lottie
       const backgroundAnimation = lottie.loadAnimation({
         container: document.getElementById('background-lottie'),
@@ -165,18 +259,28 @@
       });
 
       const hpLogoAnimation = lottie.loadAnimation({
-        container: document.getElementById('hp-logo-lottie'),
+        container: document.getElementById('logo-hp'),
         path: './hp-logo.json', renderer: 'svg', loop: true, autoplay: true
       });
 
       const mainAnimation = lottie.loadAnimation({
-        container: document.getElementById('lottie-container'),
+        container: document.getElementById('lottie-bot'),
         path: './Asistente.json', renderer: 'svg', loop: true, autoplay: true
       });
 
+       const OutlookAnimation = lottie.loadAnimation({
+        container: document.getElementById('outlook'),
+        path: './Outlook.json', renderer: 'svg', loop: true, autoplay: true
+      });     
+
       const logoMbtAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-mbt-lottie'),
+        container: document.getElementById('logo-mbt'),
         path: './Logo_Mbt_wink.json', renderer: 'svg', loop: true, autoplay: true
+      });
+
+      const logoDSAnimation = lottie.loadAnimation({
+        container: document.getElementById('logo-ds'),
+        path: './Logo_DS_wink.json', renderer: 'svg', loop: true, autoplay: true
       });
     </script>
   </body>
