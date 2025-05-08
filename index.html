@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solicitud de Avance - Garantías HP</title>
     <style>
-      /* Reset básico */
       body {
         margin: 0;
         padding: 0;
@@ -13,34 +12,33 @@
         font-family: Arial, sans-serif;
       }
 
-      /* Container a pantalla completa */
       .fullscreen-container {
-        text-align: center;
-        min-height: 100vh;
+        width: 100vw;
+        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
+        background-color: #dbeeff;
+        overflow: hidden;
       }
 
-      /* Contenedor interno central */
       .container {
         background: rgba(255, 255, 255, 0.75);
         border-radius: 40px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        max-width: 600px;
-        width: 50vw;
-        min-height: 350px;
-        height: 90vh;
-        margin: auto;
-        padding: 2rem;
+        width: 80vw;
+        height: 45vw; /* mantiene relación 16:9 */
+        max-height: 90vh;
+        padding: 2vw;
         box-sizing: border-box;
         z-index: 1;
         animation: fadeIn 1.5s ease-in-out;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
-      /* Logos y animaciones */
       #background-lottie {
         position: fixed;
         background-color: rgba(0, 110, 200, 0.75);
@@ -51,87 +49,96 @@
         z-index: -2;
         pointer-events: none;
       }
+
       #hp-logo-lottie {
-        width: 25%;
-        max-width: 200px;
-        margin: 3% auto;
+        width: 20%;
+        max-width: 180px;
+        margin: 0 auto;
       }
+
       #lottie-container {
         width: 50%;
-        max-height: 400px;
-        margin: 3% auto;
+        max-height: 30%;
+        margin: 0 auto;
         padding: 1%;
         overflow: hidden;
       }
+
       #logo-mbt-lottie {
         position: absolute;
-        bottom: 0;
-        right: 25px;
-        width: 20%;
-        max-width: 120px;
+        bottom: 2vw;
+        right: 2vw;
+        width: 12%;
+        max-width: 100px;
         aspect-ratio: 1 / 1;
       }
 
-      /* Textos y estilos */
       .banner {
-        font-size: clamp(20px, 5vw, 28px);
-        margin: 3% auto;
+        font-size: clamp(1rem, 3vw, 2rem);
+        margin: 1vw auto;
       }
+
       .mass,
       .message {
-        font-size: clamp(14px, 4vw, 18px);
-        margin: 3% auto;
+        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+        margin: 1vw auto;
       }
+
       .highlight {
-        color: #0078D4;
+        color: #0078d4;
         font-weight: bold;
       }
+
       .footer,
       .footer1 {
-        font-size: clamp(12px, 2.5vw, 14px);
+        font-size: clamp(0.7rem, 1.5vw, 1rem);
         color: #666;
-        margin-top: 2%;
+        margin-top: 1vw;
       }
 
-      /* Animación fade-in */
       @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to   { opacity: 1; transform: scale(1); }
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
 
-      /* Media Queries */
-      @media screen and (min-width: 1280px) {
-        .container {
-          max-width: 800px;
-          padding: 2%;
-          min-height: 400px;
-        }
-        #lottie-container {
-          max-height: 320px;
-        }
-      }
       @media screen and (max-width: 768px) {
         .container {
-          padding: 4%;
-          min-height: 400px;
+          width: 90vw;
+          height: auto;
+          max-height: none;
         }
-        #lottie-container { max-height: 220px; }
-        .footer, .footer1 { font-size: 12px; }
+        #hp-logo-lottie {
+          width: 40%;
+        }
         #logo-mbt-lottie {
-          width: 15%;
-          max-width: 100px;
+          width: 18%;
+        }
+        #lottie-container {
+          width: 80%;
         }
       }
+
       @media screen and (max-width: 480px) {
         .container {
-          margin-top: 20vh;
-          margin-bottom: 15vh;
-          height: 65vh;
+          margin-top: 10vh;
+          margin-bottom: 10vh;
         }
-        #hp-logo-lottie { max-width: 150px; }
-        #lottie-container { max-height: 180px; }
-        .footer, .footer1 { font-size: 10px; }
-        #logo-mbt-lottie { max-width: 80px; }
+        #hp-logo-lottie {
+          max-width: 140px;
+        }
+        #logo-mbt-lottie {
+          max-width: 80px;
+        }
+        .footer,
+        .footer1 {
+          font-size: 0.75rem;
+        }
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
