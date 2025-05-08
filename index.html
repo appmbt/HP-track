@@ -23,7 +23,7 @@
       }
 
       .container {
-        background: rgba(255, 255, 255, 0.95); /* Más opaco para mejor legibilidad */
+        background: rgba(255, 255, 255, 0.75); /* Más opaco para evitar transparencia excesiva */
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         width: 90%;
@@ -129,7 +129,7 @@
   <body>
     <div class="fullscreen-container">
       <div id="background-lottie"></div>
-      <div class="container">
+      <div class="container" id="content-container">
         <div id="hp-logo-lottie"></div>
         <p class="banner highlight"><b>Seguimiento - Garantías HP</b></p>
         <div id="lottie-container"></div>
@@ -147,17 +147,27 @@
         path: './background2.json', renderer: 'canvas', loop: true, autoplay: true,
         rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
       });
+
       const hpLogoAnimation = lottie.loadAnimation({
         container: document.getElementById('hp-logo-lottie'),
         path: './hp-logo.json', renderer: 'svg', loop: true, autoplay: true
       });
+
       const mainAnimation = lottie.loadAnimation({
         container: document.getElementById('lottie-container'),
         path: './Asistente.json', renderer: 'svg', loop: true, autoplay: true
       });
+
       const logoMbtAnimation = lottie.loadAnimation({
         container: document.getElementById('logo-mbt-lottie'),
         path: './Logo_MBT_Fade.json', renderer: 'svg', loop: true, autoplay: true
+      });
+
+      // Evento para asegurar el estilo del contenedor después de la animación
+      mainAnimation.addEventListener('complete', () => {
+        const container = document.getElementById('content-container');
+        container.style.background = 'rgba(255, 255, 255, 0.75)'; // Restablece la opacidad original
+        container.style.transition = 'background 0.5s ease'; // Suaviza la transición
       });
     </script>
   </body>
