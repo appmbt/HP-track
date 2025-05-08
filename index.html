@@ -61,13 +61,8 @@
       #logo-mbt-lottie {
         width: 12%; /* Ajusta el tamaño del logo MBT */
         max-width: 80px;
-        margin: 10px auto 0;
-        aspect-ratio: 1 / 1;
-        position: absolute; /* Posiciona el logo dentro del contenedor */
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%); /* Centra el logo horizontalmente */
-        z-index: 2; /* Asegúrate de que esté encima del contenido */
+        margin: 20px auto 0; /* Agrega margen para separarlo del footer */
+        position: relative; /* Permanece dentro del contenedor */
       }
 
       .banner {
@@ -89,7 +84,7 @@
       .footer {
         font-size: clamp(0.7rem, 1.2vw, 0.9rem); /* Más pequeño pero aún legible */
         color: #666;
-        margin-top: 1rem;
+        margin-top: 20px; /* Agrega espacio para el logo MBT */
         text-align: center;
       }
 
@@ -141,9 +136,9 @@
         <div id="lottie-container"></div>
         <p class="mass"><b>¿Tienes dudas?</b></p>
         <p class="message">Contáctanos: <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
+        <div id="logo-mbt-lottie"></div> <!-- Logo MBT colocado justo encima del footer -->
         <p class="footer">Consulta de Avance</p>
         <p class="footer"><i>Garantías 2025</i></p>
-        <div id="logo-mbt-lottie"></div> <!-- Logo MBT ahora dentro del contenedor -->
       </div>
     </div>
     <script>
