@@ -23,14 +23,13 @@
       }
 
       .container {
-        background: rgba(255, 255, 255, 0.75); /* Más opaco para evitar transparencia excesiva */
-        border-radius: 45px;
+        background: rgba(255, 255, 255, 0.9); /* Más opaco para evitar transparencia excesiva */
+        border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         width: 45vw;
-        max-width: 45vw; /* Limita el tamaño en pantallas grandes */
+        max-width: 600px; /* Limita el tamaño en pantallas grandes */
         height: 90vh;
-        max-height: 90vh;
-        padding: 10px;
+        padding: 20px;
         box-sizing: border-box;
         text-align: center;
         animation: fadeIn 1.5s ease-in-out;
@@ -48,23 +47,23 @@
       }
 
       #hp-logo-lottie {
-        width: 30%; /* Ajusta proporcionalmente al contenedor */
+        width: 50%; /* Ajusta proporcionalmente al contenedor */
         max-width: 150px;
         margin: 0 auto 10px;
       }
 
       #lottie-container {
-        width: 50%;
+        width: 60%;
         max-width: 200px;
         margin: 20px auto;
       }
 
       #logo-mbt-lottie {
-        width: 25%; /* Ajusta el tamaño del logo MBT */
-        max-width: 150px;
+        width: 10%; /* Ajusta el tamaño del logo MBT */
+        max-width: 60px;
         position: fixed; /* Fija el logo en la esquina superior izquierda */
-        top: 25px; /* Espaciado desde la parte superior */
-        left: 25px; /* Espaciado desde la parte izquierda */
+        top: 10px; /* Espaciado desde la parte superior */
+        left: 10px; /* Espaciado desde la parte izquierda */
         z-index: 2; /* Asegúrate de que esté por encima del fondo */
       }
 
@@ -101,55 +100,45 @@
           transform: scale(1);
         }
       }
-/* Estilos para orientación vertical (portrait) */
-@media screen and (orientation: portrait) {
-  .container {
-    padding: 10px;
-    width: 80vw;
-    height: 90vh;
-    display: flex;
-    flex-direction: column; /* Orientación vertical */
-    align-items: center;
-    justify-content: center;
-  }
-  #hp-logo-lottie {
-    width: 60%;
-    margin-bottom: 15px;
-  }
-  #lottie-container {
-    width: 80%;
-    margin-bottom: 15px;
-  }
-  .footer {
-    font-size: 0.8rem;
-    margin-top: auto;
-  }
-}
 
-/* Estilos para orientación horizontal (landscape) */
-@media screen and (orientation: landscape) {
-  .container {
-    padding: 20px;
-    width: 90vw;
-    height: 60vh;
-    display: flex;
-    flex-direction: row; /* Orientación horizontal */
-    align-items: center;
-    justify-content: space-between;
-  }
-  #hp-logo-lottie {
-    width: 40%;
-    margin: 0;
-  }
-  #lottie-container {
-    width: 50%;
-    margin: 0;
-  }
-  .footer {
-    font-size: 1rem;
-    margin-top: 20px;
-  }
-}
+      @media screen and (max-width: 640px) {
+        .container {
+          display: flex; /* Activa Flexbox */
+          flex-direction: column; /* Orientación vertical */
+          justify-content: center; /* Centra el contenido verticalmente */
+          align-items: center; /* Centra el contenido horizontalmente */
+          padding: 10px;
+          width: 80vw; /* Maximiza el uso del ancho en móviles */
+          height: 90vh;
+        }
+        #hp-logo-lottie {
+          width: 60%;
+          margin-bottom: 15px; /* Agrega espacio entre elementos */
+        }
+        #lottie-container {
+          width: 80%;
+          margin-bottom: 15px; /* Agrega espacio entre elementos */
+        }
+        #logo-mbt-lottie {
+          width: 15%; /* Ajusta el tamaño del logo en móviles */
+          top: 5px; /* Reduce el margen superior en móviles */
+          left: 5px; /* Reduce el margen izquierdo en móviles */
+        }
+        .banner {
+          font-size: 1rem; /* Ajustado para pantallas pequeñas */
+          margin-bottom: 10px; /* Espaciado entre el banner y otros elementos */
+        }
+        .mass,
+        .message {
+          font-size: 0.9rem; /* Más compacto en móviles */
+          margin-bottom: 10px; /* Espaciado entre cada mensaje */
+        }
+        .footer {
+          font-size: 0.8rem;
+          margin-top: auto; /* Empuja el footer hacia la parte inferior del contenedor */
+          text-align: center;
+        }
+      }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   </head>
