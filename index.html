@@ -10,6 +10,7 @@
         padding: 0;
         overflow: hidden;
         font-family: Arial, sans-serif;
+        background-color: #0078d4;
       }
 
       .fullscreen-container {
@@ -18,24 +19,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
         position: relative;
       }
 
       .container {
-        background: rgba(255, 255, 255, 0.75);
-        border-radius: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        width: 45vw;
-        height: 90vw;
-        max-height: 90vh;
+        width: 90%;
+        max-width: 400px; /* Limita el tamaño en pantallas grandes */
+        padding: 20px;
         box-sizing: border-box;
-        z-index: 2;
-        animation: fadeIn 1.5s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         text-align: center;
+        animation: fadeIn 1.5s ease-in-out;
       }
 
       #background-lottie {
@@ -50,35 +46,36 @@
       }
 
       #hp-logo-lottie {
-        width: 20%;
+        width: 50%; /* Ajusta proporcionalmente a la pantalla */
         max-width: 150px;
         margin: 0 auto;
       }
 
       #lottie-container {
-        width: 40%;
-        max-height: auto;
-        margin: 0 auto;
+        width: 60%;
+        max-width: 200px;
+        margin: 20px auto;
       }
 
       #logo-mbt-lottie {
         position: absolute;
-        bottom: 1%;
-        right: 1%;
-        width: 12%;
-        max-width: 100px;
-        aspect-ratio: 1 / 1
+        bottom: 10px;
+        right: 10px;
+        width: 15%;
+        max-width: 80px;
+        aspect-ratio: 1 / 1;
+        z-index: 2;
       }
 
       .banner {
-        font-size: clamp(1rem, 1.5vw, 1.25rem);
-        margin: 0.5vw auto;
+        font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+        margin: 0.5rem auto;
       }
 
       .mass,
       .message {
-        font-size: clamp(0.75rem, 1.25vw, 1rem);
-        margin: 0.5vw auto;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        margin: 0.5rem auto;
       }
 
       .highlight {
@@ -87,9 +84,9 @@
       }
 
       .footer {
-        font-size: clamp(0.5rem, 1vw, 0.75rem);
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
         color: #666;
-        margin-top: 0.5vw;
+        margin-top: 1rem;
         text-align: center;
       }
 
@@ -104,35 +101,25 @@
         }
       }
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 480px) {
         .container {
-          width: 45vw;
-          height: auto;
+          padding: 15px;
         }
         #hp-logo-lottie {
-          width: 25%;
-        }
-        #logo-mbt-lottie {
-          width: 12%;
+          width: 60%;
         }
         #lottie-container {
           width: 80%;
         }
-      }
-
-      @media screen and (max-width: 480px) {
-        .container {
-          margin-top: 10vh;
-          margin-bottom: 10vh;
-        }
-        #hp-logo-lottie {
-          max-width: 140px;
-        }
         #logo-mbt-lottie {
-          max-width: 80px;
+          width: 12%;
         }
-        .footer {
-          font-size: 0.75rem;
+        .banner {
+          font-size: 1.25rem;
+        }
+        .mass,
+        .message {
+          font-size: 1rem;
         }
       }
     </style>
