@@ -5,43 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solicitud de Avance - Garantías HP</title>
     <style>
+      /* Estilos globales */
       body {
         margin: 0;
         padding: 0;
-        overflow: hidden;
         font-family: Arial, sans-serif;
         background-color: #0078d4;
-      }
-
-      .fullscreen-container {
-        width: 100vw;
-        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .fullscreen-container {
+        width: 100%;
+        height: 100%;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .container {
         background: rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        width: 45vw;
+        width: 90%;
         max-width: 600px;
-        height: 90vh;
+        height: 85%;
+        max-height: 600px;
         padding: 20px;
         box-sizing: border-box;
         text-align: center;
-        animation: fadeIn 1.5s ease-in-out;
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
       #background-lottie {
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         z-index: 0;
         pointer-events: none;
       }
@@ -59,8 +66,8 @@
       }
 
       #logo-mbt-lottie {
-        width: 10%;
-        max-width: 60px;
+        width: 12%;
+        max-width: 80px;
         position: fixed;
         top: 10px;
         left: 10px;
@@ -68,14 +75,15 @@
       }
 
       .banner {
-        font-size: clamp(1rem, 1.8vw, 1.2rem);
-        margin: 0.5rem auto;
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+        color: #333;
       }
 
       .mass,
       .message {
-        font-size: clamp(0.9rem, 1.5vw, 1rem);
-        margin: 0.5rem auto;
+        font-size: 1rem;
+        margin: 0.5rem 0;
       }
 
       .highlight {
@@ -84,91 +92,83 @@
       }
 
       .footer {
-        font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+        font-size: 0.9rem;
         color: #666;
         margin-top: 1rem;
-        text-align: center;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
       }
 
       /* Reglas para orientación vertical (portrait) */
       @media screen and (orientation: portrait) {
         .container {
-          display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: space-around;
           align-items: center;
           padding: 20px;
-          width: 90%;
-          height: 85%;
-          margin-top: 5%; /* Espaciado desde la parte superior */
         }
+
         #hp-logo-lottie {
           width: 60%;
           margin-bottom: 15px;
         }
+
         #lottie-container {
           width: 80%;
           margin-bottom: 15px;
         }
+
         #logo-mbt-lottie {
-          width: 12%; /* Ajustado para portrait */
-          top: 10px;
-          left: 10px;
+          width: 15%;
+          top: 15px;
+          left: 15px;
         }
+
         .banner {
-          font-size: 1rem;
-          margin-bottom: 10px;
+          font-size: 1.1rem;
         }
+
         .mass,
         .message {
-          font-size: 0.9rem;
-          margin-bottom: 10px;
-        }
-        .footer {
-          font-size: 0.8rem;
-          margin-top: auto;
+          font-size: 1rem;
         }
       }
 
       /* Reglas para orientación horizontal (landscape) */
       @media screen and (orientation: landscape) {
         .container {
-          display: flex;
           flex-direction: row;
           justify-content: space-evenly;
           align-items: center;
-          width: 80%;
-          height: 70%;
-          margin-top: 0;
+          height: 75%;
           padding: 20px;
         }
+
         #hp-logo-lottie {
           width: 40%;
           margin: 0;
         }
+
         #lottie-container {
           width: 50%;
           margin: 0;
         }
+
         #logo-mbt-lottie {
-          width: 8%; /* Más pequeño en landscape */
-          top: 5px;
-          left: 5px;
+          width: 10%;
+          top: 10px;
+          left: 10px;
         }
-        .footer {
+
+        .banner {
           font-size: 1rem;
-          margin-top: 20px;
+        }
+
+        .mass,
+        .message {
+          font-size: 0.9rem;
+        }
+
+        .footer {
+          font-size: 0.8rem;
         }
       }
     </style>
