@@ -23,17 +23,17 @@
       }
 
       .container {
-        background: rgba(255, 255, 255, 0.9); /* Más opaco para evitar transparencia excesiva */
+        background: rgba(255, 255, 255, 0.9);
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         width: 45vw;
-        max-width: 600px; /* Limita el tamaño en pantallas grandes */
+        max-width: 600px;
         height: 90vh;
         padding: 20px;
         box-sizing: border-box;
         text-align: center;
         animation: fadeIn 1.5s ease-in-out;
-        position: relative; /* Para posicionar elementos hijos */
+        position: relative;
       }
 
       #background-lottie {
@@ -47,7 +47,7 @@
       }
 
       #hp-logo-lottie {
-        width: 50%; /* Ajusta proporcionalmente al contenedor */
+        width: 50%;
         max-width: 150px;
         margin: 0 auto 10px;
       }
@@ -59,22 +59,22 @@
       }
 
       #logo-mbt-lottie {
-        width: 10%; /* Ajusta el tamaño del logo MBT */
+        width: 10%;
         max-width: 60px;
-        position: fixed; /* Fija el logo en la esquina superior izquierda */
-        top: 10px; /* Espaciado desde la parte superior */
-        left: 10px; /* Espaciado desde la parte izquierda */
-        z-index: 2; /* Asegúrate de que esté por encima del fondo */
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
       }
 
       .banner {
-        font-size: clamp(1rem, 1.8vw, 1.2rem); /* Reducido para mayor discreción */
+        font-size: clamp(1rem, 1.8vw, 1.2rem);
         margin: 0.5rem auto;
       }
 
       .mass,
       .message {
-        font-size: clamp(0.9rem, 1.5vw, 1rem); /* Reducido para mantener consistencia */
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
         margin: 0.5rem auto;
       }
 
@@ -84,7 +84,7 @@
       }
 
       .footer {
-        font-size: clamp(0.7rem, 1.2vw, 0.9rem); /* Más pequeño pero aún legible */
+        font-size: clamp(0.7rem, 1.2vw, 0.9rem);
         color: #666;
         margin-top: 1rem;
         text-align: center;
@@ -101,42 +101,73 @@
         }
       }
 
-      @media screen and (max-width: 640px) {
+      /* Reglas para orientación vertical (portrait) */
+      @media screen and (orientation: portrait) {
         .container {
-          display: flex; /* Activa Flexbox */
-          flex-direction: column; /* Orientación vertical */
-          justify-content: center; /* Centra el contenido verticalmente */
-          align-items: center; /* Centra el contenido horizontalmente */
-          padding: 10px;
-          width: 80vw; /* Maximiza el uso del ancho en móviles */
-          height: 90vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+          width: 80vw;
+          height: 85vh;
+          margin-top: 20px; /* Añadimos espacio desde la parte superior */
         }
         #hp-logo-lottie {
           width: 60%;
-          margin-bottom: 15px; /* Agrega espacio entre elementos */
+          margin-bottom: 15px;
         }
         #lottie-container {
           width: 80%;
-          margin-bottom: 15px; /* Agrega espacio entre elementos */
+          margin-bottom: 15px;
         }
         #logo-mbt-lottie {
-          width: 15%; /* Ajusta el tamaño del logo en móviles */
-          top: 5px; /* Reduce el margen superior en móviles */
-          left: 5px; /* Reduce el margen izquierdo en móviles */
+          width: 15%; /* Ajustamos el tamaño del logo */
+          top: 10px;
+          left: 10px;
         }
         .banner {
-          font-size: 1rem; /* Ajustado para pantallas pequeñas */
-          margin-bottom: 10px; /* Espaciado entre el banner y otros elementos */
+          font-size: 1rem;
+          margin-bottom: 10px;
         }
         .mass,
         .message {
-          font-size: 0.9rem; /* Más compacto en móviles */
-          margin-bottom: 10px; /* Espaciado entre cada mensaje */
+          font-size: 0.9rem;
+          margin-bottom: 10px;
         }
         .footer {
           font-size: 0.8rem;
-          margin-top: auto; /* Empuja el footer hacia la parte inferior del contenedor */
-          text-align: center;
+          margin-top: auto;
+        }
+      }
+
+      /* Reglas para orientación horizontal (landscape) */
+      @media screen and (orientation: landscape) {
+        .container {
+          display: flex;
+          flex-direction: row; /* Orientación horizontal */
+          justify-content: space-evenly;
+          align-items: center;
+          width: 90vw;
+          height: 60vh;
+          padding: 20px;
+        }
+        #hp-logo-lottie {
+          width: 40%;
+          margin: 0;
+        }
+        #lottie-container {
+          width: 50%;
+          margin: 0;
+        }
+        #logo-mbt-lottie {
+          width: 8%; /* Más pequeño en landscape */
+          top: 5px;
+          left: 5px;
+        }
+        .footer {
+          font-size: 1rem;
+          margin-top: 20px;
         }
       }
     </style>
@@ -154,29 +185,41 @@
         <p class="footer">Consulta de Avance</p>
         <p class="footer"><i>Garantías 2025</i></p>
       </div>
-      <div id="logo-mbt-lottie"></div> <!-- Logo MBT ahora en la esquina superior izquierda -->
+      <div id="logo-mbt-lottie"></div>
     </div>
     <script>
       // Animaciones Lottie
       const backgroundAnimation = lottie.loadAnimation({
         container: document.getElementById('background-lottie'),
-        path: './background2.json', renderer: 'canvas', loop: true, autoplay: true,
+        path: './background2.json',
+        renderer: 'canvas',
+        loop: true,
+        autoplay: true,
         rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
       });
 
       const hpLogoAnimation = lottie.loadAnimation({
         container: document.getElementById('hp-logo-lottie'),
-        path: './hp-logo.json', renderer: 'svg', loop: true, autoplay: true
+        path: './hp-logo.json',
+        renderer: 'svg',
+        loop: true,
+        autoplay: true
       });
 
       const mainAnimation = lottie.loadAnimation({
         container: document.getElementById('lottie-container'),
-        path: './Asistente.json', renderer: 'svg', loop: true, autoplay: true
+        path: './Asistente.json',
+        renderer: 'svg',
+        loop: true,
+        autoplay: true
       });
 
       const logoMbtAnimation = lottie.loadAnimation({
         container: document.getElementById('logo-mbt-lottie'),
-        path: './Logo_MBT_Fade.json', renderer: 'svg', loop: true, autoplay: true
+        path: './Logo_MBT_Fade.json',
+        renderer: 'svg',
+        loop: true,
+        autoplay: true
       });
     </script>
   </body>
