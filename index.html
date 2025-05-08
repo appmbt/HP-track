@@ -23,22 +23,20 @@
       }
 
       .container {
-        background: rgba(255, 255, 255, 0.75); /* Más opaco para evitar transparencia excesiva */
+        background: rgba(255, 255, 255, 0.9); /* Más opaco para evitar transparencia excesiva */
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        width: 60vw;
-        height: 90vh;
+        width: 90%; /* Ajusta al 90% del ancho disponible */
         max-width: 400px; /* Limita el tamaño en pantallas grandes */
-        padding: 10px;
+        padding: 20px;
         box-sizing: border-box;
         text-align: center;
-        z-index: 2;
         animation: fadeIn 1.5s ease-in-out;
+        position: relative; /* Para posicionar elementos hijos */
       }
 
       #background-lottie {
         position: fixed;
-        background-color: rgba(0, 110, 200, 0.75);
         top: 0;
         left: 0;
         width: 100vw;
@@ -48,54 +46,46 @@
       }
 
       #hp-logo-lottie {
-        width: 30%; /* Ajusta proporcionalmente a la pantalla */
+        width: 50%; /* Ajusta proporcionalmente al contenedor */
         max-width: 150px;
-        margin: 0 auto;
-        z-index: 3; 
+        margin: 0 auto 10px;
       }
 
       #lottie-container {
-        width: 40%;
+        width: 60%;
         max-width: 200px;
         margin: 20px auto;
-        z-index: 3; 
       }
 
       #logo-mbt-lottie {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        width: 15%;
-        max-width: 80px;
+        width: 15%; /* Ajusta el tamaño al contenedor */
+        max-width: 70px;
+        margin: 10px auto 0; /* Centra el logo MBT */
         aspect-ratio: 1 / 1;
-        z-index: 2;
+        position: relative; /* Asegúrate de que esté dentro del contenedor */
       }
 
       .banner {
-        font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+        font-size: clamp(1rem, 1.8vw, 1.2rem); /* Reducido para mayor discreción */
         margin: 0.5rem auto;
-        z-index: 3; 
       }
 
       .mass,
       .message {
-        font-size: clamp(1rem, 2vw, 1.2rem);
+        font-size: clamp(0.9rem, 1.5vw, 1rem); /* Reducido para mantener consistencia */
         margin: 0.5rem auto;
-        z-index: 3; 
       }
 
       .highlight {
         color: #0078d4;
         font-weight: bold;
-        z-index: 3; 
       }
 
       .footer {
-        font-size: clamp(0.8rem, 1.5vw, 1rem);
+        font-size: clamp(0.7rem, 1.2vw, 0.9rem); /* Más pequeño pero aún legible */
         color: #666;
         margin-top: 1rem;
         text-align: center;
-        z-index: 3; 
       }
 
       @keyframes fadeIn {
@@ -121,14 +111,17 @@
           width: 80%;
         }
         #logo-mbt-lottie {
-          width: 12%;
+          width: 20%;
         }
         .banner {
-          font-size: 1.25rem;
+          font-size: 1rem; /* Ajustado para pantallas pequeñas */
         }
         .mass,
         .message {
-          font-size: 1rem;
+          font-size: 0.9rem; /* Más compacto en móviles */
+        }
+        .footer {
+          font-size: 0.8rem; /* Discreto pero legible */
         }
       }
     </style>
@@ -145,7 +138,7 @@
         <p class="message">Contáctanos: <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
         <p class="footer">Consulta de Avance</p>
         <p class="footer"><i>Garantías 2025</i></p>
-        <div id="logo-mbt-lottie"></div>
+        <div id="logo-mbt-lottie"></div> <!-- Logo MBT ahora dentro del contenedor -->
       </div>
     </div>
     <script>
@@ -174,7 +167,7 @@
       // Evento para asegurar el estilo del contenedor después de la animación
       mainAnimation.addEventListener('complete', () => {
         const container = document.getElementById('content-container');
-        container.style.background = 'rgba(255, 255, 255, 0.75)'; // Restablece la opacidad original
+        container.style.background = 'rgba(255, 255, 255, 0.9)'; // Restablece la opacidad original
         container.style.transition = 'background 0.5s ease'; // Suaviza la transición
       });
     </script>
