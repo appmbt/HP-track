@@ -102,35 +102,46 @@
         }
       }
 
-      @media screen and (max-width: 640px) {
-        .container {
-          padding: 10px;
-          width: 80vw; /* Maximiza el uso del ancho en móviles */
-          height: 90vh;
-        justify-content: center;
-        }
-        #hp-logo-lottie {
-          width: 60%;
-        }
-        #lottie-container {
-          width: 80%;
-        }
-        #logo-mbt-lottie {
-          width: 15%; /* Ajusta el tamaño del logo en móviles */
-          top: 5px; /* Reduce el margen superior en móviles */
-          left: 5px; /* Reduce el margen izquierdo en móviles */
-        }
-        .banner {
-          font-size: 1rem; /* Ajustado para pantallas pequeñas */
-        }
-        .mass,
-        .message {
-          font-size: 0.9rem; /* Más compacto en móviles */
-        }
-        .footer {
-          font-size: 0.8rem; /* Discreto pero legible */
-        }
-      }
+@media screen and (max-width: 640px) {
+  .container {
+    display: flex; /* Activa Flexbox */
+    flex-direction: column; /* Orientación vertical */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 10px;
+    width: 80vw; /* Maximiza el uso del ancho en móviles */
+    height: 90vh;
+  }
+  #hp-logo-lottie {
+    width: 60%;
+    margin-bottom: 15px; /* Agrega espacio entre elementos */
+  }
+  #lottie-container {
+    width: 80%;
+    margin-bottom: 15px; /* Agrega espacio entre elementos */
+  }
+  #logo-mbt-lottie {
+    width: 15%; /* Ajusta el tamaño del logo en móviles */
+    margin-top: 10px; /* Espaciado superior */
+    position: absolute; /* Posiciona el logo en la esquina */
+    top: 5px; /* Reduce el margen superior en móviles */
+    left: 5px; /* Reduce el margen izquierdo en móviles */
+  }
+  .banner {
+    font-size: 1rem; /* Ajustado para pantallas pequeñas */
+    margin-bottom: 10px; /* Espaciado entre el banner y otros elementos */
+  }
+  .mass,
+  .message {
+    font-size: 0.9rem; /* Más compacto en móviles */
+    margin-bottom: 10px; /* Espaciado entre cada mensaje */
+  }
+  .footer {
+    font-size: 0.8rem; /* Discreto pero legible */
+    margin-top: auto; /* Empuja el footer hacia la parte inferior del contenedor */
+    text-align: center;
+  }
+}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   </head>
