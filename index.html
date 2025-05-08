@@ -68,9 +68,11 @@
       /* Tercer Contenedor del Contenedor interno central */
       .central-container-3 {
         width: 100%;
-        height: calc(15% - 10px);
+        height: 15%;
         margin: 0;
         z-index: 2;
+        vertical-align: center;
+        padding-bottom: 0;
         position: relative;
       }
       /* Primer Contenedor del Primer Contenedor interno central */
@@ -107,34 +109,38 @@
       }  
       /* Segundo Contenedor del Primer Contenedor interno central */
       .central-container-2-2 {
-        width: 100%;
+        width: 90%;
         height: 25%;
-        margin: 0;
+        margin: 5%;
         z-index: 3;
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
+        vertical-align: center;
+        gap: 0.3%;
       } 
       
         /* Primer Contenedor Segundo Contenedor del Primer Contenedor interno central */
       .central-container-2-2-1 {
-        width: 40%;
+        width: 28%;
         height: 100%;
+        margin-left: 5%;
         z-index: 4;
         position: relative;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: right;
       }
         /* Primer Contenedor Segundo Contenedor del Primer Contenedor interno central */
       .central-container-2-2-2 {
-        width: 55%;
+        width: 70%;
         height: 100%;
         margin: 0;
         z-index: 4;
         position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
       }
@@ -167,7 +173,7 @@
         padding: 0;
         margin: 0;
         height: 100%;          /* Altura al 90% del contenedor padre */
-        width: 20%;          /* Ancho automático para mantener proporción */
+        width: auto;
         max-width: 100%;      /* Evitar que la imagen se desborde */
       }
 
@@ -199,7 +205,8 @@
       }
       .message {
         font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-        margin: 3% auto;
+        text-align: center;
+        margin: 1% auto;
       }
       .highlight {
         color: #0078D4;
@@ -208,14 +215,58 @@
       .footer {
         font-size: clamp(0.6rem, 1vw, 0.9rem);
         color: #666;
-        margin-top: 3% auto;
-        align-items: bottom;
+        bottom: 2vh;
+        align-items: center;
       }
+            @media (orientation: portrait) {
+        .central-container {
+          width: 90vw; /* Más ancho para portrait */
+          height: 80vh;
+        }
 
-     .footer1 {
-      font-size: clamp(0.5rem, 0.8vw, 0.7rem);
-      color: #666;
-      margin-top: auto;
+        .central-container-1 {
+          height: 35%; /* Ajuste para mayor espacio en portrait */
+        }
+
+        .central-container-2 {
+          height: 50%;
+          width: 100%;
+        }
+
+        .central-container-3 {
+          height: 15%;
+        }
+
+        #logo-hp {
+          height: 65%; /* Más pequeño en portrait */
+        }
+
+        #lottie-bot {
+          height: 70%;
+        }
+
+        #logo-mbt {
+          width: 17.5vw; /* Ajustar tamaño de logos */
+        }
+
+        #logo-ds {
+          width: 10vw; /* Ajustar tamaño de logos */
+          bottom: 1.5vh;
+          right: 2vw;
+        }
+
+        .banner {
+          font-size: clamp(1rem, 1.5vw, 1.6rem);
+        }
+
+        .message {
+          font-size: clamp(0.75rem, 1.3vw, 1.4rem);
+          overflow: hidden;
+        }
+
+        .footer {
+          font-size: clamp(0.5rem, 0.9vw, 1rem);
+        }
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
@@ -227,21 +278,19 @@
         <div class="central-container-1">
           <div class="central-container-1-1" id="logo-hp"></div>
           <div class="central-container-1-2">
-          <p class="banner highlight">Seguimiento - Garantías HP</p></div>
-        </div>
+          <p class="banner highlight">Seguimiento - Garantías HP</p></div></div>
         <div class="central-container-2">
           <div class="central-container-2-1" id="lottie-bot"></div>
           <div class="central-container-2-2">
             <div class="central-container-2-2-1" id="outlook"></div>
             <div class="central-container-2-2-2">
-              <p class="message">¿Tienes dudas?<a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
+              <p class="message">¿Tienes dudas?<br><a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
             </div>
           </div>
-        </div>
         <div class="central-container-3">
-          <p class="footer">Consulta de Avance</p>
-          <p class="footer1"><i>Garantías 2025</i></p>
+          <p class="footer">Consulta de Avance<br><i>Garantías 2025</i></p>
         </div>
+    </div>
     </div>
     <div id="logo-mbt"></div>
     <div id="logo-ds"></div>
