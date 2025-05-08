@@ -23,12 +23,12 @@
       }
 
       .container {
-        background: rgba(255, 255, 255, 0.75); /* Más opaco para evitar transparencia excesiva */
+        background: rgba(255, 255, 255, 0.9); /* Más opaco para evitar transparencia excesiva */
         border-radius: 20px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         width: 45vw;
-        height: 90vh;
         max-width: 600px; /* Limita el tamaño en pantallas grandes */
+        height: 90vh;
         padding: 20px;
         box-sizing: border-box;
         text-align: center;
@@ -59,11 +59,15 @@
       }
 
       #logo-mbt-lottie {
-        width: 15%; /* Ajusta el tamaño al contenedor */
-        max-width: 70px;
-        margin: 10px auto 0; /* Centra el logo MBT */
+        width: 12%; /* Ajusta el tamaño del logo MBT */
+        max-width: 80px;
+        margin: 10px auto 0;
         aspect-ratio: 1 / 1;
-        position: relative; /* Asegúrate de que esté dentro del contenedor */
+        position: absolute; /* Posiciona el logo dentro del contenedor */
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%); /* Centra el logo horizontalmente */
+        z-index: 2; /* Asegúrate de que esté encima del contenido */
       }
 
       .banner {
@@ -112,7 +116,7 @@
           width: 80%;
         }
         #logo-mbt-lottie {
-          width: 20%;
+          width: 20%; /* Ajusta el tamaño del logo en móviles */
         }
         .banner {
           font-size: 1rem; /* Ajustado para pantallas pequeñas */
@@ -163,13 +167,6 @@
       const logoMbtAnimation = lottie.loadAnimation({
         container: document.getElementById('logo-mbt-lottie'),
         path: './Logo_MBT_Fade.json', renderer: 'svg', loop: true, autoplay: true
-      });
-
-      // Evento para asegurar el estilo del contenedor después de la animación
-      mainAnimation.addEventListener('complete', () => {
-        const container = document.getElementById('content-container');
-        container.style.background = 'rgba(255, 255, 255, 0.9)'; // Restablece la opacidad original
-        container.style.transition = 'background 0.5s ease'; // Suaviza la transición
       });
     </script>
   </body>
