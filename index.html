@@ -349,13 +349,16 @@ if (sch) {
       return res.text(); // Cambiar a res.text() para procesar HTML como texto
     })
     .then(data => {
-      document.getElementById("resultado").innerHTML = data; // Renderizar el HTML recibido
+      // Renderizar el contenido HTML dinámico en el contenedor
+      document.getElementById("contenido-dinamico").innerHTML = data;
     })
     .catch(err => {
-      document.getElementById("resultado").textContent = "Error en la solicitud: " + err;
+      // Mostrar el error dentro del contenedor
+      document.getElementById("contenido-dinamico").innerHTML = `<p>Error en la solicitud: ${err.message}</p>`;
     });
 } else {
-  document.getElementById("resultado").textContent = "No se proporcionó el parámetro 'sch' en el hash.";
+  // Mostrar un mensaje indicando que falta el parámetro 'sch'
+  document.getElementById("contenido-dinamico").innerHTML = "<p>No se proporcionó el parámetro 'sch' en el hash.</p>";
 }
     </script>
   </body>
