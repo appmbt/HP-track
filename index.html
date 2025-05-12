@@ -336,29 +336,88 @@ function obtenerParametroDesdeHash(nombre) {
   return params.get(nombre);
 }
 
+// Obtener el parámetro 'sch' desde el hash de la URL
 const sch = obtenerParametroDesdeHash("sch");
 
 if (sch) {
-  const url = `https://back-tracker-theta.vercel.app/api/tracker?&sch=${sch}`;
+  const url = `https://tu-backend.vercel.app/api/tracker?sch=${encodeURIComponent(sch)}`;
 
   fetch(url)
-    .then(res => {
+    .then((res) => {
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
-      return res.text(); // Cambiar a res.text() para procesar HTML como texto
+      return res.json(); // Procesar como JSON porque la respuesta contiene datos estructurados
     })
-    .then(data => {
-      // Renderizar el contenido HTML dinámico en el contenedor
-      document.getElementById("contenido-dinamico").innerHTML = data;
+    .then((data) => {
+      const { Code, Usuario, Seguimiento, Proyecto, CasoHP, FolioCliente, Abierto, Estatus, Título, ÚltimaNota, ConsultaRealizadaEl } = data;
+
+      // Extraer la primera parte de "ÚltimaNota" (antes de un salto de línea)
+      const primerNota = ÚltimaNota ? ÚltimaNota.split("\n")[0] : "No hay notas registradas.";
+
+      // Actualizar el banner
+      const banner = document.querySelector(".central-container-1-2 .banner");
+
+      // Variables comunes
+      const folioInfo = `
+        <li class="message">Falla: <span class="highlight">${Título}</span></li>
+        <li class="message">Proyecto: <span class="highlight">${Proyecto}</span></li>
+        <li class="message">Folio Cliente: <span class="highlight">${FolioCliente}</span></li>
+        <li class="message">Abierto: <span class="highlight">${Abierto}</span></li>
+        <li class="message">Estatus: <span class="highlight">${Estatus}</span></li>
+        <li class="message">Última Nota: <span class="highlight">${primerNota}</span></li>
+      `;
+
+      // Variables para el contenedor principal
+      const centralContainer2_1 = document.querySelector(".central-container-2-1");
+      const centralContainer2_2 = document.querySelector(".central-container-2-2");
+
+      if (Code === "new") {
+        banner.textContent = `Hola ${Usuario}!`;
+        centralContainer2_1.innerHTML = `
+          <p class="message">La primer solicitud de seguimiento para el folio <span id="folio" class="highlight">${CasoHP}</span></p>
+          <div class="list">${folioInfo}</div>
+          <p class="message">Ha sido enviada correctamente.</p>
+          <p class="message">En breve recibirás noticias, por favor presta atención a tu correo electrónico y Teams.</p>
+          <p class="message">Gracias por utilizar el seguimiento automático de Garantías.</p>
+        `;
+        centralContainer2_2.innerHTML = ""; // Vaciar el contenedor adicional
+      } else if (Code === "add") {
+        banner.textContent = `Hola ${Usuario}!`;
+        centralContainer2_1.innerHTML = `
+          <p class="message">Tu solicitud de seguimiento No <span class="highlight">${Seguimiento}</span> para el folio <span id="folio" class="highlight">${CasoHP}</span></p>
+          <div class="list">${folioInfo}</div>
+          <p class="message">Ha sido enviada correctamente.</p>
+          <p class="message">En breve recibirás noticias, por favor presta atención a tu correo electrónico y Teams.</p>
+          <p class="message">Gracias por utilizar el seguimiento automático de Garantías.</p>
+        `;
+        centralContainer2_2.innerHTML = ""; // Vaciar el contenedor adicional
+      } else if (Code === "alive") {
+        banner.textContent = `Hola ${Usuario}!`;
+        centralContainer2_1.innerHTML = `
+          <p class="message">Tu solicitud de seguimiento No <span class="highlight">${Seguimiento}</span> para el folio <span id="folio" class="highlight">${CasoHP}</span></p>
+          <div class="list">${folioInfo}</div>
+        `;
+        centralContainer2_2.innerHTML = `
+          <p class="message"><span id="user" class="highlight">Se encuentra activa y está siendo atendida.</span></p>
+          <p class="message"><b>Consulta realizada el: ${ConsultaRealizadaEl}</b></p>
+          <p class="message">** Las solicitudes de avance tienen una vigencia de 24 horas **</p>
+          <p class="message">Gracias por utilizar el seguimiento automático de Garantías.</p>
+        `;
+      } else {
+        banner.textContent = "Código desconocido. Por favor verifica la información.";
+        centralContainer2_1.innerHTML = `<p class="message">No se pudo procesar la solicitud.</p>`;
+        centralContainer2_2.innerHTML = "";
+      }
     })
-    .catch(err => {
-      // Mostrar el error dentro del contenedor
-      document.getElementById("contenido-dinamico").innerHTML = `<p>Error en la solicitud: ${err.message}</p>`;
+    .catch((err) => {
+      console.error("Error en la solicitud:", err);
+      const banner = document.querySelector(".central-container-1-2 .banner");
+      banner.textContent = "Ocurrió un error al cargar los datos.";
     });
 } else {
-  // Mostrar un mensaje indicando que falta el parámetro 'sch'
-  document.getElementById("contenido-dinamico").innerHTML = "<p>No se proporcionó el parámetro 'sch' en el hash.</p>";
+  const banner = document.querySelector(".central-container-1-2 .banner");
+  banner.textContent = "No se proporcionó el parámetro 'sch' en el hash.";
 }
     </script>
   </body>
