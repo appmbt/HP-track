@@ -249,108 +249,102 @@
     <div id="logo-ds"></div>
     </div>
       <script>
-      // Animaciones Lottie
-      const backgroundAnimation = lottie.loadAnimation({
-        container: document.getElementById('background-lottie'),
-        path: './background2.json', renderer: 'canvas', loop: true, autoplay: true,
-        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
-      });
-
-      const hpLogoAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-hp'),
-        path: './hp-logo.json', renderer: 'svg', loop: true, autoplay: true
-      });
-
-      const mainAnimation = lottie.loadAnimation({
+    // Inicia la animación de carga
+    window.addEventListener('DOMContentLoaded', () => {
+      lottie.loadAnimation({
         container: document.getElementById('lottie-srch'),
-        path: './sphere.json', renderer: 'svg', loop: true, autoplay: true
+        path: './sphere.json', // asegúrate de que esté en la raíz o ajusta la ruta
+        renderer: 'svg',
+        loop: true,
+        autoplay: true
       });
+    });
 
-       const OutlookAnimation = lottie.loadAnimation({
-        container: document.getElementById('outlook'),
-        path: './Outlook.json', renderer: 'svg', loop: true, autoplay: true
-      });     
-
-      const logoMbtAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-mbt'),
-        path: './Logo_Mbt_wink.json', renderer: 'svg', loop: true, autoplay: true
-      });
-
-      const logoDSAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-ds'),
-        path: './Logo_DS_wink.json', renderer: 'svg', loop: true, autoplay: true
-      });
-
-  // Lógica para obtener el seguimiento
-  function obtenerParametroDesdeHash(nombre) {
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
-    return params.get(nombre);
-  }
-
-  const sch = obtenerParametroDesdeHash("sch");
-
-  const plantillas = {
-    new: (d) => `
-      <p class="banner highlight">Hola ${d.Usuario}!</p>
-      <p class="message">Primer solicitud para el folio <span class="highlight">${d.CasoHP}</span></p>
-      <ul>
-        <li>Falla: <span class="highlight">${d.Título}</span></li>
-        <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-        <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-        <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-        <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-        <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
-      </ul>
-    `,
-    add: (d) => `
-      <p class="banner highlight">Hola ${d.Usuario}!</p>
-      <p class="message">Seguimiento No <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
-      <ul>
-        <li>Falla: <span class="highlight">${d.Título}</span></li>
-        <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-        <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-        <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-        <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-        <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
-      </ul>
-    `,
-    alive: (d) => `
-      <p class="banner highlight">Hola ${d.Usuario}!</p>
-      <p class="message">Seguimiento No <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
-      <ul>
-        <li>Falla: <span class="highlight">${d.Título}</span></li>
-        <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-        <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-        <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-        <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-        <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
-      </ul>
-      <p>Consulta realizada el: <span class="highlight">${d["Consulta realizada el"]}</span></p>
-    `
-  };
-
-  function renderizarContenido(data) {
-    const plantilla = plantillas[data.Code];
-    const contenedor = document.querySelector(".general-container");
-    if (plantilla) {
-      contenedor.innerHTML = plantilla(data);
-    } else {
-      contenedor.innerHTML = `<p class="message">Código de respuesta desconocido.</p>`;
+    // Utilidad para extraer parámetros del hash
+    function obtenerParametroDesdeHash(nombre) {
+      const hash = window.location.hash.substring(1);
+      const params = new URLSearchParams(hash);
+      return params.get(nombre);
     }
-  }
 
-  if (sch) {
-    fetch(`https://back-tracker-theta.vercel.app/api/tracker?&sch=${sch}`)
-      .then(res => {
-        if (!res.ok) throw new Error("Error de red");
-        return res.json();
-      })
-      .then(({ body }) => renderizarContenido(body))
-      .catch(err => {
-        document.querySelector(".general-container").innerHTML = `<p class="message">Error al cargar el seguimiento: ${err.message}</p>`;
-      });
-  }
-      </script>
+    const sch = obtenerParametroDesdeHash("sch");
+
+    const plantillas = {
+      new: (d) => `
+        <p class="banner highlight">Hola ${d.Usuario}!</p>
+        <p class="message">Primera solicitud para el folio <span class="highlight">${d.CasoHP}</span></p>
+        <ul>
+          <li>Falla: <span class="highlight">${d.Título}</span></li>
+          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
+          <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
+          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
+          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
+          <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
+        </ul>
+      `,
+      add: (d) => `
+        <p class="banner highlight">Hola ${d.Usuario}!</p>
+        <p class="message">Seguimiento No <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
+        <ul>
+          <li>Falla: <span class="highlight">${d.Título}</span></li>
+          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
+          <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
+          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
+          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
+          <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
+        </ul>
+      `,
+      alive: (d) => `
+        <p class="banner highlight">Hola ${d.Usuario}!</p>
+        <p class="message">Seguimiento No <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
+        <ul>
+          <li>Falla: <span class="highlight">${d.Título}</span></li>
+          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
+          <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
+          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
+          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
+          <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
+        </ul>
+        <p class="message">Consulta realizada el: <span class="highlight">${d["Consulta realizada el"]}</span></p>
+      `
+    };
+
+    function renderizarContenido(data) {
+      const plantilla = plantillas[data.Code];
+      const contenedor = document.getElementById("contenido");
+      const cargando = document.getElementById("cargando");
+
+      if (plantilla) {
+        contenedor.innerHTML = plantilla(data);
+        cargando.style.display = "none";
+        contenedor.style.display = "block";
+      } else {
+        contenedor.innerHTML = `<p class="message">Código de respuesta desconocido.</p>`;
+        cargando.style.display = "none";
+        contenedor.style.display = "block";
+      }
+    }
+
+    // Fetch al backend
+    if (sch) {
+      fetch(`https://back-tracker-theta.vercel.app/api/tracker?&sch=${encodeURIComponent(sch)}`)
+        .then(res => {
+          if (!res.ok) throw new Error("Error en la solicitud");
+          return res.json();
+        })
+        .then(({ body }) => renderizarContenido(body))
+        .catch(err => {
+          document.getElementById("cargando").style.display = "none";
+          const contenedor = document.getElementById("contenido");
+          contenedor.innerHTML = `<p class="message">Error al cargar el seguimiento: ${err.message}</p>`;
+          contenedor.style.display = "block";
+        });
+    } else {
+      document.getElementById("cargando").style.display = "none";
+      const contenedor = document.getElementById("contenido");
+      contenedor.innerHTML = `<p class="message">Falta el parámetro 'sch' en la URL.</p>`;
+      contenedor.style.display = "block";
+    }
+  </script>
   </body>
 </html>
