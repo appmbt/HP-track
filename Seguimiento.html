@@ -105,7 +105,7 @@
         object-fit: contain;  /* Mantener proporción */
       }
 
-      #lottie-bot {
+      #lottie-srch {
         height: 75%;          /* Altura al 90% del contenedor padre */
         width: auto;          /* Ancho automático para mantener proporción */
         max-width: 100%;      /* Evitar que la imagen se desborde */
@@ -227,40 +227,76 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   </head>
   <body>
-    <div class="fullscreen-container">
-      <div id="background-lottie"></div>
-      <div class="central-container">
-        <div class="central-container-1">
-          <div class="central-container-1-1" id="logo-hp"></div>
-          <div class="general-container">
-            <p class="banner highlight">Espera un momento...</p></div>
-            <div id="lottie-bot"></div>
-        
+      <div class="fullscreen-container">
+    <div id="background-lottie"></div>
+    <div class="central-container">
+      <div class="central-container-1">
+        <div class="central-container-1-1" id="logo-hp"></div>
+        <div class="general-container" id="cargando">
+          <p class="banner highlight">Espera un momento...</p>
+          <div id="lottie-srch"></div>
         </div>
-          <div class="central-container-2-2-2">
-            <p class="message">¿Tienes dudas?<br><a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
-        </div>
-        <div class="central-container-3">
-          <p class="footer">Consulta de Avance<br><i>Garantías 2025</i></p>
-        </div>
-    </div>
+        <div id="contenido" class="general-container"></div>
+      </div>
+      <div class="central-container-2-2-2">
+        <p class="message">¿Tienes dudas?<br>
+          <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a>
+        </p>
+      </div>
+      <div class="central-container-3">
+        <p class="footer">Consulta de Avance<br><i>Garantías 2025</i></p>
+      </div>
     </div>
     <div id="logo-mbt"></div>
     <div id="logo-ds"></div>
-    </div>
-      <script>
-    // Inicia la animación de carga
+  </div>
+
+  <script>
+    // Animaciones Lottie
     window.addEventListener('DOMContentLoaded', () => {
       lottie.loadAnimation({
+        container: document.getElementById('background-lottie'),
+        path: './background2.json',
+        renderer: 'canvas',
+        loop: true,
+        autoplay: true,
+        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
+      });
+
+      lottie.loadAnimation({
+        container: document.getElementById('logo-hp'),
+        path: './hp-logo.json',
+        renderer: 'svg',
+        loop: true,
+        autoplay: true
+      });
+
+      lottie.loadAnimation({
         container: document.getElementById('lottie-srch'),
-        path: './sphere.json', // asegúrate de que esté en la raíz o ajusta la ruta
+        path: './sphere.json',
+        renderer: 'svg',
+        loop: true,
+        autoplay: true
+      });
+
+      lottie.loadAnimation({
+        container: document.getElementById('logo-mbt'),
+        path: './Logo_Mbt_wink.json',
+        renderer: 'svg',
+        loop: true,
+        autoplay: true
+      });
+
+      lottie.loadAnimation({
+        container: document.getElementById('logo-ds'),
+        path: './Logo_DS_wink.json',
         renderer: 'svg',
         loop: true,
         autoplay: true
       });
     });
 
-    // Utilidad para extraer parámetros del hash
+    // Obtener parámetro sch
     function obtenerParametroDesdeHash(nombre) {
       const hash = window.location.hash.substring(1);
       const params = new URLSearchParams(hash);
@@ -316,16 +352,14 @@
 
       if (plantilla) {
         contenedor.innerHTML = plantilla(data);
-        cargando.style.display = "none";
-        contenedor.style.display = "block";
       } else {
         contenedor.innerHTML = `<p class="message">Código de respuesta desconocido.</p>`;
-        cargando.style.display = "none";
-        contenedor.style.display = "block";
       }
+
+      cargando.style.display = "none";
+      contenedor.style.display = "block";
     }
 
-    // Fetch al backend
     if (sch) {
       fetch(`https://back-tracker-theta.vercel.app/api/tracker?&sch=${encodeURIComponent(sch)}`)
         .then(res => {
