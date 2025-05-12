@@ -330,104 +330,20 @@
         container: document.getElementById('logo-ds'),
         path: './Logo_DS_wink.json', renderer: 'svg', loop: true, autoplay: true
       });
-function obtenerParametroDesdeHash(nombre) {
-  const hash = window.location.hash.substring(1); // Elimina el '#'
-  const params = new URLSearchParams(hash);
-  return params.get(nombre);
-}
-
-const sch = obtenerParametroDesdeHash("sch");
-
-if (sch) {
-  const url = `https://back-tracker-theta.vercel.app/api/tracker?&sch=${sch}`;
-  console.log("Iniciando fetch a la URL:", url);
-
-  fetch(url)
-    .then((res) => {
-      console.log("Respuesta HTTP recibida:", res.status);
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      return res.json(); // Procesar la respuesta como JSON
-    })
-    .then((data) => {
-      console.log("Datos recibidos:", data);
-      renderizarContenido(data);
-    })
-    .catch((err) => {
-      console.error("Error en la solicitud:", err);
-      document.body.innerHTML = `<p>Error en la solicitud: ${err.message}</p>`;
-    });
-} else {
-  document.body.innerHTML = "<p>No se proporcionó el parámetro 'sch' en el hash.</p>";
-}
-
-// Función para renderizar el contenido basado en los datos
-function renderizarContenido(data) {
-  const { Code, Usuario, Seguimiento, Proyecto, CasoHP, FolioCliente, Abierto, Estatus, Título, ÚltimaNota, ConsultaRealizadaEl } = data;
-
-  // Extraer la primera parte de la última nota (antes de un salto de línea)
-  const primerNota = ÚltimaNota ? ÚltimaNota.split("\n")[0] : "No hay notas registradas.";
-
-  // Crear contenido dinámico basado en el valor de `Code`
-  let contenido = "";
-
-  if (Code === "new") {
-    contenido = `
-      <p class="banner highlight">Hola ${Usuario}!</p>
-      <p class="message">La primer solicitud de seguimiento para el folio <span class="highlight">${CasoHP}</span></p>
-      <ul>
-        <li class="message">Falla: <span class="highlight">${Título}</span></li>
-        <li class="message">Proyecto: <span class="highlight">${Proyecto}</span></li>
-        <li class="message">Folio Cliente: <span class="highlight">${FolioCliente}</span></li>
-        <li class="message">Abierto: <span class="highlight">${Abierto}</span></li>
-        <li class="message">Estatus: <span class="highlight">${Estatus}</span></li>
-        <li class="message">Última Nota: <span class="highlight">${primerNota}</span></li>
-      </ul>
-      <p class="message">Ha sido enviada correctamente.</p>
-      <p class="message">En breve recibirás noticias, por favor presta atención a tu correo electrónico y Teams.</p>
-      <p class="message">Gracias por utilizar el seguimiento automático de Garantías.</p>
-    `;
-  } else if (Code === "add") {
-    contenido = `
-      <p class="banner highlight">Hola ${Usuario}!</p>
-      <p class="message">Tu solicitud de seguimiento No <span class="highlight">${Seguimiento}</span> para el folio <span class="highlight">${CasoHP}</span></p>
-      <ul>
-        <li class="message">Falla: <span class="highlight">${Título}</span></li>
-        <li class="message">Proyecto: <span class="highlight">${Proyecto}</span></li>
-        <li class="message">Folio Cliente: <span class="highlight">${FolioCliente}</span></li>
-        <li class="message">Abierto: <span class="highlight">${Abierto}</span></li>
-        <li class="message">Estatus: <span class="highlight">${Estatus}</span></li>
-        <li class="message">Última Nota: <span class="highlight">${primerNota}</span></li>
-      </ul>
-      <p class="message">Ha sido enviada correctamente.</p>
-      <p class="message">En breve recibirás noticias, por favor presta atención a tu correo electrónico y Teams.</p>
-      <p class="message">Gracias por utilizar el seguimiento automático de Garantías.</p>
-    `;
-  } else if (Code === "alive") {
-    contenido = `
-      <p class="banner highlight">Hola ${Usuario}!</p>
-      <p class="message">Tu solicitud de seguimiento No <span class="highlight">${Seguimiento}</span> para el folio <span class="highlight">${CasoHP}</span></p>
-      <ul>
-        <li class="message">Falla: <span class="highlight">${Título}</span></li>
-        <li class="message">Proyecto: <span class="highlight">${Proyecto}</span></li>
-        <li class="message">Folio Cliente: <span class="highlight">${FolioCliente}</span></li>
-        <li class="message">Abierto: <span class="highlight">${Abierto}</span></li>
-        <li class="message">Estatus: <span class="highlight">${Estatus}</span></li>
-        <li class="message">Última Nota: <span class="highlight">${primerNota}</span></li>
-      </ul>
-      <p class="message"><span id="user" class="highlight">Se encuentra activa y está siendo atendida.</span></p>
-      <p class="message"><b>Consulta realizada el: ${ConsultaRealizadaEl}</b></p>
-      <p class="message">** Las solicitudes de avance tienen una vigencia de 24 horas **</p>
-      <p class="message">Gracias por utilizar el seguimiento automático de Garantías.</p>
-    `;
-  } else {
-    contenido = `<p class="message">Código desconocido. Por favor verifica la información.</p>`;
+        <script>
+  // Redirecciona si encuentra el parámetro 'sch'
+  function obtenerParametroDesdeHash(nombre) {
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    return params.get(nombre);
   }
 
-  // Insertar el contenido en el cuerpo de la página
-  document.body.innerHTML = contenido;
-}
-    </script>
+  const sch = obtenerParametroDesdeHash("sch");
+
+  if (sch) {
+    // Redirige a seguimiento.html pasando el sch
+    window.location.href = `seguimiento.html#sch=${encodeURIComponent(sch)}`;
+  }
+</script>
   </body>
 </html>
