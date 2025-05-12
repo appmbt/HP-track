@@ -233,8 +233,8 @@
         <div class="central-container-1">
           <div class="central-container-1-1" id="logo-hp"></div>
           <div class="general-container">
-            <div class="central-container-1-2" id="lottie-bot"></div>
-          <p class="banner highlight">Espera un momento...</p></div>
+            <p class="banner highlight">Espera un momento...</p></div>
+            <div id="lottie-bot"></div>
         
         </div>
           <div class="central-container-2-2-2">
@@ -280,7 +280,6 @@
         container: document.getElementById('logo-ds'),
         path: './Logo_DS_wink.json', renderer: 'svg', loop: true, autoplay: true
       });
-
 
   // Lógica para obtener el seguimiento
   function obtenerParametroDesdeHash(nombre) {
@@ -352,6 +351,6 @@
         document.querySelector(".general-container").innerHTML = `<p class="message">Error al cargar el seguimiento: ${err.message}</p>`;
       });
   }
-</script>
+      </script>
   </body>
 </html>
