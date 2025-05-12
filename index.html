@@ -330,28 +330,33 @@
         container: document.getElementById('logo-ds'),
         path: './Logo_DS_wink.json', renderer: 'svg', loop: true, autoplay: true
       });
-  function obtenerParametroDesdeHash(nombre) {
-    const hash = window.location.hash.substring(1); // Elimina el '#'
-    const params = new URLSearchParams(hash);
-    return params.get(nombre);
-  }
+function obtenerParametroDesdeHash(nombre) {
+  const hash = window.location.hash.substring(1); // Elimina el '#'
+  const params = new URLSearchParams(hash);
+  return params.get(nombre);
+}
 
-  const sch = obtenerParametroDesdeHash("sch");
+const sch = obtenerParametroDesdeHash("sch");
 
-  if (sch) {
-    const url = `https://back-tracker-theta.vercel.app/api/tracker?&sch=${sch}`;
+if (sch) {
+  const url = `https://back-tracker-theta.vercel.app/api/tracker?&sch=${sch}`;
 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("resultado").textContent = JSON.stringify(data, null, 2);
-      })
-      .catch(err => {
-        document.getElementById("resultado").textContent = "Error en la solicitud: " + err;
-      });
-  } else {
-    document.getElementById("resultado").textContent = "No se proporcionó el parámetro 'sch' en el hash.";
-  }
+  fetch(url)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.text(); // Cambiar a res.text() para procesar HTML como texto
+    })
+    .then(data => {
+      document.getElementById("resultado").innerHTML = data; // Renderizar el HTML recibido
+    })
+    .catch(err => {
+      document.getElementById("resultado").textContent = "Error en la solicitud: " + err;
+    });
+} else {
+  document.getElementById("resultado").textContent = "No se proporcionó el parámetro 'sch' en el hash.";
+}
     </script>
   </body>
 </html>
