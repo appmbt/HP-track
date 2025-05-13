@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solicitud de Avance - Garantías HP</title>
     <style>
-
       body {
         margin: 0;
         padding: 0;
@@ -83,7 +82,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-      }  
+      }
       /* Contenedor General */
       .general-container {
         width: 100%;
@@ -99,17 +98,17 @@
       #logo-hp {
         padding: 0;
         margin: 0;
-        height: 70%;          /* Altura al 90% del contenedor padre */
-        width: auto;          /* Ancho automático para mantener proporción */
-        max-width: 100%;      /* Evitar que la imagen se desborde */
-        object-fit: contain;  /* Mantener proporción */
+        height: 70%; /* Altura al 90% del contenedor padre */
+        width: auto; /* Ancho automático para mantener proporción */
+        max-width: 100%; /* Evitar que la imagen se desborde */
+        object-fit: contain; /* Mantener proporción */
       }
 
       #lottie-srch {
-        height: 75%;          /* Altura al 90% del contenedor padre */
-        width: auto;          /* Ancho automático para mantener proporción */
-        max-width: 100%;      /* Evitar que la imagen se desborde */
-        object-fit: contain;  /* Mantener proporción */
+        height: 75%; /* Altura al 90% del contenedor padre */
+        width: auto; /* Ancho automático para mantener proporción */
+        max-width: 100%; /* Evitar que la imagen se desborde */
+        object-fit: contain; /* Mantener proporción */
       }
 
       #lottie-container {
@@ -119,16 +118,16 @@
         padding: 1%;
         overflow: hidden;
       }
-      
-      #outlook{
+
+      #outlook {
         padding: 0;
         margin: 0;
-        height: 100%;          /* Altura al 90% del contenedor padre */
+        height: 100%; /* Altura al 90% del contenedor padre */
         width: auto;
-        max-width: 100%;      /* Evitar que la imagen se desborde */
+        max-width: 100%; /* Evitar que la imagen se desborde */
       }
 
-      #logo-mbt{
+      #logo-mbt {
         position: absolute;
         top: 0;
         left: 5vw;
@@ -137,7 +136,7 @@
         aspect-ratio: 1 / 1;
       }
 
-      #logo-ds{
+      #logo-ds {
         position: absolute;
         bottom: 3.5vh;
         right: 3vw;
@@ -149,10 +148,10 @@
       /* Textos y estilos */
       .banner {
         font-size: clamp(1.2rem, 2vw, 1.8rem); /* Tamaño de fuente responsive */
-        margin: 0;                              /* Eliminar márgenes por defecto */
-        padding: 0;                             /* Eliminar padding por defecto */
-        width: 100%;                            /* Ocupar todo el ancho disponible */
-        text-align: center;                     /* Centrar el texto */
+        margin: 0; /* Eliminar márgenes por defecto */
+        padding: 0; /* Eliminar padding por defecto */
+        width: 100%; /* Ocupar todo el ancho disponible */
+        text-align: center; /* Centrar el texto */
       }
       .message {
         font-size: clamp(0.9rem, 1.5vw, 1.2rem);
@@ -160,7 +159,7 @@
         margin: 1% auto;
       }
       .highlight {
-        color: #0078D4;
+        color: #0078d4;
         font-weight: bold;
       }
       .footer {
@@ -169,7 +168,7 @@
         margin-top: 5% auto;
         text-align: center;
       }
-            @media (orientation: portrait) {
+      @media (orientation: portrait) {
         .central-container {
           width: 90vw; /* Más ancho para portrait */
           height: 75vh;
@@ -227,158 +226,195 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   </head>
   <body>
-      <div class="fullscreen-container">
-    <div id="background-lottie"></div>
-    <div class="central-container">
-      <div class="central-container-1">
-        <div class="central-container-1-1" id="logo-hp"></div>
-        <div class="general-container" id="cargando">
-          <p class="banner highlight">Espera un momento...</p>
-          <div id="lottie-srch"></div>
+    <div class="fullscreen-container">
+      <div id="background-lottie"></div>
+      <div class="central-container">
+        <div class="central-container-1">
+          <div class="central-container-1-1" id="logo-hp"></div>
+          <div class="general-container">
+            <div id="cargando">
+              <p class="banner highlight">Espera un momento...</p>
+              <div id="lottie-srch"></div>
+            </div>
+            <div id="contenido" class="general-container"></div>
+          </div>
+          <div class="central-container-2-2-2">
+            <p class="message">
+              ¿Tienes dudas?<br />
+              <a
+                href="mailto:servicios_garantias@mainbit.com.mx"
+                class="highlight"
+                >servicios_garantias@mainbit.com.mx</a
+              >
+            </p>
+          </div>
+          <div class="central-container-3">
+            <p class="footer">Consulta de Avance<br /><i>Garantías 2025</i></p>
+          </div>
         </div>
-        <div id="contenido" class="general-container"></div>
       </div>
-      <div class="central-container-2-2-2">
-        <p class="message">¿Tienes dudas?<br>
-          <a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a>
-        </p>
-      </div>
-      <div class="central-container-3">
-        <p class="footer">Consulta de Avance<br><i>Garantías 2025</i></p>
-      </div>
+      <div id="logo-mbt"></div>
+      <div id="logo-ds"></div>
     </div>
-    <div id="logo-mbt"></div>
-    <div id="logo-ds"></div>
-  </div>
 
-  <script>
-    // Animaciones Lottie
-    window.addEventListener('DOMContentLoaded', () => {
-      lottie.loadAnimation({
-        container: document.getElementById('background-lottie'),
-        path: './background2.json',
-        renderer: 'canvas',
-        loop: true,
-        autoplay: true,
-        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
+    <script>
+      // Animaciones Lottie
+      window.addEventListener("DOMContentLoaded", () => {
+        lottie.loadAnimation({
+          container: document.getElementById("background-lottie"),
+          path: "./background2.json",
+          renderer: "canvas",
+          loop: true,
+          autoplay: true,
+          rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
+        });
+
+        lottie.loadAnimation({
+          container: document.getElementById("logo-hp"),
+          path: "./hp-logo.json",
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+        });
+
+        lottie.loadAnimation({
+          container: document.getElementById("lottie-srch"),
+          path: "./sphere.json",
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+        });
+
+        lottie.loadAnimation({
+          container: document.getElementById("logo-mbt"),
+          path: "./Logo_Mbt_wink.json",
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+        });
+
+        lottie.loadAnimation({
+          container: document.getElementById("logo-ds"),
+          path: "./Logo_DS_wink.json",
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+        });
       });
 
-      lottie.loadAnimation({
-        container: document.getElementById('logo-hp'),
-        path: './hp-logo.json',
-        renderer: 'svg',
-        loop: true,
-        autoplay: true
-      });
-
-      lottie.loadAnimation({
-        container: document.getElementById('lottie-srch'),
-        path: './sphere.json',
-        renderer: 'svg',
-        loop: true,
-        autoplay: true
-      });
-
-      lottie.loadAnimation({
-        container: document.getElementById('logo-mbt'),
-        path: './Logo_Mbt_wink.json',
-        renderer: 'svg',
-        loop: true,
-        autoplay: true
-      });
-
-      lottie.loadAnimation({
-        container: document.getElementById('logo-ds'),
-        path: './Logo_DS_wink.json',
-        renderer: 'svg',
-        loop: true,
-        autoplay: true
-      });
-    });
-
-    // Obtener parámetro sch
-    function obtenerParametroDesdeHash(nombre) {
-      const hash = window.location.hash.substring(1);
-      const params = new URLSearchParams(hash);
-      return params.get(nombre);
-    }
-
-    const sch = obtenerParametroDesdeHash("sch");
-
-    const plantillas = {
-      new: (d) => `
-        <p class="banner highlight">Hola ${d.Usuario}!</p>
-        <p class="message">Primera solicitud para el folio <span class="highlight">${d.CasoHP}</span></p>
-        <ul>
-          <li>Falla: <span class="highlight">${d.Título}</span></li>
-          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-          <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-          <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
-        </ul>
-      `,
-      add: (d) => `
-        <p class="banner highlight">Hola ${d.Usuario}!</p>
-        <p class="message">Seguimiento No <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
-        <ul>
-          <li>Falla: <span class="highlight">${d.Título}</span></li>
-          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-          <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-          <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
-        </ul>
-      `,
-      alive: (d) => `
-        <p class="banner highlight">Hola ${d.Usuario}!</p>
-        <p class="message">Seguimiento No <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
-        <ul>
-          <li>Falla: <span class="highlight">${d.Título}</span></li>
-          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-          <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-          <li>Última Nota: <span class="highlight">${d["Última nota"].split("\n")[0]}</span></li>
-        </ul>
-        <p class="message">Consulta realizada el: <span class="highlight">${d["Consulta realizada el"]}</span></p>
-      `
-    };
-
-    function renderizarContenido(data) {
-      const plantilla = plantillas[data.Code];
-      const contenedor = document.getElementById("contenido");
-      const cargando = document.getElementById("cargando");
-
-      if (plantilla) {
-        contenedor.innerHTML = plantilla(data);
-      } else {
-        contenedor.innerHTML = `<p class="message">Código de respuesta desconocido.</p>`;
+      // Obtener parámetro sch
+      function obtenerParametroDesdeHash(nombre) {
+        const hash = window.location.hash.substring(1);
+        const params = new URLSearchParams(hash);
+        return params.get(nombre);
       }
 
-      cargando.style.display = "none";
-      contenedor.style.display = "block";
-    }
+      const sch = obtenerParametroDesdeHash("sch");
 
-    if (sch) {
-      fetch(`https://back-tracker-theta.vercel.app/api/tracker?&sch=${encodeURIComponent(sch)}`)
-        .then(res => {
-          if (!res.ok) throw new Error("Error en la solicitud");
-          return res.json();
-        })
-        .then(({ body }) => renderizarContenido(body))
-        .catch(err => {
-          document.getElementById("cargando").style.display = "none";
-          const contenedor = document.getElementById("contenido");
-          contenedor.innerHTML = `<p class="message">Error al cargar el seguimiento: ${err.message}</p>`;
-          contenedor.style.display = "block";
-        });
-    } else {
-      document.getElementById("cargando").style.display = "none";
-      const contenedor = document.getElementById("contenido");
-      contenedor.innerHTML = `<p class="message">Falta el parámetro 'sch' en la URL.</p>`;
-      contenedor.style.display = "block";
-    }
-  </script>
+      const plantillas = {
+        new: (d) => `
+        <p class="banner highlight">Hola ${d.Usuario}!</p>
+        <p class="message">Primera solicitud para el folio <span class="highlight">${
+          d.CasoHP
+        }</span></p>
+        <ul>
+          <li>Falla: <span class="highlight">${d.Título}</span></li>
+          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
+          <li>Folio Cliente: <span class="highlight">${
+            d["Folio Cliente"]
+          }</span></li>
+          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
+          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
+          <li>Última Nota: <span class="highlight">${
+            d["Última nota"].split("\n")[0]
+          }</span></li>
+        </ul>
+      `,
+        add: (d) => `
+        <p class="banner highlight">Hola ${d.Usuario}!</p>
+        <p class="message">Seguimiento No <span class="highlight">${
+          d["Seguimiento No"]
+        }</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
+        <ul>
+          <li>Falla: <span class="highlight">${d.Título}</span></li>
+          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
+          <li>Folio Cliente: <span class="highlight">${
+            d["Folio Cliente"]
+          }</span></li>
+          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
+          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
+          <li>Última Nota: <span class="highlight">${
+            d["Última nota"].split("\n")[0]
+          }</span></li>
+        </ul>
+      `,
+        alive: (d) => `
+        <p class="banner highlight">Hola ${d.Usuario}!</p>
+        <p class="message">Seguimiento No <span class="highlight">${
+          d["Seguimiento No"]
+        }</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
+        <ul>
+          <li>Falla: <span class="highlight">${d.Título}</span></li>
+          <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
+          <li>Folio Cliente: <span class="highlight">${
+            d["Folio Cliente"]
+          }</span></li>
+          <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
+          <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
+          <li>Última Nota: <span class="highlight">${
+            d["Última nota"].split("\n")[0]
+          }</span></li>
+        </ul>
+        <p class="message">Consulta realizada el: <span class="highlight">${
+          d["Consulta realizada el"]
+        }</span></p>
+      `,
+      };
+
+      function renderizarContenido(data) {
+        const contenedor = document.getElementById("contenido");
+        const cargando = document.getElementById("cargando");
+
+        if (data && data.Code && data.Usuario) {
+          const plantilla = plantillas[data.Code];
+          if (plantilla) {
+            contenedor.innerHTML = plantilla(data);
+          } else {
+            contenedor.innerHTML = `<p class="message">Código de respuesta desconocido.</p>`;
+          }
+        } else {
+          contenedor.innerHTML = `<p class="message">Datos inválidos recibidos del servidor.</p>`;
+        }
+
+        cargando.style.display = "none";
+        contenedor.style.display = "block";
+      }
+
+      if (sch) {
+        fetch(
+          `https://your-backend-url/api/tracker?sch=${encodeURIComponent(sch)}`
+        )
+          .then(async (res) => {
+            if (!res.ok) {
+              throw new Error(`Error HTTP: ${res.status}`);
+            }
+            const responseData = await res.json();
+            return responseData.body; // Aquí asumimos que `body` es un objeto JSON
+          })
+          .then((body) => renderizarContenido(body))
+          .catch((err) => {
+            console.error("Error en el fetch:", err.message);
+            document.getElementById("cargando").style.display = "none";
+            const contenedor = document.getElementById("contenido");
+            contenedor.innerHTML = `<p class="message">Error al cargar el seguimiento: ${err.message}</p>`;
+            contenedor.style.display = "block";
+          });
+      } else {
+        document.getElementById("cargando").style.display = "none";
+        const contenedor = document.getElementById("contenido");
+        contenedor.innerHTML = `<p class="message">Falta el parámetro 'sch' en la URL.</p>`;
+        contenedor.style.display = "block";
+      }
+    </script>
   </body>
 </html>
