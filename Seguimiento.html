@@ -48,18 +48,20 @@
         animation: fadeIn 1.5s ease-in-out;
         position: relative;
       }
-      /* Primer Contenedor Outlook - Titulo */
+      /* Primer Contenedor - Logo HP*/
       .central-container-1 {
+        border: #0078D4 solid 0px;
         width: 100%;
-        height: 30%;
+        height: 20%;
         margin: 0;
         z-index: 2;
         position: relative;
       }
-      /* Segundo Contenedor Bot - Outlook - Correo Electronico */
-      .central-container-2 {
+      /* Segundo Contenedor - Contenido Dinámico */
+      .central-container-2-GRAL {
+        border: #d40000 solid 0px;
         width: 100%;
-        height: 55%;
+        height: 65%;
         margin: 0;
         z-index: 2;
         position: relative;
@@ -67,65 +69,30 @@
 
       /* Tercer Contenedor - Footer */
       .central-container-3 {
+        border: #2ad400 solid 0px;
         width: 100%;
-        height: 25%;
+        height: 15%;
         margin: 0;
         z-index: 2;
         position: relative;
         vertical-align: center;
-      }
-      /* Contenedor Logo HP */
-      .central-container-1-1 {
-        width: 100%;
-        height: 70%;
-        z-index: 3;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }  
-      /* Contenedor General */
-      .general-container {
-        width: 100%;
-        height: 30%;
-        margin: 0;
-        z-index: 3;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+      } 
 
       #logo-hp {
         padding: 0;
         margin: 0;
-        height: 70%;          /* Altura al 90% del contenedor padre */
+        height: 20%;
         width: auto;          /* Ancho automático para mantener proporción */
         max-width: 100%;      /* Evitar que la imagen se desborde */
         object-fit: contain;  /* Mantener proporción */
       }
 
-      #lottie-bot {
-        height: 75%;          /* Altura al 90% del contenedor padre */
-        width: auto;          /* Ancho automático para mantener proporción */
-        max-width: 100%;      /* Evitar que la imagen se desborde */
-        object-fit: contain;  /* Mantener proporción */
-      }
-
-      #lottie-container {
-        width: 50%;
-        max-height: 400px;
-        margin: 3% auto;
-        padding: 1%;
-        overflow: hidden;
-      }
-      
-      #outlook{
-        padding: 0;
-        margin: 0;
+      #lottie-srch {
         height: 100%;          /* Altura al 90% del contenedor padre */
-        width: auto;
-        max-width: 100%;      /* Evitar que la imagen se desborde */
+        width: 100%;          /* Ancho automático para mantener proporción */
+        max-width: 100%;
+        max-height: 75%;      /* Evitar que la imagen se desborde */
+        object-fit: contain;  /* Mantener proporción */
       }
 
       #logo-mbt{
@@ -151,10 +118,13 @@
         font-size: clamp(1.2rem, 2vw, 1.8rem); /* Tamaño de fuente responsive */
         margin: 0;                              /* Eliminar márgenes por defecto */
         padding: 0;                             /* Eliminar padding por defecto */
-        width: 100%;                            /* Ocupar todo el ancho disponible */
-        text-align: center;                     /* Centrar el texto */
-      }
-      .message {
+        width: 100%;
+        height: 10%;
+        text-align: center;
+        vertical-align: text-top;
+        }
+        
+        .message {
         font-size: clamp(0.9rem, 1.5vw, 1.2rem);
         text-align: center;
         margin: 1% auto;
@@ -162,6 +132,7 @@
       .highlight {
         color: #0078D4;
         font-weight: bold;
+
       }
       .footer {
         font-size: clamp(0.7rem, 1.25vw, 0.9rem);
@@ -176,11 +147,11 @@
         }
 
         .central-container-1 {
-          height: 35%; /* Ajuste para mayor espacio en portrait */
+          height: 20%; /* Ajuste para mayor espacio en portrait */
         }
 
         .central-container-2 {
-          height: 50%;
+          height: 65%;
           width: 100%;
         }
 
@@ -189,11 +160,11 @@
         }
 
         #logo-hp {
-          height: 65%; /* Más pequeño en portrait */
+          height: 20%; /* Más pequeño en portrait */
         }
 
         #lottie-srch {
-          height: 70%;
+          height: 100%;
         }
 
         #logo-mbt {
@@ -201,13 +172,9 @@
         }
 
         #logo-ds {
-          width: 10vw; /* Ajustar tamaño de logos */
+          width: 8vw; /* Ajustar tamaño de logos */
           bottom: 1.5vh;
           right: 2vw;
-        }
-
-        #outlook {
-          height: 100%;
         }
 
         .banner {
@@ -230,20 +197,13 @@
     <div class="fullscreen-container">
       <div id="background-lottie"></div>
       <div class="central-container">
-        <div class="central-container-1">
-          <div class="central-container-1-1" id="logo-hp"></div>
-          <div id="general-container">
-          <p class="banner highlight">Espera un momento...</p>
-            <div class="central-container-1-2" id="lottie-srch">
-
-            </div>
-          <div class="central-container-2-2-2">
-            <p class="message">¿Tienes dudas?<br><a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
+        <div class="central-container-1" id="logo-hp"></div>
+        <div class="central-container-2-GRAL">
+          <p class="highlight" id="banner">Espera un momento...<br></p>
+          <div id="lottie-srch"></div>
         </div>
         <div class="central-container-3">
-          <p class="footer">Consulta de Avance<br><i>Garantías 2025</i></p>
-        </div>
-        </div>
+          <p class="footer"><br>Consulta de Avance<br><i>Garantías 2025</i></p>
         </div>
         </div>
     <div id="logo-mbt"></div>
@@ -334,7 +294,7 @@
 
   function renderizarContenido(data) {
     const plantilla = plantillas[data.Code];
-    const contenedor = document.querySelector(".general-container");
+    const contenedor = document.querySelector(".central-container-2-GRAL");
     if (plantilla) {
       contenedor.innerHTML = plantilla(data);
     } else {
@@ -350,7 +310,7 @@
       })
       .then(({ body }) => renderizarContenido(body))
       .catch(err => {
-        document.querySelector(".general-container").innerHTML = `<p class="message">Error al cargar el seguimiento: ${err.message}</p>`;
+        document.querySelector(".central-container-2-GRAL").innerHTML = `<p class="message">Error al cargar el seguimiento: ${err.message}</p>`;
       });
   }
 </script>
