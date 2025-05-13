@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solicitud de Avance - Garantías HP</title>
     <style>
-
       body {
         margin: 0;
         padding: 0;
@@ -15,7 +14,6 @@
         text-size-adjust: 100%;
       }
 
-      /* Container a pantalla completa */
       .fullscreen-container {
         min-height: 100vh;
         display: flex;
@@ -83,7 +81,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-      }  
+      }
       /* Contenedor Titulo */
       .central-container-1-2 {
         width: 100%;
@@ -96,7 +94,7 @@
         align-items: center;
       }
 
-       /* Contenedor Bot */
+      /* Contenedor Bot */
       .central-container-2-1 {
         width: 100%;
         height: 75%;
@@ -105,7 +103,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-      }  
+      }
       /* Contenedor Contacto */
       .central-container-2-2 {
         width: 90%;
@@ -119,9 +117,9 @@
         align-items: center;
         vertical-align: center;
         gap: 0.3%;
-      } 
-      
-        /* Contenedor Outlook */
+      }
+
+      /* Contenedor Outlook */
       .central-container-2-2-1 {
         width: 28%;
         height: 100%;
@@ -132,7 +130,7 @@
         justify-content: center;
         align-items: right;
       }
-        /* Contenedor correo electronico */
+      /* Contenedor correo electronico */
       .central-container-2-2-2 {
         width: 70%;
         height: 100%;
@@ -147,17 +145,17 @@
       #logo-hp {
         padding: 0;
         margin: 0;
-        height: 70%;          /* Altura al 90% del contenedor padre */
-        width: auto;          /* Ancho automático para mantener proporción */
-        max-width: 100%;      /* Evitar que la imagen se desborde */
-        object-fit: contain;  /* Mantener proporción */
+        height: 70%; /* Altura al 90% del contenedor padre */
+        width: auto; /* Ancho automático para mantener proporción */
+        max-width: 100%; /* Evitar que la imagen se desborde */
+        object-fit: contain; /* Mantener proporción */
       }
 
       #lottie-bot {
-        height: 75%;          /* Altura al 90% del contenedor padre */
-        width: auto;          /* Ancho automático para mantener proporción */
-        max-width: 100%;      /* Evitar que la imagen se desborde */
-        object-fit: contain;  /* Mantener proporción */
+        height: 75%; /* Altura al 90% del contenedor padre */
+        width: auto; /* Ancho automático para mantener proporción */
+        max-width: 100%; /* Evitar que la imagen se desborde */
+        object-fit: contain; /* Mantener proporción */
       }
 
       #lottie-container {
@@ -167,16 +165,16 @@
         padding: 1%;
         overflow: hidden;
       }
-      
-      #outlook{
+
+      #outlook {
         padding: 0;
         margin: 0;
-        height: 100%;          /* Altura al 90% del contenedor padre */
+        height: 100%; /* Altura al 90% del contenedor padre */
         width: auto;
-        max-width: 100%;      /* Evitar que la imagen se desborde */
+        max-width: 100%; /* Evitar que la imagen se desborde */
       }
 
-      #logo-mbt{
+      #logo-mbt {
         position: absolute;
         top: 0;
         left: 5vw;
@@ -185,7 +183,7 @@
         aspect-ratio: 1 / 1;
       }
 
-      #logo-ds{
+      #logo-ds {
         position: absolute;
         bottom: 3.5vh;
         right: 3vw;
@@ -197,10 +195,10 @@
       /* Textos y estilos */
       .banner {
         font-size: clamp(1.2rem, 2vw, 1.8rem); /* Tamaño de fuente responsive */
-        margin: 0;                              /* Eliminar márgenes por defecto */
-        padding: 0;                             /* Eliminar padding por defecto */
-        width: 100%;                            /* Ocupar todo el ancho disponible */
-        text-align: center;                     /* Centrar el texto */
+        margin: 0; /* Eliminar márgenes por defecto */
+        padding: 0; /* Eliminar padding por defecto */
+        width: 100%; /* Ocupar todo el ancho disponible */
+        text-align: center; /* Centrar el texto */
       }
       .message {
         font-size: clamp(0.9rem, 1.5vw, 1.2rem);
@@ -208,7 +206,7 @@
         margin: 1% auto;
       }
       .highlight {
-        color: #0078D4;
+        color: #0078d4;
         font-weight: bold;
       }
       .footer {
@@ -217,7 +215,7 @@
         margin-top: 5% auto;
         text-align: center;
       }
-            @media (orientation: portrait) {
+      @media (orientation: portrait) {
         .central-container {
           width: 90vw; /* Más ancho para portrait */
           height: 75vh;
@@ -281,68 +279,99 @@
         <div class="central-container-1">
           <div class="central-container-1-1" id="logo-hp"></div>
           <div class="central-container-1-2">
-          <p class="banner highlight">Seguimiento - Garantías HP</p></div></div>
+            <p class="banner highlight">Seguimiento - Garantías HP</p>
+          </div>
+        </div>
         <div class="central-container-2">
           <div class="central-container-2-1" id="lottie-bot"></div>
           <div class="central-container-2-2">
             <div class="central-container-2-2-1" id="outlook"></div>
             <div class="central-container-2-2-2">
-              <p class="message">¿Tienes dudas?<br><a href="mailto:servicios_garantias@mainbit.com.mx" class="highlight">servicios_garantias@mainbit.com.mx</a></p>
+              <p class="message">
+                ¿Tienes dudas?<br /><a
+                  href="mailto:servicios_garantias@mainbit.com.mx"
+                  class="highlight"
+                  >servicios_garantias@mainbit.com.mx</a
+                >
+              </p>
             </div>
           </div>
-        <div class="central-container-3">
-          <p class="footer">Consulta de Avance<br><i>Garantías 2025</i></p>
+          <div class="central-container-3">
+            <p class="footer">Consulta de Avance<br /><i>Garantías 2025</i></p>
+          </div>
         </div>
+      </div>
+      <div id="logo-mbt"></div>
+      <div id="logo-ds"></div>
     </div>
-    </div>
-    <div id="logo-mbt"></div>
-    <div id="logo-ds"></div>
-    </div>
-      <script>
+    <script>
       // Animaciones Lottie
       const backgroundAnimation = lottie.loadAnimation({
-        container: document.getElementById('background-lottie'),
-        path: './background2.json', renderer: 'canvas', loop: true, autoplay: true,
-        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
+        container: document.getElementById("background-lottie"),
+        path: "./background2.json",
+        renderer: "canvas",
+        loop: true,
+        autoplay: true,
+        rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
       });
 
       const hpLogoAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-hp'),
-        path: './hp-logo.json', renderer: 'svg', loop: true, autoplay: true
+        container: document.getElementById("logo-hp"),
+        path: "./hp-logo.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
       });
 
       const mainAnimation = lottie.loadAnimation({
-        container: document.getElementById('lottie-bot'),
-        path: './Asistente.json', renderer: 'svg', loop: true, autoplay: true
+        container: document.getElementById("lottie-bot"),
+        path: "./Hi_SN_bot.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
       });
 
-       const OutlookAnimation = lottie.loadAnimation({
-        container: document.getElementById('outlook'),
-        path: './Outlook.json', renderer: 'svg', loop: true, autoplay: true
-      });     
+      const OutlookAnimation = lottie.loadAnimation({
+        container: document.getElementById("outlook"),
+        path: "./Outlook.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+      });
 
       const logoMbtAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-mbt'),
-        path: './Logo_Mbt_wink.json', renderer: 'svg', loop: true, autoplay: true
+        container: document.getElementById("logo-mbt"),
+        path: "./Logo_Mbt_wink.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
       });
 
       const logoDSAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-ds'),
-        path: './Logo_DS_wink.json', renderer: 'svg', loop: true, autoplay: true
+        container: document.getElementById("logo-ds"),
+        path: "./Logo_DS_wink.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
       });
-  // Redirecciona si encuentra el parámetro 'sch'
-  function obtenerParametroDesdeHash(nombre) {
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
-    return params.get(nombre);
-  }
+      // Redirecciona si encuentra el parámetro 'sch'
+      function obtenerParametroDesdeHash(nombre) {
+        const hash = window.location.hash.substring(1);
+        const params = new URLSearchParams(hash);
+        return params.get(nombre);
+      }
 
-  const sch = obtenerParametroDesdeHash("sch");
+      const sch = obtenerParametroDesdeHash("sch");
 
-  if (sch) {
-    // Redirige a seguimiento.html pasando el sch
-    window.location.href = `Seguimiento.html#sch=${encodeURIComponent(sch)}`;
-  }
-</script>
+      if (sch) {
+        // Retraso de 2 segundos (2000 milisegundos) antes de redirigir
+        setTimeout(() => {
+          // Redirige a seguimiento.html pasando el sch
+          window.location.href = `Seguimiento.html#sch=${encodeURIComponent(
+            sch
+          )}`;
+        }, 2000);
+      }
+    </script>
   </body>
 </html>
