@@ -310,7 +310,9 @@
       })
       .then(({ body }) => renderizarContenido(body))
       .catch(err => {
-        document.querySelector(".central-container-2-GRAL").innerHTML = `<p class="message">Error al cargar el seguimiento: ${err.message}</p>`;
+        document.querySelector(".central-container-2-GRAL").innerHTML = `
+          <p class="banner highlight">Error al cargar el seguimiento<br>Servicio de Consulta no Disponible<br>Por favor intenta más tarde.</p>
+          <div id="lottie-srch"></div>;
       });
   }
 </script>
