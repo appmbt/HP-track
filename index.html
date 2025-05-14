@@ -364,12 +364,18 @@
       const sch = obtenerParametroDesdeHash("sch");
 
       if (sch) {
-        // Retraso de 2 segundos (2000 milisegundos) antes de redirigir
+        // Estilo inicial para la animación
+        document.body.style.transition = "opacity 2s";
+        document.body.style.opacity = "1";
+
+        // Retraso de 2 segundos con efecto de desvanecimiento
         setTimeout(() => {
-          // Redirige a seguimiento.html pasando el sch
-          window.location.href = `Seguimiento.html#sch=${encodeURIComponent(
-            sch
-          )}`;
+          document.body.style.opacity = "0";
+          setTimeout(() => {
+            window.location.href = `Seguimiento.html#sch=${encodeURIComponent(
+              sch
+            )}`;
+          }, 2000); // Espera a que termine el desvanecimiento
         }, 2000);
       }
     </script>
