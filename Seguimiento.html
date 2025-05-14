@@ -162,6 +162,10 @@
         margin-right: 5%;
       }
 
+      ul {
+        list-style-type: none;
+      }
+
       .highlight {
         color: #0078d4;
         font-weight: bold;
@@ -331,20 +335,37 @@
 
       const plantillas = {
         new: (d) => `
-
-<p class="banner highlight">Hola ${d.Usuario}!<br></p>
-<p class="message">Se creó la primer solicitud de avance para el folio span class="message highlight">${d.Folio}</span><br></p>
+<p class="banner highlight">Resultado de Consulta<br></p>
+<p class="banner">Hola <span class="banner highlight">${
+          d.Usuario
+        }!<br></span></p>
+<p class="message">La primer solicitud de avance para el folio <span class="message highlight">${
+          d.Folio
+        }</span><br></p>
 <ul>
-  <li><span class="message_1">Falla:</span> <span class="message_1 highlight">${d.Título}</span></li>
-  <li><span class="message_1">Proyecto:</span> <span class="message_1 highlight">${d.Proyecto}</span></li>
-  <li><span class="message_1">Folio Cliente:</span> <span class="message_1 highlight">${d["Folio Cliente"]}</span></li>
-  <li><span class="message_1">Abierto:</span> <span class="message_1 highlight">${d.Abierto}</span></li>
-  <li><span class="message_1">Estatus:</span> <span class="message_1 highlight">${d.Estatus}</span></li>
+  <li><span class="message_1 highlight">Falla:</span> <span class="message_1">${
+    d.Título
+  }</span></li>
+  <li><span class="message_1 highlight">Proyecto:</span> <span class="message_1">${
+    d.Proyecto
+  }</span></li>
+  <li><span class="message_1 highlight">Folio Cliente:</span> <span class="message_1">${
+    d["Folio Cliente"]
+  }</span></li>
+  <li><span class="message_1 highlight">Abierto:</span> <span class="message_1">${
+    d.Abierto
+  }</span></li>
+  <li><span class="message_1 highlight">Estatus:</span> <span class="message_1">${
+    d.Estatus
+  }</span></li>
+  <li><span class="message_1 highlight">Última Nota:</span> <span class="message_1">${
+    d["Última nota"]?.split("\n")[0]
+  } <br> ${d["Última nota"]?.split("\n")[1]}</span></li>
 </ul>
-<div style="line-height: 1.6; text-align: center; margin-top: 20px;">
+<div style="line-height: 1.5; text-align: center; margin-top: 5%;">
   <p class="contact highlight">¡Ha sido enviada correctamente!</p>
-  <p class="SN-logo message_1">En breve recibirás noticias.<br>Por favor presta atención a tu correo electrónico y Teams.</p>
-  <p class="SN-logo message_1"><i>Gracias por utilizar el seguimiento automático de Garantías.</i></p>
+  <p class="SN-logo message_1"><b>En breve recibirás noticias.<br>Por favor presta atención a tu correo electrónico y Teams</b></p>
+  <p class="SN-logo message_1"><i>¡Gracias por utilizar el seguimiento automático de Garantías!</i></p></div>
 
 `,
         add: (d) => `
@@ -352,7 +373,9 @@
 <p class="banner highlight">Hola ${d.Usuario}!<br></p>
 <p class="message">Se generó el Seguimiento No.<span class="highlight">${
           d["Seguimiento No"]
-        }</span> para el folio ${d.Folio}</span><br></p>
+        }</span> para el folio <span class="message highlight">${
+          d.Folio
+        }</span><br></p>
 <ul>
   <li><span class="message_1">Falla:</span> <span class="message_1 highlight">${
     d.Título
@@ -384,7 +407,9 @@
 <p class="banner highlight">Hola ${d.Usuario}!<br></p>
 <p class="message">El Seguimiento No.<span class="highlight">${
           d["Seguimiento No"]
-        }</span> para el folio ${d.Folio}</span><br></p>
+        }</span> para el folio <span class="message highlight">${
+          d.Folio
+        }</span><br></p>
 <ul>
   <li><span class="message_1">Falla:</span> <span class="message_1 highlight">${
     d.Título
@@ -407,9 +432,9 @@
 </ul>
 <div style="line-height: 1.6; text-align: center; margin-top: 20px;">
   <p class="banner highlight">Se encuentra activa y está siendo atendida</p>
-  <p class="SN-logo message_1"><p>Consulta realizada el: <span class="SN-logo message_1 highlight">${
+  <p class="SN-logo message_1">Consulta realizada el: <span class="SN-logo message_1 highlight">${
     d["Consulta realizada el"]
-  }</span></p></p>
+  }</span></p>
   <p class="SN-logo message_1"><i>** Cada solicitud de avance tiene una vigencia de 24 horas **</i></p>
 `,
       };
@@ -423,26 +448,56 @@
           contenedor.innerHTML = `<p class="message">Código de respuesta desconocido.</p>`;
         }
       }
+      const sch = obtenerParametroDesdeHash("sch");
 
       if (sch) {
-        fetch(`https://back-tracker-theta.vercel.app/api/tracker?&sch=${sch}`)
+        const contenedor = document.querySelector(".central-container-2-GRAL");
+        const url = `https://back-tracker-theta.vercel.app/api/tracker?sch=${encodeURIComponent(
+          sch
+        )}`;
+
+        fetch(url, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+          mode: "cors", // Explícitamente indicar que es una petición CORS
+        })
           .then((res) => {
-            if (!res.ok) throw new Error("Error de red");
-            return res.json();
+            if (!res.ok) {
+              throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            return res.text(); // Obtener como texto primero
           })
-          .then((data) => {
-            // Asegurarse de que body esté bien definido
-            if (data.body && typeof data.body === "object") {
-              renderizarContenido(data.body);
-            } else {
-              throw new Error("Respuesta inesperada del servidor.");
+          .then((text) => {
+            console.log("Respuesta cruda:", text); // Para debugging
+            try {
+              const data = JSON.parse(text); // Intentar parsear como JSON
+              console.log("JSON parseado:", data); // Para debugging
+              if (data && data.Code) {
+                renderizarContenido(data);
+              } else {
+                throw new Error("Formato de respuesta inválido");
+              }
+            } catch (e) {
+              // Si no se puede parsear, mostrar el texto crudo
+              contenedor.innerHTML = `
+                <p class="banner highlight">Respuesta del servidor:</p>
+                <pre class="message" style="text-align: left; padding: 20px; white-space: pre-wrap;">
+                    ${text}
+                </pre>
+            `;
             }
           })
           .catch((err) => {
-            console.error(err);
-            document.querySelector(".central-container-2-GRAL").innerHTML = `
-        <p class="banner highlight">Error al cargar el seguimiento<br>Servicio de Consulta no Disponible<br>Por favor intenta más tarde.</p>
-        <div id="lottie-srch"></div>`;
+            console.error("Error completo:", err); // Para debugging
+            contenedor.innerHTML = `
+            <p class="banner highlight">Error de conexión</p>
+            <div class="message">
+                ${err.toString()}<br>
+                URL: ${url}
+            </div>
+        `;
           });
       }
     </script>
