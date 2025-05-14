@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solicitud de Avance - Garantías HP</title>
     <style>
-
       body {
         margin: 0;
         padding: 0;
@@ -50,7 +49,7 @@
       }
       /* Primer Contenedor - Logo HP*/
       .central-container-1 {
-        border: #0078D4 solid 0px;
+        border: #0078d4 solid 0px;
         width: 100%;
         height: 20%;
         margin: 0;
@@ -76,26 +75,35 @@
         z-index: 2;
         position: relative;
         vertical-align: center;
-      } 
+      }
 
       #logo-hp {
         padding: 0;
         margin: 0;
         height: 20%;
-        width: auto;          /* Ancho automático para mantener proporción */
-        max-width: 100%;      /* Evitar que la imagen se desborde */
-        object-fit: contain;  /* Mantener proporción */
+        width: auto; /* Ancho automático para mantener proporción */
+        max-width: 100%; /* Evitar que la imagen se desborde */
+        object-fit: contain; /* Mantener proporción */
       }
 
       #lottie-srch {
-        height: 100%;          /* Altura al 90% del contenedor padre */
-        width: 100%;          /* Ancho automático para mantener proporción */
+        height: 60%; /* Altura al 90% del contenedor padre */
+        width: 100%; /* Ancho automático para mantener proporción */
         max-width: 100%;
-        max-height: 75%;      /* Evitar que la imagen se desborde */
-        object-fit: contain;  /* Mantener proporción */
+        max-height: 65%; /* Evitar que la imagen se desborde */
+        object-fit: contain; /* Mantener proporción */
       }
 
-      #logo-mbt{
+      #SN-logo {
+        height: 15%;
+        width: 100%; /* Ancho automático para mantener proporción */
+        max-width: 100%;
+        max-height: 20%; /* Evitar que la imagen se desborde */
+        object-fit: contain;
+        aspect-ratio: 1 / 1;
+      }
+
+      #logo-mbt {
         position: absolute;
         top: 0;
         left: 5vw;
@@ -104,7 +112,7 @@
         aspect-ratio: 1 / 1;
       }
 
-      #logo-ds{
+      #logo-ds {
         position: absolute;
         bottom: 3.5vh;
         right: 3vw;
@@ -115,24 +123,48 @@
 
       /* Textos y estilos */
       .banner {
-        font-size: clamp(1.2rem, 2vw, 1.8rem); /* Tamaño de fuente responsive */
-        margin: 0;                              /* Eliminar márgenes por defecto */
-        padding: 0;                             /* Eliminar padding por defecto */
+        font-size: clamp(1rem, 1.8vw, 1.5rem); /* Tamaño de fuente responsive */
+        margin: 0; /* Eliminar márgenes por defecto */
+        padding: 0; /* Eliminar padding por defecto */
         width: 100%;
-        height: 10%;
+        height: 8%;
         text-align: center;
-        vertical-align: text-top;
-        }
-        
-        .message {
+        vertical-align: text-center;
+      }
+
+      .message {
+        font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+        margin: 0; /* Eliminar márgenes por defecto */
+        padding: 0; /* Eliminar padding por defecto */
+        width: 100%;
+        height: 7%;
+        text-align: center;
+        vertical-align: text-center;
+      }
+
+      .message_1 {
+        font-size: clamp(0.75rem, 1.3vw, 1rem);
+        margin: 0; /* Eliminar márgenes por defecto */
+        padding: 0; /* Eliminar padding por defecto */
+        width: 100%;
+        height: 6.5%;
+        text-align: center;
+        vertical-align: text-center;
+      }
+
+      .contact {
         font-size: clamp(0.9rem, 1.5vw, 1.2rem);
         text-align: center;
-        margin: 1% auto;
+        width: auto;
+        height: 25%;
+        max-width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
       }
-      .highlight {
-        color: #0078D4;
-        font-weight: bold;
 
+      .highlight {
+        color: #0078d4;
+        font-weight: bold;
       }
       .footer {
         font-size: clamp(0.7rem, 1.25vw, 0.9rem);
@@ -140,7 +172,7 @@
         margin-top: 5% auto;
         text-align: center;
       }
-            @media (orientation: portrait) {
+      @media (orientation: portrait) {
         .central-container {
           width: 90vw; /* Más ancho para portrait */
           height: 75vh;
@@ -177,12 +209,21 @@
           right: 2vw;
         }
 
+        .contact {
+          font-size: clamp(0.75rem, 1.5vw, 1.5rem);
+        }
+
         .banner {
-          font-size: clamp(1rem, 1.5vw, 1.6rem);
+          font-size: clamp(0.75rem, 1.12vw, 1.2rem);
         }
 
         .message {
           font-size: clamp(0.75rem, 1.3vw, 1.4rem);
+          overflow: hidden;
+        }
+
+        .message_1 {
+          font-size: clamp(0.6rem, 0.9vw, 1rem);
           overflow: hidden;
         }
 
@@ -199,130 +240,211 @@
       <div class="central-container">
         <div class="central-container-1" id="logo-hp"></div>
         <div class="central-container-2-GRAL">
-          <p class="banner highlight">Espera un momento...<br></p>
+          <p class="banner highlight">Seguimiento - Garantías HP<br /></p>
+          <p class="banner">Por favor espera un momento<br /></p>
           <div id="lottie-srch"></div>
+          <div id="SN-logo"></div>
+          <p class="contact highlight">Estamos realizando la consulta</p>
         </div>
         <div class="central-container-3">
-          <p class="footer"><br>Consulta de Avance<br><i>Garantías 2025</i></p>
+          <p class="footer">
+            <br />Consulta de Avance<br /><i>Garantías 2025</i>
+          </p>
         </div>
-        </div>
-    <div id="logo-mbt"></div>
-    <div id="logo-ds"></div>
+      </div>
+      <div id="logo-mbt"></div>
+      <div id="logo-ds"></div>
     </div>
-      <script>
+    <script>
       // Animaciones Lottie
       const backgroundAnimation = lottie.loadAnimation({
-        container: document.getElementById('background-lottie'),
-        path: './background2.json', renderer: 'canvas', loop: true, autoplay: true,
-        rendererSettings: { preserveAspectRatio: 'xMidYMid slice' }
+        container: document.getElementById("background-lottie"),
+        path: "./background2.json",
+        renderer: "canvas",
+        loop: true,
+        autoplay: true,
+        rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
       });
 
       const hpLogoAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-hp'),
-        path: './hp-logo.json', renderer: 'svg', loop: true, autoplay: true
+        container: document.getElementById("logo-hp"),
+        path: "./hp-logo.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
       });
 
-      const mainAnimation = lottie.loadAnimation({
-        container: document.getElementById('lottie-srch'),
-        path: './sphere.json', renderer: 'svg', loop: true, autoplay: true
+      const srchAnimation = lottie.loadAnimation({
+        container: document.getElementById("lottie-srch"),
+        path: "./Search_SN_bot.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
       });
 
-       const OutlookAnimation = lottie.loadAnimation({
-        container: document.getElementById('outlook'),
-        path: './Outlook.json', renderer: 'svg', loop: true, autoplay: true
-      });     
+      const SNAnimation = lottie.loadAnimation({
+        container: document.getElementById("SN-logo"),
+        path: "./SN_Logo.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+      });
+
+      const AstroAnimation = lottie.loadAnimation({
+        container: document.getElementById("astro"),
+        path: "./astro.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+      });
 
       const logoMbtAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-mbt'),
-        path: './Logo_Mbt_wink.json', renderer: 'svg', loop: true, autoplay: true
+        container: document.getElementById("logo-mbt"),
+        path: "./Logo_Mbt_wink.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+      });
+
+      const OutlookAnimation = lottie.loadAnimation({
+        container: document.getElementById("outlook"),
+        path: "./Outlook.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
       });
 
       const logoDSAnimation = lottie.loadAnimation({
-        container: document.getElementById('logo-ds'),
-        path: './Logo_DS_wink.json', renderer: 'svg', loop: true, autoplay: true
+        container: document.getElementById("logo-ds"),
+        path: "./Logo_DS_wink.json",
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
       });
 
-
-  // Lógica para obtener el seguimiento
-  function obtenerParametroDesdeHash(nombre) {
-  const hash = window.location.hash.substring(1);
-  const params = new URLSearchParams(hash);
-  return params.get(nombre);
-}
-
-const sch = obtenerParametroDesdeHash("sch");
-
-const plantillas = {
-  new: (d) => `
-    <p class="banner highlight">Hola ${d.Usuario}!</p>
-    <p class="message">Primer solicitud para el folio <span class="highlight">${d.CasoHP}</span></p>
-    <ul>
-      <li>Falla: <span class="highlight">${d.Título}</span></li>
-      <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-      <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-      <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-      <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-      <li>Última Nota: <span class="highlight">${d["Última nota"]?.split("\n")[0]}</span></li>
-    </ul>
-  `,
-  add: (d) => `
-    <p class="banner highlight">Hola ${d.Usuario}!</p>
-    <p class="message">Seguimiento No <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
-    <ul>
-      <li>Falla: <span class="highlight">${d.Título}</span></li>
-      <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-      <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-      <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-      <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-      <li>Última Nota: <span class="highlight">${d["Última nota"]?.split("\n")[0]}</span></li>
-    </ul>
-  `,
-  alive: (d) => `
-    <p class="banner highlight">Hola ${d.Usuario}!</p>
-    <p class="message">Seguimiento No <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.CasoHP}</span></p>
-    <ul>
-      <li>Falla: <span class="highlight">${d.Título}</span></li>
-      <li>Proyecto: <span class="highlight">${d.Proyecto}</span></li>
-      <li>Folio Cliente: <span class="highlight">${d["Folio Cliente"]}</span></li>
-      <li>Abierto: <span class="highlight">${d.Abierto}</span></li>
-      <li>Estatus: <span class="highlight">${d.Estatus}</span></li>
-      <li>Última Nota: <span class="highlight">${d["Última nota"]?.split("\n")[0]}</span></li>
-    </ul>
-    <p>Consulta realizada el: <span class="highlight">${d["Consulta realizada el"]}</span></p>
-  `
-};
-
-function renderizarContenido(data) {
-  const plantilla = plantillas[data.Code];
-  const contenedor = document.querySelector(".central-container-2-GRAL");
-  if (plantilla) {
-    contenedor.innerHTML = plantilla(data);
-  } else {
-    contenedor.innerHTML = `<p class="message">Código de respuesta desconocido.</p>`;
-  }
-}
-
-if (sch) {
-  fetch(`https://back-tracker-theta.vercel.app/api/tracker?&sch=${sch}`)
-    .then(res => {
-      if (!res.ok) throw new Error("Error de red");
-      return res.json();
-    })
-    .then(data => {
-      // Asegurarse de que body esté bien definido
-      if (data.body && typeof data.body === "object") {
-        renderizarContenido(data.body);
-      } else {
-        throw new Error("Respuesta inesperada del servidor.");
+      // Lógica para obtener el seguimiento
+      function obtenerParametroDesdeHash(nombre) {
+        const hash = window.location.hash.substring(1);
+        const params = new URLSearchParams(hash);
+        return params.get(nombre);
       }
-    })
-    .catch(err => {
-      console.error(err);
-      document.querySelector(".central-container-2-GRAL").innerHTML = `
+
+      const plantillas = {
+        new: (d) => `
+
+<p class="banner highlight">Hola ${d.Usuario}!<br></p>
+<p class="message">Se creó la primer solicitud de avance para el folio span class="message highlight">${d.Folio}</span><br></p>
+<ul>
+  <li><span class="message_1">Falla:</span> <span class="message_1 highlight">${d.Título}</span></li>
+  <li><span class="message_1">Proyecto:</span> <span class="message_1 highlight">${d.Proyecto}</span></li>
+  <li><span class="message_1">Folio Cliente:</span> <span class="message_1 highlight">${d["Folio Cliente"]}</span></li>
+  <li><span class="message_1">Abierto:</span> <span class="message_1 highlight">${d.Abierto}</span></li>
+  <li><span class="message_1">Estatus:</span> <span class="message_1 highlight">${d.Estatus}</span></li>
+</ul>
+<div style="line-height: 1.6; text-align: center; margin-top: 20px;">
+  <p class="contact highlight">¡Ha sido enviada correctamente!</p>
+  <p class="SN-logo message_1">En breve recibirás noticias.<br>Por favor presta atención a tu correo electrónico y Teams.</p>
+  <p class="SN-logo message_1"><i>Gracias por utilizar el seguimiento automático de Garantías.</i></p>
+
+`,
+        add: (d) => `
+
+<p class="banner highlight">Hola ${d.Usuario}!<br></p>
+<p class="message">Se generó el Seguimiento No.<span class="highlight">${
+          d["Seguimiento No"]
+        }</span> para el folio ${d.Folio}</span><br></p>
+<ul>
+  <li><span class="message_1">Falla:</span> <span class="message_1 highlight">${
+    d.Título
+  }</span></li>
+  <li><span class="message_1">Proyecto:</span> <span class="message_1 highlight">${
+    d.Proyecto
+  }</span></li>
+  <li><span class="message_1">Folio Cliente:</span> <span class="message_1 highlight">${
+    d["Folio Cliente"]
+  }</span></li>
+  <li><span class="message_1">Abierto:</span> <span class="message_1 highlight">${
+    d.Abierto
+  }</span></li>
+  <li><span class="message_1">Estatus:</span> <span class="message_1 highlight">${
+    d.Estatus
+  }</span></li>
+  <li><span class="message_1">Última Nota:</span> <span class="message_1 highlight">${
+    d["Última nota"]?.split("\n")[0]
+  }</span></li>
+</ul>
+<div style="line-height: 1.6; text-align: center; margin-top: 20px;">
+  <p class="contact highlight">¡Ha sido enviada correctamente!</p>
+  <p class="SN-logo message_1">En breve recibirás noticias.<br>Por favor presta atención a tu correo electrónico y Teams.</p>
+  <p class="SN-logo message_1"><i>Gracias por utilizar el seguimiento automático de Garantías.</i></p>
+
+`,
+        alive: (d) => `
+
+<p class="banner highlight">Hola ${d.Usuario}!<br></p>
+<p class="message">El Seguimiento No.<span class="highlight">${
+          d["Seguimiento No"]
+        }</span> para el folio ${d.Folio}</span><br></p>
+<ul>
+  <li><span class="message_1">Falla:</span> <span class="message_1 highlight">${
+    d.Título
+  }</span></li>
+  <li><span class="message_1">Proyecto:</span> <span class="message_1 highlight">${
+    d.Proyecto
+  }</span></li>
+  <li><span class="message_1">Folio Cliente:</span> <span class="message_1 highlight">${
+    d["Folio Cliente"]
+  }</span></li>
+  <li><span class="message_1">Abierto:</span> <span class="message_1 highlight">${
+    d.Abierto
+  }</span></li>
+  <li><span class="message_1">Estatus:</span> <span class="message_1 highlight">${
+    d.Estatus
+  }</span></li>
+  <li><span class="message_1">Última Nota:</span> <span class="message_1 highlight">${
+    d["Última nota"]?.split("\n")[0]
+  }</span></li>
+</ul>
+<div style="line-height: 1.6; text-align: center; margin-top: 20px;">
+  <p class="banner highlight">Se encuentra activa y está siendo atendida</p>
+  <p class="SN-logo message_1"><p>Consulta realizada el: <span class="SN-logo message_1 highlight">${
+    d["Consulta realizada el"]
+  }</span></p></p>
+  <p class="SN-logo message_1"><i>** Cada solicitud de avance tiene una vigencia de 24 horas **</i></p>
+`,
+      };
+
+      function renderizarContenido(data) {
+        const plantilla = plantillas[data.Code];
+        const contenedor = document.querySelector(".central-container-2-GRAL");
+        if (plantilla) {
+          contenedor.innerHTML = plantilla(data);
+        } else {
+          contenedor.innerHTML = `<p class="message">Código de respuesta desconocido.</p>`;
+        }
+      }
+
+      if (sch) {
+        fetch(`https://back-tracker-theta.vercel.app/api/tracker?&sch=${sch}`)
+          .then((res) => {
+            if (!res.ok) throw new Error("Error de red");
+            return res.json();
+          })
+          .then((data) => {
+            // Asegurarse de que body esté bien definido
+            if (data.body && typeof data.body === "object") {
+              renderizarContenido(data.body);
+            } else {
+              throw new Error("Respuesta inesperada del servidor.");
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+            document.querySelector(".central-container-2-GRAL").innerHTML = `
         <p class="banner highlight">Error al cargar el seguimiento<br>Servicio de Consulta no Disponible<br>Por favor intenta más tarde.</p>
         <div id="lottie-srch"></div>`;
-    });
-}
-</script>
+          });
+      }
+    </script>
   </body>
 </html>
