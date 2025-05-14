@@ -3,8 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solicitud de Avance - Garantías HP</title>
+    <title>Seguimiento</title>
     <style>
+      /* Fade-in básico para el cuerpo */
+      body {
+        opacity: 0; /* Comienza invisible */
+        transition: opacity 1.5s ease-in; /* Transición suave de 1.5s */
+      }
+
+      body.loaded {
+        opacity: 1; /* Aparece gradualmente */
+      }
       body {
         margin: 0;
         padding: 0;
@@ -267,6 +276,11 @@
       <div id="logo-ds"></div>
     </div>
     <script>
+      // Al cargar completamente la página
+      window.addEventListener("load", () => {
+        // Activar la clase 'loaded' para el fade-in
+        document.body.classList.add("loaded");
+      });
       // Animaciones Lottie
       const backgroundAnimation = lottie.loadAnimation({
         container: document.getElementById("background-lottie"),
