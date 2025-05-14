@@ -8,7 +8,7 @@
       body {
         margin: 0;
         padding: 0;
-        overflow: hidden;
+        overflow: inherit;
         font-family: Arial, sans-serif;
         text-align: center;
         text-size-adjust: 100%;
@@ -194,17 +194,32 @@
 
       /* Textos y estilos */
       .banner {
-        font-size: clamp(1.2rem, 2vw, 1.8rem); /* Tamaño de fuente responsive */
-        margin: 0; /* Eliminar márgenes por defecto */
-        padding: 0; /* Eliminar padding por defecto */
+        font-size: clamp(1.25rem, 3vw, 2rem);
+        margin: 0;
+        padding: 0;
+        line-height: 1.8;
         width: 100%; /* Ocupar todo el ancho disponible */
         text-align: center; /* Centrar el texto */
       }
       .message {
-        font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-        text-align: center;
+        font-size: clamp(1.125rem, 2.5vw, 1.75rem);
         margin: 1% auto;
+        padding: 0;
+        width: 100%;
+        line-height: 1.5;
+        text-align: center;
+        vertical-align: text-center;
       }
+      .contact {
+        font-size: clamp(0.85rem, 1.5vw, 1.2rem);
+        line-height: 1.2;
+        text-align: center;
+        width: auto;
+        height: 25%;
+        max-width: 90%;
+        margin-left: 5%;
+        margin-right: 10%;
+      }     
       .highlight {
         color: #0078d4;
         font-weight: bold;
@@ -255,19 +270,6 @@
         #outlook {
           height: 100%;
         }
-
-        .banner {
-          font-size: clamp(1rem, 1.5vw, 1.6rem);
-        }
-
-        .message {
-          font-size: clamp(0.75rem, 1.3vw, 1.4rem);
-          overflow: hidden;
-        }
-
-        .footer {
-          font-size: clamp(0.7rem, 1vw, 1.2rem);
-        }
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
@@ -287,7 +289,7 @@
           <div class="central-container-2-2">
             <div class="central-container-2-2-1" id="outlook"></div>
             <div class="central-container-2-2-2">
-              <p class="message">
+              <p class="contact">
                 ¿Tienes dudas?<br /><a
                   href="mailto:servicios_garantias@mainbit.com.mx"
                   class="highlight"
@@ -365,10 +367,10 @@
 
       if (sch) {
         // Estilo inicial para la animación
-        document.body.style.transition = "opacity 2s";
+        document.body.style.transition = "opacity 1.5s";
         document.body.style.opacity = "1";
 
-        // Retraso de 2 segundos con efecto de desvanecimiento
+        // Retraso de 1.5 segundos con efecto de desvanecimiento
         setTimeout(() => {
           document.body.style.opacity = "0";
           setTimeout(() => {
