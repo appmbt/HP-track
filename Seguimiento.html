@@ -147,7 +147,7 @@
 
       .message_1 {
         font-size: clamp(0.75rem, 1.3vw, 1rem);
-        margin-bottom: 3%;
+        margin-bottom: 4px;
         padding: 0;
         width: 100%;
         line-height: 1.2;
@@ -345,10 +345,10 @@
 
         <div class="banner highlight">Resultado de Consulta</div>
     <p class="message">Hola <span class="highlight">${d.Usuario}!</span></p><br>
-    <p class="message">La primer solicitud de avance para el folio<span class="highlight">${
-      d.Folio
-    }</span></p>
+    <p class="message">La primer solicitud de avance para el folio <span class="highlight">${
+      d.Folio}</span></p>
     <div class="message_1 highlight">¡Ha sido enviada correctamente!</div><br>
+    <br>
     <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
       d.Título
     }</span></div>
@@ -378,9 +378,9 @@
 <div class="banner highlight">Resultado de Consulta</div>
     <p class="message">Hola <span class="highlight">${d.Usuario}!</span></p><br>
     <p class="message">El Seguimiento No.<span class="highlight">${
-      d["Seguimiento No"]
-    }<br></span> para el folio<span class="highlight">${d.Folio}</span></p>
+      d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.Folio}</span></p>
     <div class="message_1 highlight">Se ha registrado correctamente</div><br>
+    <br>
     <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
       d.Título
     }</span></div>
@@ -413,6 +413,7 @@
     <p class="message">El Seguimiento No.<span class="highlight">${
       d["Seguimiento No"]}</span> para el folio<span class="highlight">${d.Folio}</span></p><br>
     <div class="message_1 highlight">Se encuentra activo y está siendo atendido</div><br>
+    <br>
     <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
       d.Título
     }</span></div>
