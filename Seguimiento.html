@@ -134,44 +134,35 @@
 
       /* Textos y estilos */
       .banner {
-        font-size: clamp(1rem, 1.8vw, 1.5rem);
-        margin: 0;
-        padding: 0;
+        font-size: clamp(1.25rem, 3vw, 2rem);
+        margin: 0 auto; /* Centra horizontalmente si el div tiene ancho reducido */
+        padding: 0 5%;  /* Solo horizontal */
         line-height: 1.8;
-        width: 100%;
-        height: 8%;
         text-align: center;
-        vertical-align: text-center;
       }
 
       .message {
-        font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-        margin: 0;
-        padding: 0;
-        width: 100%;
+        font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+        margin: 0 auto; /* Centra horizontalmente si el div tiene ancho reducido */
+        padding: 0 5%;  /* Solo horizontal */
         line-height: 1.5;
         text-align: center;
-        vertical-align: text-center;
       }
 
       .message_1 {
-        font-size: clamp(0.75rem, 1.3vw, 1rem);
-        margin-bottom: 4px;
-        padding: 0;
-        width: 100%;
-        line-height: 1.2;
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        margin: 0 auto; /* Centra horizontalmente si el div tiene ancho reducido */
+        padding: 0 5%;  /* Solo horizontal */
+        line-height: 1.4;
         text-align: center;
-        vertical-align: text-center;
       }
 
       .contact {
-        font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+        font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+        margin: 0 auto; /* Centra horizontalmente si el div tiene ancho reducido */
+        padding: 0 5%;  /* Solo horizontal */
+        line-height: 1.4;
         text-align: center;
-        width: auto;
-        height: 25%;
-        max-width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
       }
 
       .highlight {
@@ -228,27 +219,6 @@
           right: 2vw;
         }
 
-        .contact {
-          font-size: clamp(0.75rem, 1.5vw, 1.5rem);
-        }
-
-        .banner {
-          font-size: clamp(0.75rem, 1.12vw, 1.2rem);
-        }
-
-        .message {
-          font-size: clamp(0.75rem, 1.3vw, 1.4rem);
-          overflow: hidden;
-        }
-
-        .message_1 {
-          font-size: clamp(0.6rem, 0.9vw, 1rem);
-          overflow: hidden;
-        }
-
-        .footer {
-          font-size: clamp(0.7rem, 1vw, 1.2rem);
-        }
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
@@ -261,10 +231,10 @@
         <div class="central-container-1" id="logo-hp"></div>
         <div class="central-container-2-GRAL">
           <p class="banner highlight">Seguimiento - Garantías HP<br /></p>
-          <p class="banner">Por favor espera un momento<br /></p>
+          <p class="message highlight">Estamos realizando la consulta<br /></p>
           <div id="lottie-srch"></div>
           <div id="SN-logo"></div>
-          <p class="contact highlight">Estamos realizando la consulta</p>
+          <p class="message_1 highlight">Por favor espera un momento</p>
         </div>
         <div class="central-container-3">
           <p class="footer">
@@ -362,7 +332,7 @@
     <p class="message">La primer solicitud de avance para el folio <span class="highlight">${
       d.Folio}</span></p>
     <div class="message_1 highlight">¡Ha sido enviada correctamente!</div><br>
-    <br>
+
     <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
       d.Título
     }</span></div>
@@ -394,7 +364,7 @@
     <p class="message">El Seguimiento No.<span class="highlight">${
       d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.Folio}</span></p>
     <div class="message_1 highlight">Se ha registrado correctamente</div><br>
-    <br>
+
     <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
       d.Título
     }</span></div>
@@ -427,7 +397,6 @@
     <p class="message">El Seguimiento No.<span class="highlight">${
       d["Seguimiento No"]}</span> para el folio<span class="highlight">${d.Folio}</span></p><br>
     <div class="message_1 highlight">Se encuentra activo y está siendo atendido</div><br>
-    <br>
     <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
       d.Título
     }</span></div>
