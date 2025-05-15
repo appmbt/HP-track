@@ -327,104 +327,57 @@
 
       const plantillas = {
         new: (d) => `
+  <div class="banner highlight">Resultado de Consulta</div>
+  <p class="message">Hola <span class="highlight">${d.Usuario}!</span></p><br>
+  <p class="message">La primer solicitud de avance para el folio <span class="highlight">${d.Folio}</span></p>
+  <div class="message_1 highlight">¡Ha sido enviada correctamente!</div><br>
 
-        <div class="banner highlight">Resultado de Consulta</div>
-    <p class="message">Hola <span class="highlight">${d.Usuario}!</span></p><br>
-    <p class="message">La primer solicitud de avance para el folio <span class="highlight">${
-      d.Folio}</span></p>
-    <div class="message_1 highlight">¡Ha sido enviada correctamente!</div><br>
+  <div><span class="message_1 highlight">Falla:</span> <span class="message_1">${d.Título}</span></div>
+  <div><span class="message_1 highlight">Proyecto:</span> <span class="message_1">${d.Proyecto}</span></div>
+  <div><span class="message_1 highlight">Folio Cliente:</span> <span class="message_1">${d["Folio Cliente"]}</span></div>
+  <div><span class="message_1 highlight">Abierto:</span> <span class="message_1">${d.Abierto}</span></div>
+  <div><span class="message_1 highlight">Estatus:</span> <span class="message_1">${d.Estatus}</span></div>
+  <div><span class="message_1 highlight">Última Nota:</span> <span class="message_1">${d["Última nota"]?.split(" - ")[0]}</span></div>
+  <div><span class="message_1">${d["Última nota"]?.split("\n")[1]}</span></div><br>
 
-    <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
-      d.Título
-    }</span></div>
-    <div><span class="message_1 highlight">Proyecto:</span> <span class="message_1">${
-      d.Proyecto
-    }</span></div>
-    <div><span class="message_1 highlight">Folio Cliente:</span> <span class="message_1">${
-      d["Folio Cliente"]
-    }</span></div>
-    <div><span class="message_1 highlight">Abierto:</span> <span class="message_1">${
-      d.Abierto
-    }</span></div>
-    <div><span class="message_1 highlight">Estatus:</span> <span class="message_1">${
-      d.Estatus
-    }</span></div>
-    <div><span class="message_1 highlight">Última Nota:</span> <span class="message_1">${
-      d["Última nota"]?.split(" - ")[0]
-    }</span></div>
-    <div><span class="message_1">${
-      d["Última nota"]?.split("\n")[1]
-    }</span></div><br>
-    <div class="message_1"><b>En breve recibirás noticias.<br>Revisa tu correo electrónico y Teams.</b></p>
-
-`,
+  <p class="message_1"><b>En breve recibirás noticias.<br>Revisa tu correo electrónico y Teams.</b></p>
+`
+,
         add: (d) => `
+  <div class="banner highlight">Resultado de Consulta</div>
+  <p class="message">Hola <span class="highlight">${d.Usuario}!</span></p><br>
+  <p class="message">El Seguimiento No. <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.Folio}</span></p>
+  <div class="message_1 highlight">Se ha registrado correctamente</div><br>
 
-<div class="banner highlight">Resultado de Consulta</div>
-    <p class="message">Hola <span class="highlight">${d.Usuario}!</span></p><br>
-    <p class="message">El Seguimiento No.<span class="highlight">${
-      d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.Folio}</span></p>
-    <div class="message_1 highlight">Se ha registrado correctamente</div><br>
+  <div><span class="message_1 highlight">Falla:</span> <span class="message_1">${d.Título}</span></div>
+  <div><span class="message_1 highlight">Proyecto:</span> <span class="message_1">${d.Proyecto}</span></div>
+  <div><span class="message_1 highlight">Folio Cliente:</span> <span class="message_1">${d["Folio Cliente"]}</span></div>
+  <div><span class="message_1 highlight">Abierto:</span> <span class="message_1">${d.Abierto}</span></div>
+  <div><span class="message_1 highlight">Estatus:</span> <span class="message_1">${d.Estatus}</span></div>
+  <div><span class="message_1 highlight">Última Nota:</span> <span class="message_1">${d["Última nota"]?.split(" - ")[0]}</span></div>
+  <div><span class="message_1">${d["Última nota"]?.split("\n")[1]}</span></div><br>
 
-    <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
-      d.Título
-    }</span></div>
-    <div><span class="message_1 highlight">Proyecto:</span> <span class="message_1">${
-      d.Proyecto
-    }</span></div>
-    <div><span class="message_1 highlight">Folio Cliente:</span> <span class="message_1">${
-      d["Folio Cliente"]
-    }</span></div>
-    <div><span class="message_1 highlight">Abierto:</span> <span class="message_1">${
-      d.Abierto
-    }</span></div>
-    <div><span class="message_1 highlight">Estatus:</span> <span class="message_1">${
-      d.Estatus
-    }</span></div>
-    <div><span class="message_1 highlight">Última Nota:</span> <span class="message_1">${
-      d["Última nota"]?.split(" - ")[0]
-    }</span></div>
-    <div><span class="message_1">${
-      d["Última nota"]?.split("\n")[1]
-    }</span></div><br>
-    <div class="message_1"><b>En breve recibirás noticias.<br>Revisa tu correo electrónico y Teams.</b></p>
-
+  <p class="message_1"><b>En breve recibirás noticias.<br>Revisa tu correo electrónico y Teams.</b></p>
 `,
 
         alive: (d) => `
+  <div class="banner highlight">Resultado de Consulta</div>
+  <p class="message">Hola <span class="highlight">${d.Usuario}!</span></p><br>
+  <p class="message">El Seguimiento No. <span class="highlight">${d["Seguimiento No"]}</span> para el folio <span class="highlight">${d.Folio}</span></p><br>
+  <div class="message_1 highlight">Se encuentra activo y está siendo atendido</div><br>
 
-    <div class="banner highlight">Resultado de Consulta</div>
-    <p class="message">Hola <span class="highlight">${d.Usuario}!</span></p><br>
-    <p class="message">El Seguimiento No.<span class="highlight">${
-      d["Seguimiento No"]}</span> para el folio<span class="highlight">${d.Folio}</span></p><br>
-    <div class="message_1 highlight">Se encuentra activo y está siendo atendido</div><br>
-    <div><span class="message_1 highlight">Falla:</span><span class="message_1">${
-      d.Título
-    }</span></div>
-    <div><span class="message_1 highlight">Proyecto:</span> <span class="message_1">${
-      d.Proyecto
-    }</span></div>
-    <div><span class="message_1 highlight">Folio Cliente:</span> <span class="message_1">${
-      d["Folio Cliente"]
-    }</span></div>
-    <div><span class="message_1 highlight">Abierto:</span> <span class="message_1">${
-      d.Abierto
-    }</span></div>
-    <div><span class="message_1 highlight">Estatus:</span> <span class="message_1">${
-      d.Estatus
-    }</span></div>
-    <div><span class="message_1 highlight">Última Nota:</span> <span class="message_1">${
-      d["Última nota"]?.split(" - ")[0]
-    }</span></div>
-    <div><span class="message_1">${
-      d["Última nota"]?.split("\n")[1]
-    }</span></div><br>
-    <div class="message_1"><b>Consulta realizada el: ${
-      d["Consulta realizada el"]
-    }</b></div>
-    <p class="message_1"><i>La vigencia de la Consulta es de 24 horas</i></p>
- 
-`,
+  <div><span class="message_1 highlight">Falla:</span> <span class="message_1">${d.Título}</span></div>
+  <div><span class="message_1 highlight">Proyecto:</span> <span class="message_1">${d.Proyecto}</span></div>
+  <div><span class="message_1 highlight">Folio Cliente:</span> <span class="message_1">${d["Folio Cliente"]}</span></div>
+  <div><span class="message_1 highlight">Abierto:</span> <span class="message_1">${d.Abierto}</span></div>
+  <div><span class="message_1 highlight">Estatus:</span> <span class="message_1">${d.Estatus}</span></div>
+  <div><span class="message_1 highlight">Última Nota:</span> <span class="message_1">${d["Última nota"]?.split(" - ")[0]}</span></div>
+  <div><span class="message_1">${d["Última nota"]?.split("\n")[1]}</span></div><br>
+
+  <div class="message_1"><b>Consulta realizada el: ${d["Consulta realizada el"]}</b></div>
+  <p class="message_1"><i>La vigencia de la Consulta es de 24 horas</i></p>
+`
+,
       };
 
       function renderizarContenido(data) {
